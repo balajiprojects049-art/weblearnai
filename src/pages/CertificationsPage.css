@@ -1,0 +1,33 @@
+/* Certifications Page - Inherits from AWS course styles */
+@import './AWSDataEngineerCourse.css';
+
+/* Certification-specific hero gradient */
+.cert-hero {
+    background: linear-gradient(135deg, #28A745 0%, #20C997 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add animated gradient overlay */
+.cert-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(40, 167, 69, 0.1) 0%, rgba(32, 201, 151, 0.3) 100%);
+    pointer-events: none;
+}
+
+/* Certification-specific icon sizing */
+.certifications-page .tech-icon-wrapper {
+    width: 70px;
+    height: 70px;
+}
+
+.certifications-page .tech-icon-text {
+    font-size: 40px;
+}
+
+/* All other styles are inherited from AWSDataEngineerCourse.css */

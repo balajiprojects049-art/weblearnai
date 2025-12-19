@@ -1,0 +1,253 @@
+/* AWS Course Page - Inherits from Azure Fabric styles */
+@import './AzureFabricCourse.css';
+
+/* Smooth page transitions */
+.aws-course * {
+    transition: all 0.3s ease;
+}
+
+/* AWS-specific hero gradient */
+.aws-hero {
+    background: linear-gradient(135deg, #FF9900 0%, #232F3E 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add animated gradient overlay */
+.aws-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 153, 0, 0.1) 0%, rgba(35, 47, 62, 0.3) 100%);
+    pointer-events: none;
+}
+
+/* AWS-specific icon sizing - smaller icons */
+.aws-course .tech-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aws-course .tech-icon-bg {
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.aws-course .tech-icon-text {
+    font-size: 36px;
+}
+
+/* Enhanced card styling */
+.aws-course .tech-card {
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06),
+        0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.aws-course .tech-card:hover {
+    transform: translateY(-6px);
+    border-color: transparent;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12),
+        0 4px 12px rgba(0, 0, 0, 0.08),
+        0 0 0 3px rgba(var(--tech-color-rgb, 59, 130, 246), 0.1);
+}
+
+.aws-course .tech-card:hover .tech-icon-wrapper {
+    transform: scale(1.1);
+}
+
+.aws-course .tech-card:hover .tech-icon-bg {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Expanded card with premium styling */
+.aws-course .tech-grid .tech-card.expanded,
+.aws-course .tech-card.expanded {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+    z-index: 1001 !important;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: #fff !important;
+    background-color: #fff !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(0, 0, 0, 0.05) !important;
+    animation: cardPopOut 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 2.5rem 2rem !important;
+    border: none !important;
+    border-radius: 16px !important;
+}
+
+/* Ensure text is visible in expanded card */
+.aws-course .tech-card.expanded h4 {
+    color: #1a202c !important;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.aws-course .tech-card.expanded>p {
+    color: #4a5568 !important;
+    font-size: 1rem;
+}
+
+.aws-course .tech-card.expanded .tech-icon-wrapper {
+    margin-bottom: 1.5rem;
+}
+
+/* Backdrop element */
+.card-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes cardPopOut {
+    from {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Close button for expanded card */
+.card-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.25rem;
+    color: var(--gray-600);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+}
+
+.card-close-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: var(--gray-900);
+    transform: scale(1.1);
+}
+
+.aws-course .tech-card.expanded .card-close-btn {
+    display: flex;
+}
+
+.aws-course .tech-card:not(.expanded) .card-close-btn {
+    display: none;
+}
+
+/* Detailed description styling */
+.tech-detailed-description {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.tech-detailed-description p {
+    font-size: 0.875rem;
+    color: var(--gray-700);
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Highlighted/Bold text in descriptions */
+.highlight {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+/* Learn More Button with premium styling */
+.learn-more-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 0.625rem 1.25rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
+}
+
+.learn-more-btn:hover {
+    color: white;
+    transform: translateX(4px) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.35);
+}
+
+/* Section styling enhancements */
+.aws-course .section {
+    position: relative;
+}
+
+.aws-course .badge {
+    transition: all 0.3s ease;
+}
+
+.aws-course .badge:hover {
+    transform: scale(1.05);
+}
+
+/* Smooth scroll behavior */
+.aws-course {
+    scroll-behavior: smooth;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* All other styles are inherited from AzureFabricCourse.css */

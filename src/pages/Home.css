@@ -1,0 +1,552 @@
+/* Full-Screen Hero Section with Background Slideshow */
+.hero-fullscreen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 0;
+}
+
+/* Background Slideshow Container */
+.hero-slideshow-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Individual Background Slides */
+.hero-slide-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+/* Background Images */
+.hero-slide-bg:nth-child(1) {
+    background-image: url('./../assets/hero-bg-1.png');
+}
+
+.hero-slide-bg:nth-child(2) {
+    background-image: url('./../assets/hero-bg-2.png');
+}
+
+.hero-slide-bg:nth-child(3) {
+    background-image: url('./../assets/hero-bg-3.png');
+}
+
+.hero-slide-bg:nth-child(4) {
+    background-image: url('./../assets/hero-bg-4.jpg');
+}
+
+.hero-slide-bg.active {
+    opacity: 1;
+    z-index: 1;
+    animation: kenburns 20s ease-in-out infinite;
+}
+
+/* Ken Burns zoom effect */
+@keyframes kenburns {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Dark Overlay for Text Readability */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.75) 100%);
+    z-index: 2;
+}
+
+/* Content Centered and Positioned Lower */
+.hero-content-center {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    padding-top: 20vh;
+    /* Push content down from top */
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Text Overlay Styling */
+.hero-text-overlay {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* Main Title - Big Letters */
+.hero-main-title {
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: white;
+    margin: 0;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    letter-spacing: -0.02em;
+}
+
+/* Subtitle - Medium Size */
+.hero-subtitle {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 500;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Description - Small Text */
+.hero-description {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    font-weight: 400;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    max-width: 700px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* CTA Buttons */
+.hero-cta-overlay {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+/* Slideshow Navigation Dots */
+.hero-dots {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 4;
+}
+
+.hero-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.hero-dot:hover {
+    background: rgba(255, 255, 255, 0.7);
+    transform: scale(1.2);
+}
+
+.hero-dot.active {
+    background: white;
+    width: 40px;
+    border-radius: 7px;
+}
+
+/* Section Header */
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-header .badge {
+    margin-bottom: 1rem;
+}
+
+.section-header h2 {
+    margin-bottom: 1rem;
+}
+
+/* Feature Cards */
+.feature-card {
+    padding: 2rem;
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    text-align: center;
+    border: 1px solid var(--gray-100);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-blue);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.feature-card h4 {
+    font-size: 1.125rem;
+    color: var(--gray-900);
+    margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+    font-size: 0.9375rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Programs Section */
+.programs-section {
+    color: white;
+}
+
+.program-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-lg);
+    border: 2px solid transparent;
+}
+
+.program-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-blue);
+}
+
+/* Course Image on Top */
+.program-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Colorful gradient backgrounds for each course */
+.program-image-1 {
+    background-image: url('./../assets/course-azure-fabric.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.program-image-2 {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.program-image-3 {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.program-image-4 {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.program-image-5 {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+/* Content below the image */
+.program-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+}
+
+.program-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.program-level {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 0.375rem 0.875rem;
+    border-radius: var(--radius-lg);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.program-duration {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    font-weight: 500;
+}
+
+.program-content h3 {
+    font-size: 1.375rem;
+    color: var(--gray-900);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.program-content p {
+    color: var(--gray-600);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Learning Section */
+.learning-card {
+    text-align: center;
+}
+
+/* Books Section */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.book-card {
+    background: white;
+    padding: 3rem 2rem;
+    border-radius: var(--radius-xl);
+    text-align: center;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-md);
+}
+
+.book-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl);
+}
+
+.book-emoji {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.book-card h4 {
+    color: var(--gray-900);
+    font-size: 1.125rem;
+    margin: 0;
+}
+
+/* Mentors Preview */
+.mentors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.mentor-card {
+    text-align: center;
+    padding: 2.5rem 2rem;
+}
+
+.mentor-avatar {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.mentor-card h4 {
+    font-size: 1.375rem;
+    color: var(--gray-900);
+    margin-bottom: 0.25rem;
+}
+
+.mentor-role {
+    font-size: 1rem;
+    color: var(--primary-blue);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.mentor-exp {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    margin-bottom: 1rem;
+}
+
+.mentor-certs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* Testimonials */
+.testimonials-section {
+    color: white;
+}
+
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: all var(--transition-base);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-rating {
+    font-size: 1.25rem;
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.95);
+    font-style: italic;
+    margin: 0;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.author-avatar {
+    font-size: 3rem;
+}
+
+.author-name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.25rem;
+}
+
+.author-role {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* CTA Section */
+.cta-section {
+    background: var(--gray-50);
+}
+
+.cta-box {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    border: 2px solid var(--gray-100);
+}
+
+.cta-box h2 {
+    color: var(--gray-900);
+    margin-bottom: 1rem;
+}
+
+.cta-box .lead {
+    margin-bottom: 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-fullscreen {
+        height: 100vh;
+    }
+
+    .hero-content-center {
+        padding: 1.5rem;
+        padding-top: 15vh;
+        /* Less top padding on mobile but still pushed down */
+    }
+
+    .hero-main-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.125rem;
+    }
+
+    .hero-description {
+        font-size: 0.9375rem;
+    }
+
+    .hero-cta-overlay {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-cta-overlay .btn {
+        width: 100%;
+    }
+
+    .hero-dots {
+        bottom: 2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+    }
+}

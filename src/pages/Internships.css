@@ -1,0 +1,251 @@
+.internships-page {
+    padding-top: 80px;
+}
+
+.internships-hero {
+    padding: 4rem 0;
+}
+
+.internship-highlights {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-lg);
+    color: white;
+    font-weight: 600;
+}
+
+.highlight-icon {
+    font-size: 1.25rem;
+    color: var(--success);
+}
+
+.internships-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 2rem;
+}
+
+.internship-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--gray-100);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: all var(--transition-base);
+}
+
+.internship-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-blue);
+}
+
+.internship-header h3 {
+    font-size: 1.75rem;
+    color: var(--gray-900);
+    margin-bottom: 1rem;
+}
+
+.internship-meta {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.meta-badge {
+    padding: 0.375rem 1rem;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: var(--radius-lg);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.internship-description {
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.internship-price {
+    font-size: 2rem;
+    font-weight: 800;
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.internship-skills h4,
+.internship-projects h4,
+.internship-outcomes h4 {
+    font-size: 1.125rem;
+    color: var(--gray-900);
+    margin-bottom: 1rem;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    padding: 0.5rem 1rem;
+    background: var(--gray-100);
+    color: var(--gray-700);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.skill-tag:hover {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.internship-projects ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.internship-projects li {
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--gray-700);
+    line-height: 1.6;
+}
+
+.internship-projects li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+
+.outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.outcome-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+    color: var(--gray-700);
+    font-weight: 500;
+}
+
+.outcome-icon {
+    font-size: 1.25rem;
+}
+
+.why-internship-section {
+    background: var(--gray-50);
+}
+
+.why-internship-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.why-internship-text h2 {
+    margin-bottom: 1.5rem;
+}
+
+.why-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.why-list li {
+    padding-left: 2rem;
+    position: relative;
+    color: var(--gray-700);
+    line-height: 1.7;
+}
+
+.why-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.why-list strong {
+    color: var(--gray-900);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.cta-box-internship {
+    background: var(--gradient-secondary);
+    padding: 3rem 2rem;
+    border-radius: var(--radius-xl);
+    text-align: center;
+    color: white;
+    box-shadow: var(--shadow-xl);
+    position: sticky;
+    top: 100px;
+}
+
+.cta-box-internship h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.cta-box-internship p {
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .internships-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-internship-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .cta-box-internship {
+        position: static;
+    }
+
+    .outcomes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .internship-highlights {
+        flex-direction: column;
+        align-items: center;
+    }
+}
