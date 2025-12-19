@@ -266,7 +266,9 @@
 }
 
 .program-image-2 {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background-image: url('./../assets/course-aws-engineer.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .program-image-3 {

@@ -129,6 +129,80 @@
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
+/* Certification-specific icon sizing */
+.certifications-page .tech-icon-wrapper {
+    width: 70px;
+    height: 70px;
+}
+
+.certifications-page .tech-icon-text {
+    font-size: 40px;
+}
+
+/* Simple Tech Cards Grid */
+.simple-tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.simple-tech-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+}
+
+.simple-tech-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.tech-card-header {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: transparent;
+    padding: 1.5rem;
+}
+
+.tech-card-icon {
+    font-size: 2rem;
+    filter: brightness(0) invert(1);
+}
+
+.tech-card-logo {
+    height: 80px;
+    width: auto;
+    max-width: 90%;
+    object-fit: contain;
+}
+
+.tech-card-body {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.tech-card-body h4 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+}
+
+.tech-card-body p {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* All other styles are inherited from AWSDataEngineerCourse.css */
 .tech-svg-icon {
     width: 60%;
     height: 60%;

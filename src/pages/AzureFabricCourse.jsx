@@ -1,211 +1,98 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect } from 'react';
 import './AzureFabricCourse.css';
 
-const AzureFabricCourse = () => {
-    const [expandedCard, setExpandedCard] = useState(null);
+// Import technology logos
+import azureDataFactoryLogo from '../assets/Azure Data factory.png';
+import azureDatabricksLogo from '../assets/databricks.png';
+import microsoftFabricLogo from '../assets/Fabric.png';
+import unityCatalogLogo from '../assets/unity catlog.png';
+import deltaLakeLogo from '../assets/Delta lake.png';
+import powerBiLogo from '../assets/power bi.png';
+import powerAppsLogo from '../assets/power apps.png';
+import githubLogo from '../assets/git hub.png';
+import apacheAirflowLogo from '../assets/Airflow.png';
+import sqlLogo from '../assets/SQL.png';
+import pythonLogo from '../assets/Python.png';
+import genAiLogo from '../assets/Gen ai.png';
 
+const AzureFabricCourse = () => {
+    // Scroll to top when component mounts
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const technologies = [
         {
-            name: 'Python Basics',
-            icon: '🐍',
-            description: 'Essential Python programming for data engineering',
-            detailedDescription: (
-                <>
-                    Master <strong className="highlight">Python fundamentals</strong> including variables, data types, operators, and <strong className="highlight">advanced concepts</strong> for data engineering.
-                </>
-            ),
-            slug: 'python-basics',
-            color: '#3776AB',
-            topics: [
-                'Variables and Data types',
-                'Operators and Collections',
-                'Functions',
-                'Packages and Modules'
-            ]
-        },
-        {
-            name: 'SQL Basics',
-            icon: '📊',
-            description: 'Database querying and management',
-            detailedDescription: (
-                <>
-                    Learn <strong className="highlight">SQL fundamentals</strong> for data manipulation, querying, and <strong className="highlight">database management</strong>.
-                </>
-            ),
-            slug: 'sql-basics',
-            color: '#00758F',
-            topics: [
-                'DQL Commands (SELECT)',
-                'DDL Commands (CREATE, ALTER, DROP, TRUNCATE)',
-                'DML Commands (INSERT, UPDATE, DELETE, MERGE)',
-                'Joins and Window Functions',
-                'Aggregate Functions'
-            ]
-        },
-        {
-            name: 'Azure Storage',
-            icon: '💾',
-            description: 'Cloud storage solutions and data lakes',
-            detailedDescription: (
-                <>
-                    Understand <strong className="highlight">Azure storage accounts</strong>, blob storage, and <strong className="highlight">Data Lake Gen2</strong> for scalable data storage.
-                </>
-            ),
-            slug: 'azure-storage',
-            color: '#0078D4',
-            topics: [
-                'Types of Storage Accounts',
-                'Blob Storage and Access Tiers',
-                'Data Replication Policies',
-                'Azure Data Lake Storage Gen2',
-                'Azure Key Vault (Keys, Secrets, Certificates)'
-            ]
-        },
-        {
             name: 'Azure Data Factory',
-            icon: '🏭',
-            description: 'Build and orchestrate scalable data pipelines',
-            color: '#00BCF2',
-            topics: [
-                'ADF Architecture and Portal UI',
-                'Pipelines and Activities',
-                'Linked Services and Datasets',
-                'Copy Data Activities',
-                'Databricks Notebook Integration',
-                'Triggers (Schedule, Tumbling Window, Storage Events)',
-                'Integration Runtime (IR)',
-                'Source Control and Git Configuration',
-                'Monitoring and Alerts',
-                'Data Flows and Transformations'
-            ]
+            logo: azureDataFactoryLogo,
+            description: 'Cloud-based ETL and data integration service',
+            color: '#0078D4'
         },
         {
             name: 'Azure Databricks',
-            icon: '⚡',
-            description: 'Big data processing with Apache Spark',
-            color: '#FF3621',
-            topics: [
-                'Databricks Workspace and Clusters',
-                'Apache Spark Basics',
-                'Notebooks and Use Cases',
-                'Data Ingestion from ADLS and Blob',
-                'Autoloader for Real-time Ingestion',
-                'PySpark and Scala Transformations',
-                'Narrow vs Wide Transformations',
-                'Delta Lake Features',
-                'Unity Catalog for Governance',
-                'CI/CD Integration with GitHub'
-            ]
+            logo: azureDatabricksLogo,
+            description: 'Apache Spark-based analytics platform',
+            color: '#FF3621'
         },
         {
             name: 'Microsoft Fabric',
-            icon: '🔷',
-            description: 'End-to-end analytics platform',
-            color: '#7FBA00',
-            topics: [
-                'Microsoft Fabric Overview',
-                'OneLake - Unified Data Lake',
-                'Workloads: Data Factory, Engineering, Science, Warehouse',
-                'Data Ingestion with Shortcuts',
-                'Lakehouses and Medallion Architecture',
-                'Delta Tables and Partitioning',
-                'Power BI DirectLake Mode',
-                'Real-Time Analytics with KQL',
-                'Copilot AI Integration'
-            ]
-        },
-        {
-            name: 'Delta Lake',
-            icon: '🗄️',
-            description: 'ACID-compliant data lake storage',
-            color: '#00ADD8',
-            topics: [
-                'ACID Transactions',
-                'Schema Evolution',
-                'Time Travel and Versioning',
-                'Performance Optimization',
-                'Data Governance'
-            ]
+            logo: microsoftFabricLogo,
+            description: 'Unified analytics platform',
+            color: '#7C3283'
         },
         {
             name: 'Unity Catalog',
-            icon: '🔐',
-            description: 'Centralized data governance',
-            color: '#FF6C37',
-            topics: [
-                'Fine-grained Access Control',
-                'Metadata Management',
-                'Data Lineage',
-                'Cross-workspace Governance'
-            ]
+            logo: unityCatalogLogo,
+            description: 'Unified governance for data and AI',
+            color: '#00A87E'
+        },
+        {
+            name: 'Delta Lake',
+            logo: deltaLakeLogo,
+            description: 'Open-source storage framework',
+            color: '#00ADD8'
         },
         {
             name: 'Power BI',
-            icon: '📈',
-            description: 'Business intelligence and visualization',
-            color: '#F2C811',
-            topics: [
-                'Data Connections and Transformations',
-                'Interactive Dashboards',
-                'DirectLake Mode in Fabric',
-                'Report Publishing',
-                'Actionable Insights'
-            ]
+            logo: powerBiLogo,
+            description: 'Business analytics and visualization',
+            color: '#F2C811'
         },
         {
             name: 'Power Apps',
-            icon: '📱',
+            logo: powerAppsLogo,
             description: 'Low-code app development',
-            color: '#742774',
-            topics: [
-                'Custom Business Apps',
-                'Workflow Automation',
-                'Data Source Connections',
-                'App Publishing'
-            ]
+            color: '#742774'
         },
         {
             name: 'GitHub',
-            icon: '🔀',
+            logo: githubLogo,
             description: 'Version control and collaboration',
-            color: '#181717',
-            topics: [
-                'Git vs GitHub',
-                'Repositories and Branches',
-                'Pull Requests and Merge Conflicts',
-                'GitHub Actions for CI/CD',
-                'Branch Protection and Security',
-                'Integration with ADF/Databricks'
-            ]
+            color: '#24292E'
         },
         {
             name: 'Apache Airflow',
-            icon: '🌬️',
+            logo: apacheAirflowLogo,
             description: 'Workflow orchestration platform',
-            color: '#017CEE',
-            topics: [
-                'DAGs (Directed Acyclic Graphs)',
-                'Tasks, Operators, and Sensors',
-                'Airflow Setup and Configuration',
-                'Executors (Sequential, Celery, Kubernetes)',
-                'XComs and Task Dependencies',
-                'Integration with Azure/Databricks',
-                'ETL Pipeline Orchestration'
-            ]
+            color: '#017CEE'
         },
         {
-            name: 'Cybersecurity',
-            icon: '🛡️',
-            description: 'Data protection and compliance',
-            color: '#DD344C',
-            topics: [
-                'Data Encryption',
-                'Access Management',
-                'Compliance Best Practices',
-                'Secure Pipelines',
-                'Cloud Resource Security'
-            ]
+            name: 'SQL',
+            logo: sqlLogo,
+            description: 'Structured query language',
+            color: '#336791'
+        },
+        {
+            name: 'Python',
+            logo: pythonLogo,
+            description: 'General-purpose programming',
+            color: '#3776AB'
+        },
+        {
+            name: 'Gen AI',
+            logo: genAiLogo,
+            description: 'Generative AI programming',
+            color: '#E91E63'
         }
     ];
 
@@ -239,7 +126,7 @@ const AzureFabricCourse = () => {
                 </div>
             </section>
 
-            {/* Tech Stack Section */}
+            {/* Technologies Grid */}
             <section className="section">
                 <div className="container">
                     <div className="section-header text-center">
@@ -250,55 +137,16 @@ const AzureFabricCourse = () => {
                         </p>
                     </div>
 
-                    {/* Backdrop */}
-                    {expandedCard !== null && (
-                        <div
-                            className="card-backdrop"
-                            onClick={() => setExpandedCard(null)}
-                        ></div>
-                    )}
-
-                    <div className="tech-grid">
+                    <div className="simple-tech-grid">
                         {technologies.map((tech, index) => (
-                            <div
-                                key={index}
-                                className={`tech-card ${expandedCard === index ? 'expanded' : ''}`}
-                                style={{ '--tech-color': tech.color }}
-                                onClick={() => setExpandedCard(expandedCard === index ? null : index)}
-                            >
-                                <button
-                                    className="card-close-btn"
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        setExpandedCard(null);
-                                    }}
-                                >
-                                    ✕
-                                </button>
-                                <div className="tech-icon-wrapper">
-                                    <div className="tech-icon-bg" style={{ backgroundColor: tech.color }}>
-                                        <svg className="tech-svg-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                            <text
-                                                x="50"
-                                                y="50"
-                                                textAnchor="middle"
-                                                dominantBaseline="central"
-                                                className="tech-icon-text"
-                                            >
-                                                {tech.icon}
-                                            </text>
-                                        </svg>
-                                    </div>
+                            <div key={index} className="simple-tech-card">
+                                <div className="tech-card-header">
+                                    <img src={tech.logo} alt={tech.name} className="tech-card-logo" />
                                 </div>
-                                <h4>{tech.name}</h4>
-                                <p>{tech.description}</p>
-                                {expandedCard === index && (
-                                    <ul className="tech-topics">
-                                        {tech.topics.map((topic, idx) => (
-                                            <li key={idx}>✓ {topic}</li>
-                                        ))}
-                                    </ul>
-                                )}
+                                <div className="tech-card-body">
+                                    <h4>{tech.name}</h4>
+                                    <p>{tech.description}</p>
+                                </div>
                             </div>
                         ))}
                     </div>

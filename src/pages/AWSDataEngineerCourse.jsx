@@ -1,177 +1,111 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect } from 'react';
 import './AWSDataEngineerCourse.css';
 
-const AWSDataEngineerCourse = () => {
-    const [expandedCard, setExpandedCard] = useState(null);
+// Import AWS technology logos
+import s3Logo from '../assets/S3 Bucket.png';
+import emrLogo from '../assets/EMR.png';
+import lambdaLogo from '../assets/Lambda.png';
+import sqsLogo from '../assets/SQS.png';
+import snsLogo from '../assets/SNS.png';
+import cloudWatchLogo from '../assets/Cloud Watch.png';
+import glueLogo from '../assets/AWS Glue.png';
+import kinesisLogo from '../assets/Kinesis.png';
+import firehoseLogo from '../assets/Firehouse.png';
+import athenaLogo from '../assets/Athena.png';
+import iamLogo from '../assets/IAM.png';
+import redshiftLogo from '../assets/RedSHift.png';
+import stepFunctionsLogo from '../assets/Step Function.png';
+import airflowLogo from '../assets/Airflow.png';
 
+const AWSDataEngineerCourse = () => {
+    // Scroll to top when component mounts
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const awsTechnologies = [
         {
             name: 'Amazon S3',
-            icon: '🪣',
+            logo: s3Logo,
             description: 'Central data lake for storing raw, curated, and analytics-ready datasets',
-            detailedDescription: (
-                <>
-                    S3 is the <strong className="highlight">central data lake</strong> used to store <strong className="highlight">raw, curated, and analytics-ready datasets</strong>.
-                </>
-            ),
-            slug: 's3',
             color: '#FF9900'
         },
         {
             name: 'EMR',
-            icon: '⚡',
+            logo: emrLogo,
             description: 'Run large-scale Spark jobs for heavy data transformations',
-            detailedDescription: (
-                <>
-                    EMR is used to run <strong className="highlight">large-scale Spark jobs</strong> for <strong className="highlight">heavy data transformations</strong>.
-                </>
-            ),
-            slug: 'emr',
             color: '#E7157B'
         },
         {
             name: 'Lambda',
-            icon: 'λ',
+            logo: lambdaLogo,
             description: 'Event-driven serverless data processing and orchestration logic',
-            detailedDescription: (
-                <>
-                    Lambda handles <strong className="highlight">lightweight, event-driven data processing</strong> and <strong className="highlight">orchestration logic</strong>.
-                </>
-            ),
-            slug: 'lambda',
             color: '#FF9900'
         },
         {
             name: 'SQS',
-            icon: '📨',
+            logo: sqsLogo,
             description: 'Message queue to decouple producers and consumers in pipelines',
-            detailedDescription: (
-                <>
-                    SQS buffers data events to <strong className="highlight">decouple producers and consumers</strong> in pipelines.
-                </>
-            ),
-            slug: 'sqs',
             color: '#FF4F8B'
         },
         {
             name: 'SNS',
-            icon: '📢',
+            logo: snsLogo,
             description: 'Distribute pipeline events and alerts to downstream systems',
-            detailedDescription: (
-                <>
-                    SNS distributes <strong className="highlight">pipeline events and alerts</strong> to multiple <strong className="highlight">downstream systems</strong>.
-                </>
-            ),
-            slug: 'sns',
             color: '#D9208C'
         },
         {
             name: 'CloudWatch',
-            icon: '📊',
+            logo: cloudWatchLogo,
             description: 'Monitor pipelines, job health, and operational metrics',
-            detailedDescription: (
-                <>
-                    CloudWatch monitors <strong className="highlight">data pipelines, job health</strong>, and <strong className="highlight">operational metrics</strong>.
-                </>
-            ),
-            slug: 'cloudwatch',
             color: '#E7157B'
         },
         {
             name: 'AWS Glue',
-            icon: '🔗',
+            logo: glueLogo,
             description: 'Serverless Spark-based ETL service with data catalog',
-            detailedDescription: (
-                <>
-                    Glue is a <strong className="highlight">serverless Spark-based ETL service</strong> with a <strong className="highlight">centralized data catalog</strong>.
-                </>
-            ),
-            slug: 'glue',
             color: '#945BB3'
         },
         {
             name: 'Kinesis',
-            icon: '🌊',
+            logo: kinesisLogo,
             description: 'Ingest high-velocity real-time data for streaming pipelines',
-            detailedDescription: (
-                <>
-                    Kinesis Streams ingests <strong className="highlight">high-velocity real-time data</strong> for <strong className="highlight">streaming pipelines</strong>.
-                </>
-            ),
-            slug: 'kinesis',
             color: '#FF9900'
         },
         {
             name: 'Firehose',
-            icon: '🚀',
+            logo: firehoseLogo,
             description: 'Deliver streaming data directly into S3 or Redshift',
-            detailedDescription: (
-                <>
-                    Firehose delivers <strong className="highlight">streaming data directly</strong> into <strong className="highlight">S3 or Redshift</strong> with minimal setup.
-                </>
-            ),
-            slug: 'firehose',
             color: '#FF4F8B'
         },
         {
             name: 'Athena',
-            icon: '🔍',
+            logo: athenaLogo,
             description: 'SQL analytics directly on S3-based data lakes',
-            detailedDescription: (
-                <>
-                    Athena enables <strong className="highlight">SQL analytics directly</strong> on <strong className="highlight">S3-based data lakes</strong>.
-                </>
-            ),
-            slug: 'athena',
             color: '#945BB3'
         },
         {
             name: 'IAM',
-            icon: '🔐',
+            logo: iamLogo,
             description: 'Secure pipelines using role-based access control',
-            detailedDescription: (
-                <>
-                    IAM secures data pipelines using <strong className="highlight">role-based access control</strong>.
-                </>
-            ),
-            slug: 'iam',
             color: '#DD344C'
         },
         {
             name: 'Redshift',
-            icon: '🗄️',
+            logo: redshiftLogo,
             description: 'Analytical data warehouse for high-performance queries',
-            detailedDescription: (
-                <>
-                    Redshift is the <strong className="highlight">analytical data warehouse</strong> for <strong className="highlight">high-performance queries</strong>.
-                </>
-            ),
-            slug: 'redshift',
             color: '#E7157B'
         },
         {
             name: 'Step Functions',
-            icon: '🔄',
+            logo: stepFunctionsLogo,
             description: 'Orchestrate AWS data workflows with state management',
-            detailedDescription: (
-                <>
-                    Step Functions orchestrate <strong className="highlight">AWS data workflows</strong> with <strong className="highlight">state management</strong>.
-                </>
-            ),
-            slug: 'step-functions',
             color: '#FF4F8B'
         },
         {
             name: 'Apache Airflow',
-            icon: '🌬️',
+            logo: airflowLogo,
             description: 'Orchestrate complex multi-system data pipelines using DAGs',
-            detailedDescription: (
-                <>
-                    Airflow orchestrates <strong className="highlight">complex, multi-system data pipelines</strong> using <strong className="highlight">DAGs</strong>.
-                </>
-            ),
-            slug: 'airflow',
             color: '#017CEE'
         }
     ];
@@ -216,56 +150,16 @@ const AWSDataEngineerCourse = () => {
                         </p>
                     </div>
 
-                    {/* Backdrop */}
-                    {expandedCard !== null && (
-                        <div
-                            className="card-backdrop"
-                            onClick={() => setExpandedCard(null)}
-                        ></div>
-                    )}
-
-                    <div className="tech-grid">
+                    <div className="simple-tech-grid">
                         {awsTechnologies.map((tech, index) => (
-                            <div
-                                key={index}
-                                className={`tech-card ${expandedCard === index ? 'expanded' : ''}`}
-                                style={{ '--tech-color': tech.color }}
-                                onClick={() => setExpandedCard(expandedCard === index ? null : index)}
-                            >
-                                <button
-                                    className="card-close-btn"
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        setExpandedCard(null);
-                                    }}
-                                >
-                                    ✕
-                                </button>
-                                <div className="tech-icon-wrapper">
-                                    <div className="tech-icon-bg" style={{ backgroundColor: tech.color }}>
-                                        <svg className="tech-svg-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                            <text
-                                                x="50"
-                                                y="50"
-                                                textAnchor="middle"
-                                                dominantBaseline="central"
-                                                className="tech-icon-text"
-                                            >
-                                                {tech.icon}
-                                            </text>
-                                        </svg>
-                                    </div>
+                            <div key={index} className="simple-tech-card">
+                                <div className="tech-card-header">
+                                    <img src={tech.logo} alt={tech.name} className="tech-card-logo" />
                                 </div>
-                                <h4>{tech.name}</h4>
-                                <p>{tech.description}</p>
-                                {tech.detailedDescription && expandedCard === index && (
-                                    <div className="tech-detailed-description">
-                                        <p>{tech.detailedDescription}</p>
-                                        <Link to={`/tech/${tech.slug}`} className="learn-more-btn">
-                                            Learn More →
-                                        </Link>
-                                    </div>
-                                )}
+                                <div className="tech-card-body">
+                                    <h4>{tech.name}</h4>
+                                    <p>{tech.description}</p>
+                                </div>
                             </div>
                         ))}
                     </div>
