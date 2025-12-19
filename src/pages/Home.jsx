@@ -206,6 +206,28 @@ const Home = () => {
                             Comprehensive, hands-on courses designed by industry experts
                         </p>
                     </div>
+
+                    {/* Simple text description before cards */}
+                    <div style={{ color: 'white', maxWidth: '900px', margin: '0 auto 3rem', lineHeight: '1.8', fontSize: '1.05rem' }}>
+                        <p style={{ marginBottom: '1rem', color: 'white' }}>
+                            We provide specialized training on modern data engineering, Power BI, and cloud technologies, including:
+                        </p>
+                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Azure Data Factory (ADF):</strong> Build, orchestrate, and automate scalable data pipelines with real-time and batch processing.</p>
+                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Azure Databricks (ADB):</strong> Hands-on expertise in PySpark, advanced transformations, and machine learning on a collaborative big data platform.</p>
+                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Microsoft Fabric:</strong> End-to-end data analytics platform unifying data movement, data engineering, real-time analytics, data science, and Power BI for actionable insights.</p>
+                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Unity Catalog:</strong> Implement centralized governance, fine-grained access control, and metadata management across data workspaces.</p>
+                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Delta Lake:</strong> Build reliable, performant, and ACID-compliant data lakes with schema evolution and time travel support.</p>
+                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Power BI:</strong> End-to-end business intelligence and data visualization tool that connects to multiple data sources, transforms data, and provides interactive dashboards and reports for actionable insights.</p>
+                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Power Apps:</strong> Low-code application development platform that enables users to quickly build custom business apps, automate workflows, and connect to various data sources with ease.</p>
+                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>GitHub:</strong> Learn modern version control, branching strategies, pull requests, and CI/CD integration for collaborative development.</p>
+                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Apache Airflow:</strong> Orchestrate and monitor complex workflows with DAGs, scheduling, and end-to-end pipeline automation.</p>
+                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>SQL:</strong> Write optimized queries, design schemas, implement joins, aggregations, and stored procedures for efficient data management.</p>
+                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Python:</strong> Develop robust data processing scripts, automation solutions, and machine learning models using libraries such as Pandas, NumPy, and Scikit-learn.</p>
+                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Python with Generative AI:</strong> Build intelligent solutions leveraging LLMs and frameworks such as LangChain, OpenAI, and Hugging Face for tasks like text summarization, chatbots, embeddings, and AI-powered automation.</p>
+                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Cybersecurity:</strong> Apply best practices in data protection, encryption, access management, and compliance to secure pipelines and cloud resources.</p>
+                    </div>
+
+                    {/* Course Cards - After Training Items */}
                     <div className="grid grid-3">
                         {popularPrograms.map((program, index) => (
                             <div key={index} className="program-card">
@@ -220,13 +242,6 @@ const Home = () => {
                                     </div>
                                     <h3>{program.title}</h3>
                                     <p>{program.description}</p>
-                                    <div className="skill-tags">
-                                        {program.skills.map((skill, idx) => (
-                                            <span key={idx} className="tag">
-                                                {skill}
-                                            </span>
-                                        ))}
-                                    </div>
                                     <Link to={program.link} className="btn btn-secondary" style={{ marginTop: 'auto' }}>
                                         View Program →
                                     </Link>

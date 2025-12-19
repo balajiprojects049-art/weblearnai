@@ -269,7 +269,7 @@ p {
 }
 
 .grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
 .grid-4 {
@@ -417,6 +417,69 @@ p {
 .gradient-bg-dark {
   background: var(--gradient-dark);
   color: white;
+}
+
+/* ================================================
+   Training Programs Section
+   ================================================ */
+
+.training-programs-section {
+  background: var(--gray-50);
+}
+
+.training-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.training-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+}
+
+.training-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  border-color: var(--primary-blue);
+}
+
+.training-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.training-item:hover .training-icon {
+  transform: scale(1.1);
+}
+
+.training-item h4 {
+  font-size: 1.125rem;
+  color: var(--gray-900);
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.training-item p {
+  font-size: 0.9375rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* ================================================
