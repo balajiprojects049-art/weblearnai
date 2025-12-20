@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './AWSDataEngineerCourse.css';
 
 // Import AWS technology logos
@@ -23,89 +23,193 @@ const AWSDataEngineerCourse = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    const [expandedCard, setExpandedCard] = useState(null);
+
     const awsTechnologies = [
         {
             name: 'Amazon S3',
             logo: s3Logo,
             description: 'Central data lake for storing raw, curated, and analytics-ready datasets',
+            detailedDescription: (
+                <>
+                    S3 is the <strong className="highlight">central data lake</strong> used to store <strong className="highlight">raw, curated, and analytics-ready datasets</strong>.
+                    <br /><br />
+
+                </>
+            ),
+            slug: 's3',
             color: '#FF9900'
         },
         {
             name: 'EMR',
             logo: emrLogo,
             description: 'Run large-scale Spark jobs for heavy data transformations',
+            detailedDescription: (
+                <>
+                    EMR is used to run <strong className="highlight">large-scale Spark jobs</strong> for <strong className="highlight">heavy data transformations</strong>.
+                    <br /><br />
+
+                </>
+            ),
+            slug: 'emr',
             color: '#E7157B'
         },
         {
             name: 'Lambda',
             logo: lambdaLogo,
             description: 'Event-driven serverless data processing and orchestration logic',
+            detailedDescription: (
+                <>
+                    Lambda handles <strong className="highlight">lightweight, event-driven data processing</strong> and <strong className="highlight">orchestration logic</strong>.
+                    <br /><br />
+
+                </>
+            ),
+            slug: 'lambda',
             color: '#FF9900'
         },
         {
             name: 'SQS',
             logo: sqsLogo,
             description: 'Message queue to decouple producers and consumers in pipelines',
+            detailedDescription: (
+                <>
+                    SQS buffers data events to <strong className="highlight">decouple producers and consumers</strong> in pipelines.
+                    <br /><br />
+                </>
+            ),
+            slug: 'sqs',
             color: '#FF4F8B'
         },
         {
             name: 'SNS',
             logo: snsLogo,
             description: 'Distribute pipeline events and alerts to downstream systems',
+            detailedDescription: (
+                <>
+                    SNS distributes <strong className="highlight">pipeline events and alerts</strong> to multiple <strong className="highlight">downstream systems</strong>.
+                    <br /><br />
+                </>
+            ),
+            slug: 'sns',
             color: '#D9208C'
         },
         {
             name: 'CloudWatch',
             logo: cloudWatchLogo,
             description: 'Monitor pipelines, job health, and operational metrics',
+            detailedDescription: (
+                <>
+                    CloudWatch monitors <strong className="highlight">data pipelines, job health</strong>, and <strong className="highlight">operational metrics</strong>.
+                    <br /><br />
+                </>
+            ),
+            slug: 'cloudwatch',
             color: '#E7157B'
         },
         {
             name: 'AWS Glue',
             logo: glueLogo,
             description: 'Serverless Spark-based ETL service with data catalog',
+            detailedDescription: (
+                <>
+                    Glue is a <strong className="highlight">serverless Spark-based ETL service</strong> with a <strong className="highlight">centralized data catalog</strong>.
+                    <br /><br />
+                </>
+            ),
+            slug: 'glue',
             color: '#945BB3'
         },
         {
             name: 'Kinesis',
             logo: kinesisLogo,
             description: 'Ingest high-velocity real-time data for streaming pipelines',
+            detailedDescription: (
+                <>
+                    Kinesis Streams ingests <strong className="highlight">high-velocity real-time data</strong> for <strong className="highlight">streaming pipelines</strong>.
+                    <br /><br />
+                </>
+            ),
+            slug: 'kinesis',
             color: '#FF9900'
         },
         {
             name: 'Firehose',
             logo: firehoseLogo,
             description: 'Deliver streaming data directly into S3 or Redshift',
+            detailedDescription: (
+                <>
+                    Firehose delivers <strong className="highlight">streaming data directly</strong> into <strong className="highlight">S3 or Redshift</strong> with minimal setup.
+                    <br /><br />
+                </>
+            ),
+            slug: 'firehose',
             color: '#FF4F8B'
         },
         {
             name: 'Athena',
             logo: athenaLogo,
             description: 'SQL analytics directly on S3-based data lakes',
+            detailedDescription: (
+                <>
+                    Athena enables <strong className="highlight">SQL analytics directly</strong> on <strong className="highlight">S3-based data lakes</strong>.
+                    <br /><br />
+                </>
+            ),
+            slug: 'athena',
             color: '#945BB3'
         },
         {
             name: 'IAM',
             logo: iamLogo,
             description: 'Secure pipelines using role-based access control',
+            detailedDescription: (
+                <>
+                    IAM secures data pipelines using <strong className="highlight">role-based access control</strong>.
+                    <br /><br />
+                </>
+            ),
+            slug: 'iam',
             color: '#DD344C'
         },
         {
             name: 'Redshift',
             logo: redshiftLogo,
             description: 'Analytical data warehouse for high-performance queries',
+            detailedDescription: (
+                <>
+                    Redshift is the <strong className="highlight">analytical data warehouse</strong> for <strong className="highlight">high-performance queries</strong>.
+                    <br /><br />
+                </>
+            ),
+            slug: 'redshift',
             color: '#E7157B'
         },
         {
             name: 'Step Functions',
             logo: stepFunctionsLogo,
             description: 'Orchestrate AWS data workflows with state management',
+            detailedDescription: (
+                <>
+                    Step Functions orchestrate <strong className="highlight">AWS data workflows</strong> with <strong className="highlight">state management</strong>.
+                    <br /><br />
+                </>
+            ),
+            slug: 'step-functions',
             color: '#FF4F8B'
         },
         {
             name: 'Apache Airflow',
             logo: airflowLogo,
             description: 'Orchestrate complex multi-system data pipelines using DAGs',
+            detailedDescription: (
+                <>
+                    Airflow orchestrates <strong className="highlight">complex, multi-system data pipelines</strong> using <strong className="highlight">DAGs</strong>.
+                    <br /><br />
+                </>
+            ),
+            slug: 'airflow',
             color: '#017CEE'
         }
     ];
@@ -150,9 +254,34 @@ const AWSDataEngineerCourse = () => {
                         </p>
                     </div>
 
+                    {/* Backdrop */}
+                    {expandedCard !== null && (
+                        <div
+                            className="tech-card-backdrop"
+                            onClick={() => setExpandedCard(null)}
+                        ></div>
+                    )}
+
                     <div className="simple-tech-grid">
                         {awsTechnologies.map((tech, index) => (
-                            <div key={index} className="simple-tech-card">
+                            <div
+                                key={index}
+                                className={`simple-tech-card ${expandedCard === index ? 'card-expanded' : ''}`}
+                                onClick={() => setExpandedCard(expandedCard === index ? null : index)}
+                            >
+                                {/* Close Button for Expanded Card */}
+                                {expandedCard === index && (
+                                    <button
+                                        className="card-close-button"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            setExpandedCard(null);
+                                        }}
+                                    >
+                                        ✕
+                                    </button>
+                                )}
+
                                 <div className="tech-card-header">
                                     <img src={tech.logo} alt={tech.name} className="tech-card-logo" />
                                 </div>
@@ -160,6 +289,21 @@ const AWSDataEngineerCourse = () => {
                                     <h4>{tech.name}</h4>
                                     <p>{tech.description}</p>
                                 </div>
+
+                                {/* Detailed Description - Only shown when expanded */}
+                                {expandedCard === index && tech.detailedDescription && (
+                                    <div className="tech-card-details">
+                                        <div className="details-divider"></div>
+                                        <div className="details-content">
+                                            {tech.detailedDescription}
+                                        </div>
+                                        {tech.slug && (
+                                            <Link to={`/technology/${tech.slug}`} className="learn-more-btn">
+                                                Learn More →
+                                            </Link>
+                                        )}
+                                    </div>
+                                )}
                             </div>
                         ))}
                     </div>

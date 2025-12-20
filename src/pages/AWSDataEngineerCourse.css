@@ -8,12 +8,15 @@
 
 /* AWS-specific hero gradient */
 .aws-hero {
-    background: linear-gradient(135deg, #FF9900 0%, #232F3E 100%);
+    background-image: url('../assets/aws-hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
 }
 
-/* Add animated gradient overlay */
+/* Add dark overlay for better text visibility */
 .aws-hero::after {
     content: '';
     position: absolute;
@@ -21,7 +24,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(255, 153, 0, 0.1) 0%, rgba(35, 47, 62, 0.3) 100%);
+    background: linear-gradient(135deg, rgba(255, 153, 0, 0.3) 0%, rgba(35, 47, 62, 0.4) 100%);
     pointer-events: none;
 }
 
@@ -251,3 +254,190 @@
 }
 
 /* All other styles are inherited from AzureFabricCourse.css */
+
+/* Backdrop for Expanded Card */
+.tech-card-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 998;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Tech Card Base Styles */
+.simple-tech-card {
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.simple-tech-card:hover:not(.card-expanded) {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Expanded Card - Zooms Up and Centers */
+.simple-tech-card.card-expanded {
+    position: fixed !important;
+    top: 55% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+    z-index: 999 !important;
+    max-width: 350px;
+    width: 80%;
+    max-height: 60vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3) !important;
+    animation: zoomIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes zoomIn {
+    from {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Close Button for Expanded Card */
+.card-close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.1);
+    color: #4b5563;
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.card-close-button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    color: #1f2937;
+    transform: scale(1.1);
+}
+
+/* Detailed Content in Expanded Card */
+.tech-card-details {
+    padding: 0 1.5rem 0.5rem;
+    animation: slideDown 0.3s ease-out 0.2s both;
+    text-align: center;
+}
+
+.details-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+    margin: 0.75rem 0;
+}
+
+.details-content {
+    font-size: 0.9375rem;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+/* Highlighted Text in Descriptions */
+.highlight {
+    color: #1f2937;
+    font-weight: 700;
+}
+
+/* Slide Down Animation for Details */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ensure expanded card text is readable */
+.simple-tech-card.card-expanded .tech-card-body h4 {
+    color: #1f2937;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.simple-tech-card.card-expanded .tech-card-body p {
+    color: #4b5563;
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+/* Smooth scrolling for expanded card content */
+.simple-tech-card.card-expanded {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.simple-tech-card.card-expanded::-webkit-scrollbar {
+    width: 6px;
+}
+
+.simple-tech-card.card-expanded::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.simple-tech-card.card-expanded::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.simple-tech-card.card-expanded::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Learn More Button */
+.learn-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    text-decoration: none;
+}
+
+.learn-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #5568d3 0%, #6a3f94 100%);
+}

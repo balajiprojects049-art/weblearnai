@@ -7,6 +7,7 @@ import Internships from './pages/Internships';
 import Contact from './pages/Contact';
 import AzureFabricCourse from './pages/AzureFabricCourse';
 import AWSDataEngineerCourse from './pages/AWSDataEngineerCourse';
+import TechnologyDetail from './pages/TechnologyDetail';
 import TechDetailPage from './pages/TechDetailPage';
 import { Certifications, Mentors, Roadmap, About, Placements, FAQs } from './pages';
 import './index.css';
@@ -22,6 +23,7 @@ function App() {
             <Route path="/courses" element={<Courses />} />
             <Route path="/courses/azure-fabric" element={<AzureFabricCourse />} />
             <Route path="/courses/aws-data-engineer" element={<AWSDataEngineerCourse />} />
+            <Route path="/technology/:slug" element={<TechnologyDetail />} />
             <Route path="/tech/:techName" element={<TechDetailPage />} />
             <Route path="/internships" element={<Internships />} />
             <Route path="/certifications" element={<Certifications />} />

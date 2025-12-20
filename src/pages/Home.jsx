@@ -3,8 +3,9 @@ import { useEffect } from 'react';
 import './Home.css';
 
 const Home = () => {
-    // Auto-rotate background slideshow
+    // Auto-rotate background slideshow & Scroll to Top
     useEffect(() => {
+        window.scrollTo(0, 0);
         let currentSlide = 0;
         const slides = document.querySelectorAll('.hero-slide-bg');
         const dots = document.querySelectorAll('.hero-dot');
@@ -295,56 +296,6 @@ const Home = () => {
                     <div className="text-center" style={{ marginTop: '3rem' }}>
                         <Link to="/courses" className="btn btn-secondary btn-large">
                             Explore All Books
-                        </Link>
-                    </div>
-                </div>
-            </section>
-
-            {/* Mentors Preview */}
-            <section className="section mentors-preview">
-                <div className="container">
-                    <div className="section-header text-center">
-                        <div className="badge">Our Expert Mentors</div>
-                        <h2>Learn from Industry Veterans</h2>
-                        <p className="lead">
-                            Our instructors bring decades of combined experience from top tech companies
-                        </p>
-                    </div>
-                    <div className="mentors-grid">
-                        <div className="mentor-card card">
-                            <div className="mentor-avatar">👨‍💼</div>
-                            <h4>Vikram Singh</h4>
-                            <p className="mentor-role">Senior Data Engineer</p>
-                            <p className="mentor-exp">15+ years | Microsoft, Amazon</p>
-                            <div className="mentor-certs">
-                                <span className="tag">Azure Certified</span>
-                                <span className="tag">Databricks Expert</span>
-                            </div>
-                        </div>
-                        <div className="mentor-card card">
-                            <div className="mentor-avatar">👩‍💻</div>
-                            <h4>Sneha Reddy</h4>
-                            <p className="mentor-role">Power BI Architect</p>
-                            <p className="mentor-exp">12+ years | Accenture, Deloitte</p>
-                            <div className="mentor-certs">
-                                <span className="tag">PL-300 Certified</span>
-                                <span className="tag">Fabric Expert</span>
-                            </div>
-                        </div>
-                        <div className="mentor-card card">
-                            <div className="mentor-avatar">👨‍🔬</div>
-                            <h4>Arjun Mehta</h4>
-                            <p className="mentor-role">Cloud Solutions Architect</p>
-                            <p className="mentor-exp">10+ years | Google, Meta</p>
-                            <div className="mentor-certs">
-                                <span className="tag">AWS & Azure Certified</span>
-                                <span className="tag">GCP Pro</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="text-center" style={{ marginTop: '3rem' }}>
-                        <Link to="/mentors" className="btn btn-primary btn-large">
-                            Meet All Mentors
                         </Link>
                     </div>
                 </div>

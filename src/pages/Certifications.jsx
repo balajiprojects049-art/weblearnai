@@ -1,75 +1,103 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './CertificationsPage.css';
+import texamCertifications from '../assets/texam-certifications.png';
+import azureTechGroup from '../assets/azure-tech-group.png';
+import certLogosWall from '../assets/certification-logos-wall.png';
 
 const Certifications = () => {
-    const [expandedCard, setExpandedCard] = useState(null);
+    // Scroll to top when component mounts
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const certificationTracks = [
         {
             name: 'Cloud Certifications',
             icon: '☁️',
             description: 'Microsoft Azure, AWS, Google Cloud, and Databricks certifications',
-            detailedDescription: (
-                <>
-                    Validate your expertise in <strong className="highlight">cloud platforms</strong> and <strong className="highlight">big data technologies</strong>.
-                </>
-            ),
             color: '#0078D4',
-            certs: [
-                'Microsoft Azure Certifications (AZ-900, DP-203, AZ-104)',
-                'Databricks Certifications (Data Engineer, ML Professional)',
-                'AWS Certifications (Cloud Practitioner, Solutions Architect)',
-                'Google Cloud Certifications (Associate Engineer, Data Engineer)'
+            detailedPoints: [
+                {
+                    title: 'Microsoft Azure Certifications (AZ-900, DP-203, AZ-104, etc.)',
+                    description: 'Validate skills in cloud fundamentals, data engineering, administration, and solution architecture within the Azure ecosystem.'
+                },
+                {
+                    title: 'Databricks Certifications (Data Engineer Associate/Professional, ML Professional)',
+                    description: 'Focus on big data, Spark, Delta Lake, and machine learning for scalable data solutions.'
+                },
+                {
+                    title: 'AWS Certifications (Cloud Practitioner, Solutions Architect, Data Engineer)',
+                    description: 'Recognize expertise in cloud design, deployment, and operations on Amazon Web Services.'
+                },
+                {
+                    title: 'Google Cloud Certifications (Associate Cloud Engineer, Professional Data Engineer, Architect)',
+                    description: 'Demonstrate skills in GCP services, data pipelines, and cloud-native application development.'
+                }
             ]
         },
         {
             name: 'Project & Business Management',
             icon: '📊',
             description: 'PMP, ITIL, and CRISC certifications for management professionals',
-            detailedDescription: (
-                <>
-                    Master <strong className="highlight">project management</strong> and <strong className="highlight">IT service delivery</strong> best practices.
-                </>
-            ),
             color: '#28A745',
-            certs: [
-                'PMP (Project Management Professional)',
-                'ITIL (Information Technology Infrastructure Library)',
-                'CRISC (Certified in Risk and Information Systems Control)'
+            detailedPoints: [
+                {
+                    title: 'PMP (Project Management Professional)',
+                    description: 'Global standard certification for project management, covering methodologies, frameworks, and leadership.'
+                },
+                {
+                    title: 'ITIL (Information Technology Infrastructure Library)',
+                    description: 'Focus on IT service management best practices, service delivery, and governance.'
+                },
+                {
+                    title: 'CRISC (Certified in Risk and Information Systems Control)',
+                    description: 'Validates expertise in IT risk management and control implementation.'
+                }
             ]
         },
         {
             name: 'Business Platforms',
             icon: '💼',
             description: 'Salesforce and ServiceNow platform certifications',
-            detailedDescription: (
-                <>
-                    Become an expert in <strong className="highlight">CRM</strong> and <strong className="highlight">enterprise service platforms</strong>.
-                </>
-            ),
             color: '#00A1E0',
-            certs: [
-                'Salesforce Certifications (Administrator, Developer, Architect)',
-                'ServiceNow Certifications (Administrator, Developer, ITSM, HRSD)'
+            detailedPoints: [
+                {
+                    title: 'Salesforce Certifications (Administrator, Developer, Architect)',
+                    description: 'Validate skills in CRM platform management, app development, and Salesforce cloud solutions.'
+                },
+                {
+                    title: 'ServiceNow Certifications (Administrator, Developer, ITSM, HRSD)',
+                    description: 'Prove expertise in workflow automation, IT service management, and enterprise service delivery.'
+                }
             ]
         },
         {
             name: 'Cybersecurity & Networking',
             icon: '🔐',
             description: 'CCNA, Cisco, CISA, CISM, and CompTIA security certifications',
-            detailedDescription: (
-                <>
-                    Gain <strong className="highlight">security expertise</strong> and <strong className="highlight">network infrastructure</strong> skills.
-                </>
-            ),
             color: '#DD344C',
-            certs: [
-                'CCNA (Cisco Certified Network Associate)',
-                'Cisco Certifications (CCNP, CCIE)',
-                'CISA (Certified Information Systems Auditor)',
-                'CISM (Certified Information Security Manager)',
-                'CompTIA (Security+, Network+, Cloud+)'
+            detailedPoints: [
+                {
+                    title: 'CCNA (Cisco Certified Network Associate)',
+                    description: 'Foundational certification in networking, routing, switching, and security fundamentals.'
+                },
+                {
+                    title: 'Cisco Certifications (CCNP, CCIE)',
+                    description: 'Advanced-level certifications in networking, security, and enterprise infrastructure.'
+                },
+                {
+                    title: 'CISA (Certified Information Systems Auditor)',
+                    description: 'Focus on auditing, governance, risk management, and compliance.'
+                },
+                {
+                    title: 'CISM (Certified Information Security Manager)',
+                    description: 'Management-focused certification for information security governance and strategy.'
+                },
+                {
+                    title: 'CompTIA (Security+, Network+, Cloud+)',
+                    description: 'Entry-to-mid-level certifications covering IT security, networking, and cloud technologies.'
+                }
             ]
         }
     ];
@@ -84,8 +112,9 @@ const Certifications = () => {
                         <div className="course-badge">Industry Recognized</div>
                         <h1>Professional Certifications</h1>
                         <p className="course-subtitle">
-                            Gain globally recognized certifications that validate your expertise across multiple domains.
-                            Hands-on skills and industry credentials in Cloud, Data Science, Cybersecurity, AI, and Management.
+                            Weblearnai offers globally recognized certifications that validate your expertise across multiple domains.
+                            Gain hands-on skills and industry credentials in Cloud Computing, Data Science, Cybersecurity, AI, and Project Management.
+                            Our certification programs prepare you for real-world roles with practical training, live projects, and expert mentorship.
                         </p>
                         <div className="course-meta">
                             <span className="meta-item">🌍 Global Recognition</span>
@@ -115,55 +144,82 @@ const Certifications = () => {
                         </p>
                     </div>
 
-                    {/* Backdrop */}
-                    {expandedCard !== null && (
-                        <div
-                            className="card-backdrop"
-                            onClick={() => setExpandedCard(null)}
-                        ></div>
-                    )}
 
-                    <div className="tech-grid">
+
+                    <div className="cert-tracks-list">
                         {certificationTracks.map((track, index) => (
                             <div
                                 key={index}
-                                className={`tech-card ${expandedCard === index ? 'expanded' : ''}`}
-                                style={{ '--tech-color': track.color }}
-                                onClick={() => setExpandedCard(expandedCard === index ? null : index)}
+                                className="cert-track-item card"
+                                style={{ '--track-color': track.color }}
                             >
-                                <button
-                                    className="card-close-btn"
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        setExpandedCard(null);
-                                    }}
-                                >
-                                    ✕
-                                </button>
-                                <div className="tech-icon-wrapper">
-                                    <div className="tech-icon-bg" style={{ backgroundColor: track.color }}>
-                                        <svg className="tech-svg-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                            <text
-                                                x="50"
-                                                y="50"
-                                                textAnchor="middle"
-                                                dominantBaseline="central"
-                                                className="tech-icon-text"
-                                            >
-                                                {track.icon}
-                                            </text>
-                                        </svg>
+                                <div className="cert-track-icon-col">
+                                    <div className="cert-track-icon-wrapper" style={{ backgroundColor: track.color }}>
+                                        <span className="cert-track-emoji">{track.icon}</span>
                                     </div>
                                 </div>
-                                <h4>{track.name}</h4>
-                                <p>{track.description}</p>
-                                {track.detailedDescription && expandedCard === index && (
-                                    <div className="tech-detailed-description">
-                                        <p>{track.detailedDescription}</p>
-                                    </div>
-                                )}
+                                <div className="cert-track-content-col">
+                                    <h3>{track.name}</h3>
+                                    <p className="track-main-desc">{track.description}</p>
+
+                                    {track.detailedPoints && (
+                                        <ul className="cert-points-list">
+                                            {track.detailedPoints.map((point, pIdx) => (
+                                                <li key={pIdx}>
+                                                    <div className="point-header">
+                                                        <span className="point-dot" style={{ backgroundColor: track.color }}></span>
+                                                        <strong>{point.title}</strong>
+                                                    </div>
+                                                    <p className="point-desc">{point.description}</p>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </div>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Supported Certifications Showcase */}
+            <section className="section bg-white">
+                <div className="container">
+                    <div className="cert-showcase-container">
+                        <div className="section-header text-center">
+                            <div className="badge">Our Ecosystem</div>
+                            <h2>Comprehensive Industry Certifications</h2>
+                            <p className="lead">We prepare you for a wide range of globally recognized cloud and technology credentials</p>
+                        </div>
+
+                        <div className="cert-showcase-grid">
+                            <div className="cert-image-wrapper card">
+                                <img
+                                    src={certLogosWall}
+                                    alt="Certification Ecosystem"
+                                    className="cert-showcase-image"
+                                />
+                                <div className="img-caption">Global Certification Vouchers Available</div>
+                            </div>
+
+                            <div className="cert-image-wrapper card">
+                                <img
+                                    src={azureTechGroup}
+                                    alt="Azure & Data Engineering Ecosystem"
+                                    className="cert-showcase-image"
+                                />
+                                <div className="img-caption">Azure Data Engineering Stack</div>
+                            </div>
+
+                            <div className="cert-image-wrapper card">
+                                <img
+                                    src={texamCertifications}
+                                    alt="TEXAM Certified Technologies"
+                                    className="cert-showcase-image"
+                                />
+                                <div className="img-caption">Professional Career Tracks</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
