@@ -599,7 +599,7 @@
     }
 }
 
-/* Infinite Auto-Scroll Carousel for Testimonials */
+/* Infinite Auto-Scroll Carousel for Testimonials - News Ticker Style */
 .testimonial-carousel-container {
     overflow: hidden;
     width: 100%;
@@ -610,35 +610,37 @@
 .testimonial-carousel-track {
     display: flex;
     gap: 2rem;
-    animation: scroll-left 10s linear infinite;
-    will-change: transform;
+    width: fit-content;
+    animation: scroll-ticker 60s linear infinite;
 }
 
+/* Continuous movement - no pause */
 .testimonial-carousel-track:hover {
-    animation-play-state: paused;
-    /* Pause on hover */
+    animation-play-state: running;
 }
 
-@keyframes scroll-left {
-    0% {
+@keyframes scroll-ticker {
+    from {
         transform: translateX(0);
     }
 
-    100% {
-        transform: translateX(-50%);
-        /* Move by half (duplicate set) */
+    to {
+        transform: translateX(calc(-100% / 3));
     }
 }
 
 .testimonial-card-carousel {
-    min-width: 400px;
-    max-width: 400px;
+    min-width: 350px;
+    max-width: 350px;
     flex-shrink: 0;
     background: white;
     border-radius: 20px;
-    padding: 2.5rem;
+    padding: 1rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .testimonial-card-carousel:hover {

@@ -5,6 +5,15 @@ import cloudInternshipImg from '../assets/cloud-internship.jpg';
 import certificationProgramImg from '../assets/certification-program.jpg';
 import webDevelopmentImg from '../assets/web-development.jpg';
 
+// Import testimonial screenshots
+import testimonialMeghana from '../assets/testimonial-meghana.jpg';
+import testimonialDhanalaxmi from '../assets/testimonial-dhanalaxmi.jpg';
+import testimonialVamshi from '../assets/testimonial-vamshi.jpg';
+import testimonialAnitha from '../assets/testimonial-anitha.jpg';
+import testimonialGaurav from '../assets/testimonial-gaurav.jpg';
+import testimonialSusmita from '../assets/testimonial-susmita.jpg';
+import testimonialHemanth from '../assets/testimonial-hemanth.jpg';
+
 const Home = () => {
     // Auto-rotate background slideshow & Testimonials & Scroll to Top
     useEffect(() => {
@@ -32,41 +41,9 @@ const Home = () => {
 
         const heroInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
 
-        // Testimonial slideshow
-        let currentTestimonial = 0;
-        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
-        const testimonialDots = document.querySelectorAll('.testimonial-dot');
-        const totalTestimonials = testimonialSlides.length;
-
-        const showTestimonial = (index) => {
-            testimonialSlides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                if (testimonialDots[i]) testimonialDots[i].classList.remove('active');
-            });
-            if (testimonialSlides[index]) testimonialSlides[index].classList.add('active');
-            if (testimonialDots[index]) testimonialDots[index].classList.add('active');
-        };
-
-        const nextTestimonial = () => {
-            currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
-            showTestimonial(currentTestimonial);
-        };
-
-        const testimonialInterval = setInterval(nextTestimonial, 6000); // Change testimonial every 6 seconds
-
-        // Add click handlers for testimonial dots
-        testimonialDots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentTestimonial = index;
-                showTestimonial(currentTestimonial);
-                clearInterval(testimonialInterval);
-            });
-        });
-
         // Cleanup intervals on component unmount
         return () => {
             clearInterval(heroInterval);
-            clearInterval(testimonialInterval);
         };
     }, []);
     const whyChooseUs = [
@@ -160,51 +137,44 @@ const Home = () => {
         {
             name: 'Meghana',
             role: 'Azure Data Engineer',
-            image: 'M',
-            text: 'Your classes provided the core knowledge, but your dedicated one-on-one sessions and check-ins were crucial in helping me feel confident and prepared to crack the job. I\'m truly grateful!',
-            rating: 5,
-        },
-        {
-            name: 'Gaurav Kurhek',
-            role: '12 Company Offers',
-            image: 'G',
-            text: 'I got an offer for 12 companies! Thank you so much for your assistance and guidance. Companies include: Course 5i, R4solutions, New vision, Marlabs, Capgemini, Yash Technologies, Atlas Copco, Fractal AI, Genpact, TCS, Wipro, Birla Soft.',
-            rating: 5,
-        },
-        {
-            name: 'Vamshi',
-            role: 'AWS Engineer at Deloitte',
-            image: 'V',
-            text: 'Because of your Excellent training and interview guidance I have got the job at Deloitte. All the sessions were practical, clear, and focused on real interview scenarios. This training helped me secure a job by significantly improving my technical understanding and confidence.',
-            rating: 5,
+            image: testimonialMeghana,
+            isScreenshot: true,
         },
         {
             name: 'Dhanalaxmi',
             role: 'Azure Data Engineer',
-            image: 'D',
-            text: 'My experience at weblearnai institute was exceptional...the expert actually provided invaluable insights, while the personal attention ensured I grasped complex concepts. With ample facilities and comprehensive materials and learning environment was enriching. Highly recommend!',
-            rating: 5,
+            image: testimonialDhanalaxmi,
+            isScreenshot: true,
+        },
+        {
+            name: 'Vamshi',
+            role: 'AWS Engineer at Deloitte',
+            image: testimonialVamshi,
+            isScreenshot: true,
         },
         {
             name: 'Anitha',
             role: 'Azure Data Engineer',
-            image: 'A',
-            text: 'WebLearnAI Institute provides excellent guidance and support. Their structured training and expert mentoring helped me prepare effectively and crack my Azure Data Engineer interview, which led to an offer letter. I highly recommend WebLearnAI Institute to anyone who wants to build a strong career in data engineering.',
-            rating: 5,
+            image: testimonialAnitha,
+            isScreenshot: true,
+        },
+        {
+            name: 'Gaurav',
+            role: '12 Company Offers',
+            image: testimonialGaurav,
+            isScreenshot: true,
         },
         {
             name: 'Susmita',
             role: 'Azure - Sanstrojan Softech',
-            image: 'S',
-            text: 'Good evening sir, I got the offer letter sir! Thank you so much for your continuous support and guidance throughout the training.',
-            rating: 5,
+            image: testimonialSusmita,
+            isScreenshot: true,
         },
         {
             name: 'Hemanth',
             role: 'Azure - TEKsystems',
-            image: 'H',
-            text: 'WebLearnAI Institute is an excellent platform for anyone looking to build real-world skills in AI, web development, and modern technology. The institute stands out for its practical, industry-focused approach to learning. Courses are well-structured, easy to follow, and designed to help students move from basics to advanced concepts with confidence.',
-            rating: 5,
+            image: testimonialHemanth,
+            isScreenshot: true,
         },
     ];
 
@@ -482,47 +452,118 @@ const Home = () => {
                             {/* First set of testimonials */}
                             {testimonials.map((testimonial, index) => (
                                 <div key={`original-${index}`} className="testimonial-card-carousel">
-                                    {/* Author at Top */}
-                                    <div className="testimonial-author-top">
-                                        <div className="author-avatar">{testimonial.image}</div>
-                                        <div>
-                                            <div className="author-name">{testimonial.name}</div>
-                                            <div className="author-role">{testimonial.role}</div>
-                                        </div>
-                                    </div>
+                                    {testimonial.isScreenshot ? (
+                                        <img
+                                            src={testimonial.image}
+                                            alt={`${testimonial.name} - ${testimonial.role}`}
+                                            style={{
+                                                width: '100%',
+                                                height: 'auto',
+                                                borderRadius: '12px',
+                                                objectFit: 'contain',
+                                                maxHeight: '600px'
+                                            }}
+                                        />
+                                    ) : (
+                                        <>
+                                            {/* Author at Top */}
+                                            <div className="testimonial-author-top">
+                                                <div className="author-avatar">{testimonal.image}</div>
+                                                <div>
+                                                    <div className="author-name">{testimonial.name}</div>
+                                                    <div className="author-role">{testimonial.role}</div>
+                                                </div>
+                                            </div>
 
-                                    {/* Rating */}
-                                    <div className="testimonial-rating">
-                                        {Array.from({ length: testimonial.rating }).map((_, i) => (
-                                            <span key={i}>⭐</span>
-                                        ))}
-                                    </div>
+                                            {/* Rating */}
+                                            <div className="testimonial-rating">
+                                                {Array.from({ length: testimonial.rating }).map((_, i) => (
+                                                    <span key={i}>⭐</span>
+                                                ))}
+                                            </div>
 
-                                    {/* Testimonial Text */}
-                                    <p className="testimonial-text">"{testimonial.text}"</p>
+                                            {/* Testimonial Text */}
+                                            <p className="testimonial-text">"{testimonial.text}"</p>
+                                        </>
+                                    )}
                                 </div>
                             ))}
                             {/* Duplicate set for infinite loop */}
                             {testimonials.map((testimonial, index) => (
                                 <div key={`duplicate-${index}`} className="testimonial-card-carousel">
-                                    {/* Author at Top */}
-                                    <div className="testimonial-author-top">
-                                        <div className="author-avatar">{testimonial.image}</div>
-                                        <div>
-                                            <div className="author-name">{testimonial.name}</div>
-                                            <div className="author-role">{testimonial.role}</div>
-                                        </div>
-                                    </div>
+                                    {testimonial.isScreenshot ? (
+                                        <img
+                                            src={testimonial.image}
+                                            alt={`${testimonial.name} - ${testimonial.role}`}
+                                            style={{
+                                                width: '100%',
+                                                height: 'auto',
+                                                borderRadius: '12px',
+                                                objectFit: 'contain',
+                                                maxHeight: '600px'
+                                            }}
+                                        />
+                                    ) : (
+                                        <>
+                                            {/* Author at Top */}
+                                            <div className="testimonial-author-top">
+                                                <div className="author-avatar">{testimonial.image}</div>
+                                                <div>
+                                                    <div className="author-name">{testimonial.name}</div>
+                                                    <div className="author-role">{testimonial.role}</div>
+                                                </div>
+                                            </div>
 
-                                    {/* Rating */}
-                                    <div className="testimonial-rating">
-                                        {Array.from({ length: testimonial.rating }).map((_, i) => (
-                                            <span key={i}>⭐</span>
-                                        ))}
-                                    </div>
+                                            {/* Rating */}
+                                            <div className="testimonial-rating">
+                                                {Array.from({ length: testimonial.rating }).map((_, i) => (
+                                                    <span key={i}>⭐</span>
+                                                ))}
+                                            </div>
 
-                                    {/* Testimonial Text */}
-                                    <p className="testimonial-text">"{testimonial.text}"</p>
+                                            {/* Testimonial Text */}
+                                            <p className="testimonial-text">"{testimonial.text}"</p>
+                                        </>
+                                    )}
+                                </div>
+                            ))}
+                            {/* Third duplicate set for smoother loop */}
+                            {testimonials.map((testimonial, index) => (
+                                <div key={`duplicate2-${index}`} className="testimonial-card-carousel">
+                                    {testimonial.isScreenshot ? (
+                                        <img
+                                            src={testimonial.image}
+                                            alt={`${testimonial.name} - ${testimonial.role}`}
+                                            style={{
+                                                width: '100%',
+                                                height: 'auto',
+                                                borderRadius: '12px',
+                                                objectFit: 'contain',
+                                                maxHeight: '600px'
+                                            }}
+                                        />
+                                    ) : (
+                                        <>
+                                            {/* Author at Top */}
+                                            <div className="testimonial-author-top">
+                                                <div className="author-avatar">{testimonial.image}</div>
+                                                <div>
+                                                    <div className="author-name">{testimonial.name}</div>
+                                                    <div className="author-role">{testimonial.role}</div>
+                                                </div>
+                                            </div>
+
+                                            {/* Rating */}
+                                            <div className="testimonial-rating">
+                                                {Array.from({ length: testimonial.rating }).map((_, i) => (
+                                                    <span key={i}>⭐</span>
+                                                ))}
+                                            </div>
+
+                                            {/* Testimonial Text */}
+                                            <p className="testimonial-text">"{testimonial.text}"</p>
+                                        </>
+                                    )}
                                 </div>
                             ))}
                         </div>
