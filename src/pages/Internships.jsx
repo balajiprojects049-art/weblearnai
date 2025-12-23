@@ -1,24 +1,44 @@
 import { Link } from 'react-router-dom';
 import './Internships.css';
-import cloudInternshipHeroImg from '../assets/cloud-internship-hero.jpg';
 
 const Internships = () => {
     return (
         <div className="internships-page">
             {/* Hero Section */}
-            <section className="internships-hero gradient-bg-dark" style={{
-                padding: '6rem 0',
-                textAlign: 'center',
-                backgroundImage: `linear-gradient(135deg, rgba(30, 41, 59, 0.70) 0%, rgba(15, 23, 42, 0.60) 100%), url(${cloudInternshipHeroImg})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-            }}>
+            <section className="internships-hero gradient-bg-dark" style={{ padding: '6rem 0', textAlign: 'center' }}>
                 <div className="container">
                     <div className="badge" style={{ marginBottom: '1.5rem' }}>Hands-on Learning</div>
                     <h1 style={{ color: 'white', fontSize: '3.5rem', marginBottom: '1.5rem' }}>Cloud Internships</h1>
                     <p className="lead" style={{ color: 'rgba(255, 255, 255, 0.95)', maxWidth: '800px', margin: '0 auto' }}>
                         Bridge the gap between theory and industry with our expert-led internship programs.
                     </p>
+                    {/* Back to Home Button */}
+                    <div style={{ marginTop: '2rem' }}>
+                        <Link to="/" style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '0.5rem',
+                            padding: '0.75rem 1.5rem',
+                            background: 'rgba(255, 255, 255, 0.15)',
+                            backdropFilter: 'blur(10px)',
+                            color: 'white',
+                            borderRadius: '8px',
+                            textDecoration: 'none',
+                            fontWeight: '500',
+                            fontSize: '0.95rem',
+                            border: '1px solid rgba(255, 255, 255, 0.3)',
+                            transition: 'all 0.3s ease'
+                        }} onMouseEnter={(e) => {
+                            e.currentTarget.style.background = 'rgba(255, 255, 255, 0.25)';
+                            e.currentTarget.style.transform = 'translateY(-2px)';
+                        }} onMouseLeave={(e) => {
+                            e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
+                            e.currentTarget.style.transform = 'translateY(0)';
+                        }}>
+                            <span style={{ fontSize: '1.1rem' }}>←</span>
+                            Back to Home
+                        </Link>
+                    </div>
                 </div>
             </section>
 

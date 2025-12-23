@@ -4,7 +4,6 @@ import './CertificationsPage.css';
 import texamCertifications from '../assets/texam-certifications.png';
 import azureTechGroup from '../assets/azure-tech-group.png';
 import certLogosWall from '../assets/certification-logos-wall.png';
-import certificationHeroImg from '../assets/certification-hero.jpg';
 
 const Certifications = () => {
     // Scroll to top when component mounts
@@ -106,11 +105,7 @@ const Certifications = () => {
     return (
         <div className="certifications-page">
             {/* Hero Section */}
-            <section className="course-hero cert-hero" style={{
-                backgroundImage: `linear-gradient(135deg, rgba(37, 99, 235, 0.50) 0%, rgba(124, 58, 237, 0.40) 100%), url(${certificationHeroImg})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-            }}>
+            <section className="course-hero cert-hero">
                 <div className="course-hero-overlay"></div>
                 <div className="container">
                     <div className="course-hero-content">
@@ -132,6 +127,33 @@ const Certifications = () => {
                             </Link>
                             <Link to="/contact" className="btn btn-secondary btn-large">
                                 View Programs
+                            </Link>
+                        </div>
+                        {/* Back to Home Button */}
+                        <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+                            <Link to="/" style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '0.5rem',
+                                padding: '0.75rem 1.5rem',
+                                background: 'rgba(255, 255, 255, 0.15)',
+                                backdropFilter: 'blur(10px)',
+                                color: 'white',
+                                borderRadius: '8px',
+                                textDecoration: 'none',
+                                fontWeight: '500',
+                                fontSize: '0.95rem',
+                                border: '1px solid rgba(255, 255, 255, 0.3)',
+                                transition: 'all 0.3s ease'
+                            }} onMouseEnter={(e) => {
+                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.25)';
+                                e.currentTarget.style.transform = 'translateY(-2px)';
+                            }} onMouseLeave={(e) => {
+                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
+                                e.currentTarget.style.transform = 'translateY(0)';
+                            }}>
+                                <span style={{ fontSize: '1.1rem' }}>←</span>
+                                Back to Home
                             </Link>
                         </div>
                     </div>

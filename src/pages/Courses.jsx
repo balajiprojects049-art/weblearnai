@@ -255,7 +255,7 @@ const Courses = () => {
         <div className="courses-page">
             {/* Header */}
             <section className="courses-hero gradient-bg-secondary" style={{
-                backgroundImage: `linear-gradient(135deg, rgba(37, 99, 235, 0.50) 0%, rgba(124, 58, 237, 0.40) 100%), url(${cloudInternshipImg})`,
+                backgroundImage: `linear-gradient(135deg, rgba(37, 99, 235, 0.85) 0%, rgba(124, 58, 237, 0.85) 100%), url(${cloudInternshipImg})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
             }}>
@@ -279,6 +279,33 @@ const Courses = () => {
                                 <div className="course-stat-number">4.8/5</div>
                                 <div className="course-stat-label">Average Rating</div>
                             </div>
+                        </div>
+                        {/* Back to Home Button */}
+                        <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+                            <Link to="/" style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '0.5rem',
+                                padding: '0.75rem 1.5rem',
+                                background: 'rgba(255, 255, 255, 0.15)',
+                                backdropFilter: 'blur(10px)',
+                                color: 'white',
+                                borderRadius: '8px',
+                                textDecoration: 'none',
+                                fontWeight: '500',
+                                fontSize: '0.95rem',
+                                border: '1px solid rgba(255, 255, 255, 0.3)',
+                                transition: 'all 0.3s ease'
+                            }} onMouseEnter={(e) => {
+                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.25)';
+                                e.currentTarget.style.transform = 'translateY(-2px)';
+                            }} onMouseLeave={(e) => {
+                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
+                                e.currentTarget.style.transform = 'translateY(0)';
+                            }}>
+                                <span style={{ fontSize: '1.1rem' }}>←</span>
+                                Back to Home
+                            </Link>
                         </div>
                     </div>
                 </div>
