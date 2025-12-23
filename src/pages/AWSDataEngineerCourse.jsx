@@ -235,9 +235,13 @@ const AWSDataEngineerCourse = () => {
                             <Link to="/contact" className="btn btn-primary btn-large">
                                 Enroll Now
                             </Link>
-                            <Link to="/contact" className="btn btn-secondary btn-large">
+                            <a
+                                href="/AWS Syllabus.pdf"
+                                download="AWS_Data_Engineer_Syllabus.pdf"
+                                className="btn btn-secondary btn-large"
+                            >
                                 Download Syllabus
-                            </Link>
+                            </a>
                         </div>
                         {/* Back to Home Button */}
                         <div style={{ marginTop: '2rem', textAlign: 'center' }}>
@@ -395,6 +399,114 @@ const AWSDataEngineerCourse = () => {
                                     <li>Career support and placement</li>
                                 </ul>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Download Syllabus Section */}
+            <section className="section bg-light">
+                <div className="container">
+                    <div style={{
+                        maxWidth: '900px',
+                        margin: '0 auto',
+                        textAlign: 'center',
+                        padding: '3rem 2rem',
+                        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                        borderRadius: '24px',
+                        boxShadow: '0 20px 40px rgba(102, 126, 234, 0.3)',
+                        position: 'relative',
+                        overflow: 'hidden'
+                    }}>
+                        {/* Background decoration */}
+                        <div style={{
+                            position: 'absolute',
+                            top: '-50%',
+                            right: '-10%',
+                            width: '300px',
+                            height: '300px',
+                            background: 'rgba(255, 255, 255, 0.1)',
+                            borderRadius: '50%',
+                            filter: 'blur(60px)'
+                        }}></div>
+
+                        <div style={{ position: 'relative', zIndex: 1 }}>
+                            {/* Icon */}
+                            <div style={{
+                                fontSize: '4rem',
+                                marginBottom: '1.5rem',
+                                animation: 'bounce 2s infinite'
+                            }}>
+                                📄
+                            </div>
+
+                            {/* Heading */}
+                            <h2 style={{
+                                color: 'white',
+                                fontSize: '2.5rem',
+                                fontWeight: '700',
+                                marginBottom: '1rem',
+                                textShadow: '0 2px 10px rgba(0, 0, 0, 0.2)'
+                            }}>
+                                Download Complete Course Syllabus
+                            </h2>
+
+                            {/* Description */}
+                            <p style={{
+                                color: 'rgba(255, 255, 255, 0.95)',
+                                fontSize: '1.15rem',
+                                marginBottom: '2.5rem',
+                                lineHeight: '1.6',
+                                maxWidth: '600px',
+                                margin: '0 auto 2.5rem'
+                            }}>
+                                Get the detailed curriculum, learning objectives, project details, and complete course outline in a comprehensive PDF document.
+                            </p>
+
+                            {/* Download Button */}
+                            <a
+                                href="/AWS Syllabus.pdf"
+                                download="AWS_Data_Engineer_Syllabus.pdf"
+                                style={{
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    gap: '1rem',
+                                    padding: '1.5rem 4rem',
+                                    background: 'white',
+                                    color: '#667eea',
+                                    fontSize: '1.2rem',
+                                    fontWeight: '600',
+                                    borderRadius: '12px',
+                                    textDecoration: 'none',
+                                    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
+                                    transition: 'all 0.3s ease',
+                                    cursor: 'pointer',
+                                    border: 'none',
+                                    minWidth: '350px'
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.transform = 'translateY(-3px)';
+                                    e.currentTarget.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.3)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.transform = 'translateY(0)';
+                                    e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.2)';
+                                }}
+                            >
+                                <span style={{ fontSize: '1.5rem' }}>⬇</span>
+                                Download Syllabus PDF
+                            </a>
+
+                            {/* File info */}
+                            <p style={{
+                                color: 'rgba(255, 255, 255, 0.8)',
+                                fontSize: '0.9rem',
+                                marginTop: '1.5rem',
+                                fontStyle: 'italic'
+                            }}>
+                                📊 PDF Format • Free Download • No Registration Required
+                            </p>
                         </div>
                     </div>
                 </div>

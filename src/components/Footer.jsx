@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import logo from './../assets/logo.png';
+import logo from './../assets/weblearnai-logo.png';
 import './Footer.css';
 
 const Footer = () => {

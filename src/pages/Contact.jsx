@@ -160,23 +160,12 @@ const Contact = () => {
                                             <input
                                                 type="radio"
                                                 name="topicInterest"
-                                                value="Full Stack Power BI"
-                                                checked={formData.topicInterest === 'Full Stack Power BI'}
+                                                value="AWS Data Engineer"
+                                                checked={formData.topicInterest === 'AWS Data Engineer'}
                                                 onChange={handleChange}
                                                 required
                                             />
-                                            <span>Full Stack Power BI</span>
-                                        </label>
-                                        <label className="checkbox-label">
-                                            <input
-                                                type="radio"
-                                                name="topicInterest"
-                                                value="Cybersecurity & Python with Gen AI"
-                                                checked={formData.topicInterest === 'Cybersecurity & Python with Gen AI'}
-                                                onChange={handleChange}
-                                                required
-                                            />
-                                            <span>Cybersecurity & Python with Gen AI</span>
+                                            <span>AWS Data Engineer</span>
                                         </label>
                                         <label className="checkbox-label">
                                             <input

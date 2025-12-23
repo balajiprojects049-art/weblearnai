@@ -3,6 +3,13 @@ import { useEffect, useState } from 'react';
 import './Courses.css';
 import cloudInternshipImg from '../assets/cloud-internship.jpg';
 
+// Import course icons
+import azureDatabricksIcon from '../assets/azure-databricks-icon.png';
+import microsoftFabricIcon from '../assets/microsoft-fabric-icon.png';
+import sqlDatabaseIcon from '../assets/sql-database-icon.png';
+import cloudEngineeringIcon from '../assets/cloud-engineering-icon.png';
+import pythonAiIcon from '../assets/python-ai-icon.png';
+
 const Courses = () => {
     const [selectedCourse, setSelectedCourse] = useState(null);
     const [expandedSection, setExpandedSection] = useState(null);
@@ -19,9 +26,10 @@ const Courses = () => {
             tagline: 'Master end-to-end data engineering pipelines',
             duration: '12 Weeks',
             level: 'Intermediate to Advanced',
-            price: '₹45,000',
+            price: '₹24,000',
             rating: 4.9,
             students: '2,500+',
+            iconImage: azureDatabricksIcon,
             icon: '🔧',
             color: '#0078D4',
             whoIsThisFor: [
@@ -54,9 +62,10 @@ const Courses = () => {
             tagline: 'Become a Microsoft Fabric expert',
             duration: '10 Weeks',
             level: 'Advanced',
-            price: '₹50,000',
+            price: '₹24,000',
             rating: 4.9,
             students: '1,800+',
+            iconImage: microsoftFabricIcon,
             icon: '🎯',
             color: '#742774',
             whoIsThisFor: [
@@ -83,7 +92,7 @@ const Courses = () => {
             ],
             certification: 'Microsoft Fabric Analytics Engineer certification prep',
         },
-        {
+        /* {
             id: 'power-bi',
             title: 'Full Stack Power BI with Fabric Tools',
             tagline: 'Transform data into stunning insights',
@@ -117,8 +126,8 @@ const Courses = () => {
                 'HR analytics dashboard with RLS',
             ],
             certification: 'Microsoft Power BI Data Analyst (PL-300) certification prep',
-        },
-        {
+        }, */
+        /* {
             id: 'cybersecurity',
             title: 'Cybersecurity & Python with Generative AI',
             tagline: 'Secure the digital world with AI-powered tools',
@@ -152,6 +161,42 @@ const Courses = () => {
                 'Develop security automation scripts',
             ],
             certification: 'CompTIA Security+ and CEH prep guidance',
+        }, */
+        {
+            id: 'sql',
+            title: 'SQL & Database Management',
+            tagline: 'Master the language of data',
+            duration: '8 Weeks',
+            level: 'Beginner to Advanced',
+            price: '₹3,000',
+            rating: 4.8,
+            students: '3,500+',
+            iconImage: sqlDatabaseIcon,
+            icon: '🗄️',
+            color: '#336791',
+            whoIsThisFor: [
+                'Aspiring data analysts and engineers',
+                'Developers wanting to master databases',
+                'Business analysts working with data',
+                'Anyone starting their data career',
+            ],
+            whatYouWillLearn: [
+                'SQL fundamentals & syntax',
+                'Complex queries with JOINs & subqueries',
+                'Window functions & CTEs',
+                'Database design & normalization',
+                'Indexing & query optimization',
+                'Stored procedures & triggers',
+                'Transaction management & ACID properties',
+                'Working with MySQL, PostgreSQL & SQL Server',
+            ],
+            tools: ['MySQL', 'PostgreSQL', 'SQL Server', 'MySQL Workbench', 'pgAdmin', 'DBeaver'],
+            projects: [
+                'Design a normalized e-commerce database',
+                'Build complex analytical queries',
+                'Optimize slow-running queries',
+            ],
+            certification: 'Certificate of completion with hands-on projects',
         },
         {
             id: 'cloud',
@@ -159,9 +204,10 @@ const Courses = () => {
             tagline: 'Master multi-cloud architecture',
             duration: '12 Weeks',
             level: 'Intermediate',
-            price: '₹48,000',
+            price: '₹25,000',
             rating: 4.8,
             students: '2,000+',
+            iconImage: cloudEngineeringIcon,
             icon: '☁️',
             color: '#FF9900',
             whoIsThisFor: [
@@ -194,9 +240,10 @@ const Courses = () => {
             tagline: 'Build intelligent applications with AI',
             duration: '10 Weeks',
             level: 'Beginner to Intermediate',
-            price: '₹40,000',
+            price: '₹24,000',
             rating: 4.9,
             students: '2,800+',
+            iconImage: pythonAiIcon,
             icon: '🤖',
             color: '#3776AB',
             whoIsThisFor: [
@@ -330,7 +377,11 @@ const Courses = () => {
                                     style={{ cursor: 'pointer' }}
                                 >
                                     <div className="course-card-icon" style={{ background: `linear-gradient(135deg, ${course.color} 0%, ${course.color}dd 100%)` }}>
-                                        <span style={{ fontSize: '3rem' }}>{course.icon}</span>
+                                        {course.iconImage ? (
+                                            <img src={course.iconImage} alt={course.title} style={{ width: '120px', height: '120px', objectFit: 'contain' }} />
+                                        ) : (
+                                            <span style={{ fontSize: '4.5rem' }}>{course.icon}</span>
+                                        )}
                                     </div>
                                     <div className="course-card-content">
                                         <div className="course-card-header">
@@ -376,17 +427,22 @@ const Courses = () => {
                                     }}>
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '1rem' }}>
                                             <div style={{
-                                                fontSize: '4rem',
-                                                width: '100px',
-                                                height: '100px',
-                                                background: 'rgba(255, 255, 255, 0.2)',
+                                                fontSize: '5rem',
+                                                width: '150px',
+                                                height: '150px',
+                                                background: 'rgba(255, 255, 255, 0.9)',
                                                 borderRadius: '20px',
                                                 display: 'flex',
                                                 alignItems: 'center',
                                                 justifyContent: 'center',
-                                                backdropFilter: 'blur(10px)'
+                                                backdropFilter: 'blur(10px)',
+                                                padding: '15px'
                                             }}>
-                                                {course.icon}
+                                                {course.iconImage ? (
+                                                    <img src={course.iconImage} alt={course.title} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                                                ) : (
+                                                    <span style={{ fontSize: '5rem' }}>{course.icon}</span>
+                                                )}
                                             </div>
                                             <div style={{ flex: 1 }}>
                                                 <h2 style={{ marginBottom: '0.5rem', color: 'white' }}>{course.title}</h2>
