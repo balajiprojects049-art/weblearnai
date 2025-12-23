@@ -6,7 +6,11 @@ const Contact = () => {
         name: '',
         email: '',
         phone: '',
-        course: '',
+        topicInterest: '', // Course selection
+        studentStatus: '', // College Student, Working Professional, Graduated but not working
+        studentDetails: '', // For College Student: Fresher, 2024, 2023, etc.
+        experienceYears: '', // For Working Professional: 0-1, 1-3, 3-5, 5+
+        graduatedDetails: '', // For Graduated but not working: Year of graduation
         message: '',
     });
 
@@ -21,9 +25,29 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        // Create submission object with timestamp
+        const submission = {
+            id: Date.now().toString(),
+            ...formData,
+            timestamp: new Date().toLocaleString('en-IN', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            })
+        };
+
+        // Save to localStorage
+        const existingSubmissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
+        existingSubmissions.unshift(submission); // Add to beginning of array (newest first)
+        localStorage.setItem('contactSubmissions', JSON.stringify(existingSubmissions));
+
         setStatus('Message sent successfully! We\'ll get back to you soon.');
-        // Here you would integrate with your backend/email service
-        console.log('Form submitted:', formData);
+        console.log('Form submitted and saved:', submission);
 
         // Reset form
         setTimeout(() => {
@@ -31,7 +55,11 @@ const Contact = () => {
                 name: '',
                 email: '',
                 phone: '',
-                course: '',
+                topicInterest: '',
+                studentStatus: '',
+                studentDetails: '',
+                experienceYears: '',
+                graduatedDetails: '',
                 message: '',
             });
             setStatus('');
@@ -104,23 +132,192 @@ const Contact = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="course">Interested Course</label>
-                                    <select
-                                        id="course"
-                                        name="course"
-                                        value={formData.course}
-                                        onChange={handleChange}
-                                    >
-                                        <option value="">Select a course</option>
-                                        <option value="data-engineering">Data Engineering - Azure & Databricks</option>
-                                        <option value="microsoft-fabric">Microsoft Fabric Data Engineer</option>
-                                        <option value="power-bi">Full Stack Power BI</option>
-                                        <option value="cybersecurity">Cybersecurity & Python with Gen AI</option>
-                                        <option value="cloud">Cloud Engineering</option>
-                                        <option value="python-ai">Python with Generative AI</option>
-                                        <option value="internship">Cloud Internships</option>
-                                    </select>
+                                    <label>1. Your Topic of interest? *</label>
+                                    <div className="checkbox-group">
+                                        <label className="checkbox-label">
+                                            <input
+                                                type="radio"
+                                                name="topicInterest"
+                                                value="Data Engineering - Azure & Databricks"
+                                                checked={formData.topicInterest === 'Data Engineering - Azure & Databricks'}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                            <span>Data Engineering - Azure & Databricks</span>
+                                        </label>
+                                        <label className="checkbox-label">
+                                            <input
+                                                type="radio"
+                                                name="topicInterest"
+                                                value="Microsoft Fabric Data Engineer"
+                                                checked={formData.topicInterest === 'Microsoft Fabric Data Engineer'}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                            <span>Microsoft Fabric Data Engineer</span>
+                                        </label>
+                                        <label className="checkbox-label">
+                                            <input
+                                                type="radio"
+                                                name="topicInterest"
+                                                value="Full Stack Power BI"
+                                                checked={formData.topicInterest === 'Full Stack Power BI'}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                            <span>Full Stack Power BI</span>
+                                        </label>
+                                        <label className="checkbox-label">
+                                            <input
+                                                type="radio"
+                                                name="topicInterest"
+                                                value="Cybersecurity & Python with Gen AI"
+                                                checked={formData.topicInterest === 'Cybersecurity & Python with Gen AI'}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                            <span>Cybersecurity & Python with Gen AI</span>
+                                        </label>
+                                        <label className="checkbox-label">
+                                            <input
+                                                type="radio"
+                                                name="topicInterest"
+                                                value="Cloud Engineering"
+                                                checked={formData.topicInterest === 'Cloud Engineering'}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                            <span>Cloud Engineering</span>
+                                        </label>
+                                        <label className="checkbox-label">
+                                            <input
+                                                type="radio"
+                                                name="topicInterest"
+                                                value="Python with Generative AI"
+                                                checked={formData.topicInterest === 'Python with Generative AI'}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                            <span>Python with Generative AI</span>
+                                        </label>
+                                        <label className="checkbox-label">
+                                            <input
+                                                type="radio"
+                                                name="topicInterest"
+                                                value="Cloud Internships"
+                                                checked={formData.topicInterest === 'Cloud Internships'}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                            <span>Cloud Internships</span>
+                                        </label>
+                                    </div>
                                 </div>
+
+                                <div className="form-group">
+                                    <label>2. Are you a College Student or Working Professional or Graduated but not working? *</label>
+                                    <div className="checkbox-group">
+                                        <label className="checkbox-label">
+                                            <input
+                                                type="radio"
+                                                name="studentStatus"
+                                                value="College Student"
+                                                checked={formData.studentStatus === 'College Student'}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                            <span>College Student</span>
+                                        </label>
+                                        <label className="checkbox-label">
+                                            <input
+                                                type="radio"
+                                                name="studentStatus"
+                                                value="Working Professional"
+                                                checked={formData.studentStatus === 'Working Professional'}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                            <span>Working Professional</span>
+                                        </label>
+                                        <label className="checkbox-label">
+                                            <input
+                                                type="radio"
+                                                name="studentStatus"
+                                                value="Graduated but not working"
+                                                checked={formData.studentStatus === 'Graduated but not working'}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                            <span>Graduated but not working</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                {/* Conditional follow-up for College Student */}
+                                {formData.studentStatus === 'College Student' && (
+                                    <div className="form-group follow-up-field">
+                                        <label htmlFor="studentDetails">When did/will you pass out? *</label>
+                                        <select
+                                            id="studentDetails"
+                                            name="studentDetails"
+                                            value={formData.studentDetails}
+                                            onChange={handleChange}
+                                            required
+                                        >
+                                            <option value="">Select</option>
+                                            <option value="Fresher (Currently Studying)">Fresher (Currently Studying)</option>
+                                            <option value="2025">2025</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2021">2021</option>
+                                            <option value="Before 2021">Before 2021</option>
+                                        </select>
+                                    </div>
+                                )}
+
+                                {/* Conditional follow-up for Working Professional */}
+                                {formData.studentStatus === 'Working Professional' && (
+                                    <div className="form-group follow-up-field">
+                                        <label htmlFor="experienceYears">How many years of experience do you have? *</label>
+                                        <select
+                                            id="experienceYears"
+                                            name="experienceYears"
+                                            value={formData.experienceYears}
+                                            onChange={handleChange}
+                                            required
+                                        >
+                                            <option value="">Select years of experience</option>
+                                            <option value="0-1 years">0-1 years</option>
+                                            <option value="1-3 years">1-3 years</option>
+                                            <option value="3-5 years">3-5 years</option>
+                                            <option value="5-8 years">5-8 years</option>
+                                            <option value="8+ years">8+ years</option>
+                                        </select>
+                                    </div>
+                                )}
+
+                                {/* Conditional follow-up for Graduated but not working */}
+                                {formData.studentStatus === 'Graduated but not working' && (
+                                    <div className="form-group follow-up-field">
+                                        <label htmlFor="graduatedDetails">When did you graduate? *</label>
+                                        <select
+                                            id="graduatedDetails"
+                                            name="graduatedDetails"
+                                            value={formData.graduatedDetails}
+                                            onChange={handleChange}
+                                            required
+                                        >
+                                            <option value="">Select graduation year</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2020">2020</option>
+                                            <option value="Before 2020">Before 2020</option>
+                                        </select>
+                                    </div>
+                                )}
 
                                 <div className="form-group">
                                     <label htmlFor="message">Message (Optional)</label>

@@ -105,15 +105,51 @@
     align-items: center;
 }
 
-/* Main Title - Big Letters */
+/* Main Title - Big Letters with Animated Disco Effect */
 .hero-main-title {
     font-size: clamp(3rem, 7vw, 5rem);
     font-weight: 900;
     line-height: 1.1;
-    color: white;
+    background: linear-gradient(90deg,
+            rgb(59, 130, 246),
+            rgb(168, 85, 247),
+            rgb(236, 72, 153),
+            rgb(251, 146, 60),
+            rgb(234, 179, 8),
+            rgb(34, 197, 94),
+            rgb(6, 182, 212),
+            rgb(59, 130, 246));
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin: 0;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     letter-spacing: -0.02em;
+    position: relative;
+    animation: discoLights 8s ease infinite;
+}
+
+/* Disco Lights Animation - Color Shifting Effect */
+@keyframes discoLights {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    25% {
+        background-position: 50% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    75% {
+        background-position: 50% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Subtitle - Medium Size */
@@ -551,4 +587,109 @@
     .cta-buttons .btn {
         width: 100%;
     }
+
+    .testimonial-carousel-track {
+        animation-duration: 20s !important;
+        /* Faster scroll speed */
+    }
+
+    .testimonial-card-carousel {
+        min-width: 320px !important;
+        /* Smaller cards on mobile */
+    }
+}
+
+/* Infinite Auto-Scroll Carousel for Testimonials */
+.testimonial-carousel-container {
+    overflow: hidden;
+    width: 100%;
+    margin-top: 3rem;
+    position: relative;
+}
+
+.testimonial-carousel-track {
+    display: flex;
+    gap: 2rem;
+    animation: scroll-left 10s linear infinite;
+    will-change: transform;
+}
+
+.testimonial-carousel-track:hover {
+    animation-play-state: paused;
+    /* Pause on hover */
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+        /* Move by half (duplicate set) */
+    }
+}
+
+.testimonial-card-carousel {
+    min-width: 400px;
+    max-width: 400px;
+    flex-shrink: 0;
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card-carousel:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-card-carousel .testimonial-rating {
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+}
+
+.testimonial-card-carousel .testimonial-text {
+    color: var(--gray-700);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.testimonial-card-carousel .testimonial-author-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--gray-100);
+}
+
+.testimonial-card-carousel .author-avatar {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    text-transform: uppercase;
+}
+
+.testimonial-card-carousel .author-name {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--gray-900);
+    margin-bottom: 0.25rem;
+}
+
+.testimonial-card-carousel .author-role {
+    color: var(--gray-600);
+    font-size: 0.9375rem;
 }

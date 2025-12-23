@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import './Home.css';
+import cloudInternshipImg from '../assets/cloud-internship.jpg';
+import certificationProgramImg from '../assets/certification-program.jpg';
+import webDevelopmentImg from '../assets/web-development.jpg';
 
 const Home = () => {
-    // Auto-rotate background slideshow & Scroll to Top
+    // Auto-rotate background slideshow & Testimonials & Scroll to Top
     useEffect(() => {
         window.scrollTo(0, 0);
+
+        // Hero slideshow
         let currentSlide = 0;
         const slides = document.querySelectorAll('.hero-slide-bg');
         const dots = document.querySelectorAll('.hero-dot');
@@ -25,10 +30,44 @@ const Home = () => {
             showSlide(currentSlide);
         };
 
-        const interval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        const heroInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
 
-        // Cleanup interval on component unmount
-        return () => clearInterval(interval);
+        // Testimonial slideshow
+        let currentTestimonial = 0;
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        const totalTestimonials = testimonialSlides.length;
+
+        const showTestimonial = (index) => {
+            testimonialSlides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (testimonialDots[i]) testimonialDots[i].classList.remove('active');
+            });
+            if (testimonialSlides[index]) testimonialSlides[index].classList.add('active');
+            if (testimonialDots[index]) testimonialDots[index].classList.add('active');
+        };
+
+        const nextTestimonial = () => {
+            currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+            showTestimonial(currentTestimonial);
+        };
+
+        const testimonialInterval = setInterval(nextTestimonial, 6000); // Change testimonial every 6 seconds
+
+        // Add click handlers for testimonial dots
+        testimonialDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentTestimonial = index;
+                showTestimonial(currentTestimonial);
+                clearInterval(testimonialInterval);
+            });
+        });
+
+        // Cleanup intervals on component unmount
+        return () => {
+            clearInterval(heroInterval);
+            clearInterval(testimonialInterval);
+        };
     }, []);
     const whyChooseUs = [
         { icon: '👨‍🏫', title: 'Industry-Expert Instructors', description: 'Learn from professionals with 10+ years of real-world experience' },
@@ -65,6 +104,7 @@ const Home = () => {
             skills: ['Azure', 'AWS', 'GCP', 'DevOps'],
             level: 'Beginner',
             link: '/internships',
+            image: cloudInternshipImg,
         },
         {
             title: 'Certification Programs',
@@ -73,6 +113,7 @@ const Home = () => {
             skills: ['Azure', 'AWS', 'Power BI', 'Cloud'],
             level: 'All Levels',
             link: '/certifications',
+            image: certificationProgramImg,
         },
         {
             title: 'Web Development',
@@ -81,6 +122,7 @@ const Home = () => {
             skills: ['React', 'Node.js', 'MongoDB', 'JavaScript'],
             level: 'Beginner-Advanced',
             link: '/courses#web-development',
+            image: webDevelopmentImg,
         },
     ];
 
@@ -116,24 +158,52 @@ const Home = () => {
 
     const testimonials = [
         {
-            name: 'Rajesh Kumar',
-            role: 'Data Engineer at Microsoft',
-            image: '👨‍💼',
-            text: 'Weblearnai transformed my career! I went from a manual tester to a Data Engineer at Microsoft in just 6 months.',
+            name: 'Meghana',
+            role: 'Azure Data Engineer',
+            image: 'M',
+            text: 'Your classes provided the core knowledge, but your dedicated one-on-one sessions and check-ins were crucial in helping me feel confident and prepared to crack the job. I\'m truly grateful!',
             rating: 5,
         },
         {
-            name: 'Priya Sharma',
-            role: 'Power BI Developer at Accenture',
-            image: '👩‍💼',
-            text: 'The Power BI course is amazing! Real-world projects and excellent mentor support helped me land my dream job.',
+            name: 'Gaurav Kurhek',
+            role: '12 Company Offers',
+            image: 'G',
+            text: 'I got an offer for 12 companies! Thank you so much for your assistance and guidance. Companies include: Course 5i, R4solutions, New vision, Marlabs, Capgemini, Yash Technologies, Atlas Copco, Fractal AI, Genpact, TCS, Wipro, Birla Soft.',
             rating: 5,
         },
         {
-            name: 'Amit Patel',
-            role: 'Cloud Engineer at TCS',
-            image: '👨‍💻',
-            text: 'Best decision ever! The Azure training was so practical. I cleared my certification and got promoted within 3 months.',
+            name: 'Vamshi',
+            role: 'AWS Engineer at Deloitte',
+            image: 'V',
+            text: 'Because of your Excellent training and interview guidance I have got the job at Deloitte. All the sessions were practical, clear, and focused on real interview scenarios. This training helped me secure a job by significantly improving my technical understanding and confidence.',
+            rating: 5,
+        },
+        {
+            name: 'Dhanalaxmi',
+            role: 'Azure Data Engineer',
+            image: 'D',
+            text: 'My experience at weblearnai institute was exceptional...the expert actually provided invaluable insights, while the personal attention ensured I grasped complex concepts. With ample facilities and comprehensive materials and learning environment was enriching. Highly recommend!',
+            rating: 5,
+        },
+        {
+            name: 'Anitha',
+            role: 'Azure Data Engineer',
+            image: 'A',
+            text: 'WebLearnAI Institute provides excellent guidance and support. Their structured training and expert mentoring helped me prepare effectively and crack my Azure Data Engineer interview, which led to an offer letter. I highly recommend WebLearnAI Institute to anyone who wants to build a strong career in data engineering.',
+            rating: 5,
+        },
+        {
+            name: 'Susmita',
+            role: 'Azure - Sanstrojan Softech',
+            image: 'S',
+            text: 'Good evening sir, I got the offer letter sir! Thank you so much for your continuous support and guidance throughout the training.',
+            rating: 5,
+        },
+        {
+            name: 'Hemanth',
+            role: 'Azure - TEKsystems',
+            image: 'H',
+            text: 'WebLearnAI Institute is an excellent platform for anyone looking to build real-world skills in AI, web development, and modern technology. The institute stands out for its practical, industry-focused approach to learning. Courses are well-structured, easy to follow, and designed to help students move from basics to advanced concepts with confidence.',
             rating: 5,
         },
     ];
@@ -197,6 +267,113 @@ const Home = () => {
                 </div>
             </section>
 
+            {/* Our Commitment to Your Success */}
+            <section className="section bg-light">
+                <div className="container">
+                    <div className="section-header text-center">
+                        <div className="badge">Our Commitment</div>
+                        <h2>Your Success is Our Mission</h2>
+                        <p className="lead">
+                            At Weblearnai Trainings, we believe in hard work, dedication, and passion for both recruitment and training
+                        </p>
+                    </div>
+
+                    <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+                        <div className="card" style={{ padding: '3rem', background: 'white', borderRadius: '20px', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.08)' }}>
+                            <div style={{ display: 'grid', gap: '1.5rem' }}>
+                                {/* Key Point 1 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#f8fafc', borderRadius: '12px', borderLeft: '4px solid #3b82f6' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>💯</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        We give our <strong>100% to support all individuals</strong>—whether from IT or non-IT backgrounds, including freshers and interns—who want to build their careers.
+                                    </p>
+                                </div>
+
+                                {/* Key Point 2 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fef3f2', borderRadius: '12px', borderLeft: '4px solid #f59e0b' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🎓</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        We provide <strong>internships along with certification</strong> to strengthen your professional journey, offering support for both IT and non-IT learners in achieving certification.
+                                    </p>
+                                </div>
+
+                                {/* Key Point 3 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#f0fdf4', borderRadius: '12px', borderLeft: '4px solid #10b981' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🚀</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        We aim to create <strong>learning opportunities for everyone</strong> that can help them build their careers and progress through technology enhancement.
+                                    </p>
+                                </div>
+
+                                {/* Key Point 4 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fef9f3', borderRadius: '12px', borderLeft: '4px solid #8b5cf6' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>💪</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        Our focus is on developing <strong>skills that enable individuals to resolve challenging tasks</strong> in their workplaces.
+                                    </p>
+                                </div>
+
+                                {/* Key Point 5 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fef3f8', borderRadius: '12px', borderLeft: '4px solid #ec4899' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🎯</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        With <strong>assessments, learning paths, and courses conducted by industry experts</strong>, our platform helps you achieve your goals.
+                                    </p>
+                                </div>
+
+                                {/* Key Point 6 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#eff6ff', borderRadius: '12px', borderLeft: '4px solid #06b6d4' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🆘</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        Quick & hassle-free <strong>doubt resolution from our 100+ Teaching Assistants</strong>
+                                    </p>
+                                </div>
+
+                                {/* Key Point 7 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fdf4ff', borderRadius: '12px', borderLeft: '4px solid #a855f7' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>👥</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        <strong>Aspirational peer group</strong> to discuss projects, share job referrals, and provide proper interview guidance.
+                                    </p>
+                                </div>
+
+                                {/* Key Point 8 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#f0fdf4', borderRadius: '12px', borderLeft: '4px solid #22c55e' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>⏰</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        <strong>Flexible program</strong> to continue learning despite a super hectic schedule
+                                    </p>
+                                </div>
+
+                                {/* Key Point 9 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fff7ed', borderRadius: '12px', borderLeft: '4px solid #f97316' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>📹</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        <strong>Recorded Lectures with Lifetime access</strong>
+                                    </p>
+                                </div>
+
+                                {/* Key Point 10 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fef2f2', borderRadius: '12px', borderLeft: '4px solid #ef4444' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🔄</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        <strong>Flexibility to switch and pause batches</strong>
+                                    </p>
+                                </div>
+
+                                {/* Key Point 11 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#ecfdf5', borderRadius: '12px', borderLeft: '4px solid #14b8a6' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>💼</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        <strong>Career support via our 100+ employer partners</strong>, mock interviews, and career planning services
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* Popular Programs */}
             <section className="section programs-section gradient-bg-primary">
                 <div className="container">
@@ -208,32 +385,19 @@ const Home = () => {
                         </p>
                     </div>
 
-                    {/* Simple text description before cards */}
-                    <div style={{ color: 'white', maxWidth: '900px', margin: '0 auto 3rem', lineHeight: '1.8', fontSize: '1.05rem' }}>
-                        <p style={{ marginBottom: '1rem', color: 'white' }}>
-                            We provide specialized training on modern data engineering, Power BI, and cloud technologies, including:
-                        </p>
-                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Azure Data Factory (ADF):</strong> Build, orchestrate, and automate scalable data pipelines with real-time and batch processing.</p>
-                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Azure Databricks (ADB):</strong> Hands-on expertise in PySpark, advanced transformations, and machine learning on a collaborative big data platform.</p>
-                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Microsoft Fabric:</strong> End-to-end data analytics platform unifying data movement, data engineering, real-time analytics, data science, and Power BI for actionable insights.</p>
-                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Unity Catalog:</strong> Implement centralized governance, fine-grained access control, and metadata management across data workspaces.</p>
-                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Delta Lake:</strong> Build reliable, performant, and ACID-compliant data lakes with schema evolution and time travel support.</p>
-                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Power BI:</strong> End-to-end business intelligence and data visualization tool that connects to multiple data sources, transforms data, and provides interactive dashboards and reports for actionable insights.</p>
-                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Power Apps:</strong> Low-code application development platform that enables users to quickly build custom business apps, automate workflows, and connect to various data sources with ease.</p>
-                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>GitHub:</strong> Learn modern version control, branching strategies, pull requests, and CI/CD integration for collaborative development.</p>
-                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Apache Airflow:</strong> Orchestrate and monitor complex workflows with DAGs, scheduling, and end-to-end pipeline automation.</p>
-                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>SQL:</strong> Write optimized queries, design schemas, implement joins, aggregations, and stored procedures for efficient data management.</p>
-                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Python:</strong> Develop robust data processing scripts, automation solutions, and machine learning models using libraries such as Pandas, NumPy, and Scikit-learn.</p>
-                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Python with Generative AI:</strong> Build intelligent solutions leveraging LLMs and frameworks such as LangChain, OpenAI, and Hugging Face for tasks like text summarization, chatbots, embeddings, and AI-powered automation.</p>
-                        <p style={{ marginBottom: '0.5rem', color: 'white' }}><strong>Cybersecurity:</strong> Apply best practices in data protection, encryption, access management, and compliance to secure pipelines and cloud resources.</p>
-                    </div>
-
                     {/* Course Cards - After Training Items */}
                     <div className="grid grid-3">
                         {popularPrograms.map((program, index) => (
                             <div key={index} className="program-card">
                                 {/* Course Image/Gradient on Top */}
-                                <div className={`program-image program-image-${index + 1}`}></div>
+                                <div
+                                    className={`program-image program-image-${index + 1}`}
+                                    style={program.image ? {
+                                        backgroundImage: `url(${program.image})`,
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center 60%'
+                                    } : {}}
+                                ></div>
 
                                 {/* Course Content Below */}
                                 <div className="program-content">
@@ -301,34 +465,67 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Testimonials */}
-            <section className="section testimonials-section gradient-bg-dark">
+            {/* Testimonials - Infinite Auto-Scroll Carousel */}
+            <section className="section testimonials-section bg-light">
                 <div className="container">
                     <div className="section-header text-center">
                         <div className="badge">Success Stories</div>
-                        <h2 style={{ color: 'white' }}>Hear from Our Successful Alumni</h2>
-                        <p className="lead" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
+                        <h2>Hear from Our Successful Alumni</h2>
+                        <p className="lead">
                             Real career transformations from real people
                         </p>
                     </div>
-                    <div className="grid grid-3">
-                        {testimonials.map((testimonial, index) => (
-                            <div key={index} className="testimonial-card">
-                                <div className="testimonial-rating">
-                                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                                        <span key={i}>⭐</span>
-                                    ))}
-                                </div>
-                                <p className="testimonial-text">"{testimonial.text}"</p>
-                                <div className="testimonial-author">
-                                    <div className="author-avatar">{testimonial.image}</div>
-                                    <div>
-                                        <div className="author-name">{testimonial.name}</div>
-                                        <div className="author-role">{testimonial.role}</div>
+
+                    {/* Infinite Scroll Container */}
+                    <div className="testimonial-carousel-container">
+                        <div className="testimonial-carousel-track">
+                            {/* First set of testimonials */}
+                            {testimonials.map((testimonial, index) => (
+                                <div key={`original-${index}`} className="testimonial-card-carousel">
+                                    {/* Author at Top */}
+                                    <div className="testimonial-author-top">
+                                        <div className="author-avatar">{testimonial.image}</div>
+                                        <div>
+                                            <div className="author-name">{testimonial.name}</div>
+                                            <div className="author-role">{testimonial.role}</div>
+                                        </div>
                                     </div>
+
+                                    {/* Rating */}
+                                    <div className="testimonial-rating">
+                                        {Array.from({ length: testimonial.rating }).map((_, i) => (
+                                            <span key={i}>⭐</span>
+                                        ))}
+                                    </div>
+
+                                    {/* Testimonial Text */}
+                                    <p className="testimonial-text">"{testimonial.text}"</p>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                            {/* Duplicate set for infinite loop */}
+                            {testimonials.map((testimonial, index) => (
+                                <div key={`duplicate-${index}`} className="testimonial-card-carousel">
+                                    {/* Author at Top */}
+                                    <div className="testimonial-author-top">
+                                        <div className="author-avatar">{testimonial.image}</div>
+                                        <div>
+                                            <div className="author-name">{testimonial.name}</div>
+                                            <div className="author-role">{testimonial.role}</div>
+                                        </div>
+                                    </div>
+
+                                    {/* Rating */}
+                                    <div className="testimonial-rating">
+                                        {Array.from({ length: testimonial.rating }).map((_, i) => (
+                                            <span key={i}>⭐</span>
+                                        ))}
+                                    </div>
+
+                                    {/* Testimonial Text */}
+                                    <p className="testimonial-text">"{testimonial.text}"</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>

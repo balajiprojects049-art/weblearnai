@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from './../assets/logo.png';
+import logo from './../assets/weblearnai-logo.png';
 import './Header.css';
 
 const Header = () => {
@@ -22,7 +22,6 @@ const Header = () => {
     { name: 'Courses', path: '/courses' },
     { name: 'Internships', path: '/internships' },
     { name: 'Certifications', path: '/certifications' },
-    { name: 'Roadmap', path: '/roadmap' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];
@@ -33,7 +32,7 @@ const Header = () => {
         <div className="header-content">
           {/* Logo */}
           <Link to="/" className="logo">
-            <img src={logo} alt="WeblearnA Academy" className="logo-image" />
+            <img src={logo} alt="WebLearnAI Academy" className="logo-image" />
           </Link>
 
           {/* Desktop Navigation */}

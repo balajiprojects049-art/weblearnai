@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './AzureFabricCourse.css';
+import azureFabricHeroImg from '../assets/azure-fabric-hero.jpg';
 
 // Import technology logos
 import azureDataFactoryLogo from '../assets/Azure Data factory.png';
@@ -16,6 +17,8 @@ import sqlLogo from '../assets/SQL.png';
 import pythonLogo from '../assets/Python.png';
 import genAiLogo from '../assets/Gen ai.png';
 import azureDataEngineerWheel from '../assets/azure-data-engineer-wheel.png';
+import roadmapImg from '../assets/data-engineer-roadmap.jpg';
+import techMapImg from '../assets/technology-stack-map.png';
 
 const AzureFabricCourse = () => {
     // Scroll to top when component mounts
@@ -203,7 +206,11 @@ const AzureFabricCourse = () => {
             )}
 
             {/* Hero Section */}
-            <section className="course-hero">
+            <section className="course-hero" style={{
+                backgroundImage: `linear-gradient(135deg, rgba(37, 99, 235, 0.50) 0%, rgba(124, 58, 237, 0.40) 100%), url(${azureFabricHeroImg})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+            }}>
                 <div className="course-hero-overlay"></div>
                 <div className="container">
                     <div className="course-hero-content">
@@ -230,6 +237,67 @@ const AzureFabricCourse = () => {
                 </div>
             </section>
 
+            {/* Training Technologies Overview */}
+            <section className="section bg-light">
+                <div className="container">
+                    <div className="section-header text-center" style={{ marginBottom: '3rem' }}>
+                        <div className="badge">Complete Technology Stack</div>
+                        <h2 style={{ fontSize: '2.5rem' }}>Specialized Training on Modern Data Engineering</h2>
+                        <p className="lead" style={{ maxWidth: '800px', margin: '0 auto' }}>
+                            We provide comprehensive hands-on training on Power BI and cloud technologies
+                        </p>
+                    </div>
+
+                    <div style={{ maxWidth: '900px', margin: '0 auto', lineHeight: '1.8', fontSize: '1.05rem' }}>
+                        <p style={{ marginBottom: '2rem', fontSize: '1.1rem', textAlign: 'center', color: '#4a5568' }}>
+                            Our Azure Data Engineering program covers the complete technology ecosystem:
+                        </p>
+
+                        <div style={{ display: 'grid', gap: '1rem' }}>
+                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #0078D4 0%, #0063B1 100%)', borderRadius: '12px', borderLeft: '4px solid #005A9E', boxShadow: '0 4px 12px rgba(0, 120, 212, 0.3)' }}>
+                                <strong>Azure Data Factory (ADF):</strong> Build, orchestrate, and automate scalable data pipelines with real-time and batch processing.
+                            </p>
+                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #FF3621 0%, #E02F1C 100%)', borderRadius: '12px', borderLeft: '4px solid #C42818', boxShadow: '0 4px 12px rgba(255, 54, 33, 0.3)' }}>
+                                <strong>Azure Databricks (ADB):</strong> Hands-on expertise in PySpark, advanced transformations, and machine learning on a collaborative big data platform.
+                            </p>
+                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #7C3283 0%, #662970 100%)', borderRadius: '12px', borderLeft: '4px solid #52215D', boxShadow: '0 4px 12px rgba(124, 50, 131, 0.3)' }}>
+                                <strong>Microsoft Fabric:</strong> End-to-end data analytics platform unifying data movement, data engineering, real-time analytics, data science, and Power BI for actionable insights.
+                            </p>
+                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #00A87E 0%, #008C69 100%)', borderRadius: '12px', borderLeft: '4px solid #007055', boxShadow: '0 4px 12px rgba(0, 168, 126, 0.3)' }}>
+                                <strong>Unity Catalog:</strong> Implement centralized governance, fine-grained access control, and metadata management across data workspaces.
+                            </p>
+                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #00ADD8 0%, #0091B8 100%)', borderRadius: '12px', borderLeft: '4px solid #007699', boxShadow: '0 4px 12px rgba(0, 173, 216, 0.3)' }}>
+                                <strong>Delta Lake:</strong> Build reliable, performant, and ACID-compliant data lakes with schema evolution and time travel support.
+                            </p>
+                            <p style={{ marginBottom: '0.5rem', color: '#1a1a1a', padding: '1rem', background: 'linear-gradient(135deg, #F2C811 0%, #D9B20F 100%)', borderRadius: '12px', borderLeft: '4px solid #BF9D0D', boxShadow: '0 4px 12px rgba(242, 200, 17, 0.3)' }}>
+                                <strong>Power BI:</strong> End-to-end business intelligence and data visualization tool that connects to multiple data sources, transforms data, and provides interactive dashboards and reports for actionable insights.
+                            </p>
+                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #742774 0%, #5E1F5E 100%)', borderRadius: '12px', borderLeft: '4px solid #4A184A', boxShadow: '0 4px 12px rgba(116, 39, 116, 0.3)' }}>
+                                <strong>Power Apps:</strong> Low-code application development platform that enables users to quickly build custom business apps, automate workflows, and connect to various data sources with ease.
+                            </p>
+                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #24292E 0%, #1B1F23 100%)', borderRadius: '12px', borderLeft: '4px solid #0D1117', boxShadow: '0 4px 12px rgba(36, 41, 46, 0.4)' }}>
+                                <strong>GitHub:</strong> Learn modern version control, branching strategies, pull requests, and CI/CD integration for collaborative development.
+                            </p>
+                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #017CEE 0%, #0167CE 100%)', borderRadius: '12px', borderLeft: '4px solid #0153AE', boxShadow: '0 4px 12px rgba(1, 124, 238, 0.3)' }}>
+                                <strong>Apache Airflow:</strong> Orchestrate and monitor complex workflows with DAGs, scheduling, and end-to-end pipeline automation.
+                            </p>
+                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #336791 0%, #2A5477 100%)', borderRadius: '12px', borderLeft: '4px solid #21425D', boxShadow: '0 4px 12px rgba(51, 103, 145, 0.3)' }}>
+                                <strong>SQL:</strong> Write optimized queries, design schemas, implement joins, aggregations, and stored procedures for efficient data management.
+                            </p>
+                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #3776AB 0%, #2D5F8D 100%)', borderRadius: '12px', borderLeft: '4px solid #23496F', boxShadow: '0 4px 12px rgba(55, 118, 171, 0.3)' }}>
+                                <strong>Python:</strong> Develop robust data processing scripts, automation solutions, and machine learning models using libraries such as Pandas, NumPy, and Scikit-learn.
+                            </p>
+                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #E91E63 0%, #C2185B 100%)', borderRadius: '12px', borderLeft: '4px solid #A31545', boxShadow: '0 4px 12px rgba(233, 30, 99, 0.3)' }}>
+                                <strong>Python with Generative AI:</strong> Build intelligent solutions leveraging LLMs and frameworks such as LangChain, OpenAI, and Hugging Face for tasks like text summarization, chatbots, embeddings, and AI-powered automation.
+                            </p>
+                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #FF6B6B 0%, #EE5A5A 100%)', borderRadius: '12px', borderLeft: '4px solid #DC4949', boxShadow: '0 4px 12px rgba(255, 107, 107, 0.3)' }}>
+                                <strong>Cybersecurity:</strong> Apply best practices in data protection, encryption, access management, and compliance to secure pipelines and cloud resources.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* Core Technologies Visualization */}
             <section className="section bg-light">
                 <div className="container">
@@ -245,6 +313,99 @@ const AzureFabricCourse = () => {
                                 alt="Azure Data Engineer Core Technologies"
                                 className="core-tech-wheel"
                             />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Career Roadmap Section */}
+            <section className="section bg-light">
+                <div className="container" style={{ maxWidth: '1100px' }}>
+                    <div className="section-header text-center" style={{ marginBottom: '4rem' }}>
+                        <div className="badge">Career Path</div>
+                        <h2 style={{ fontSize: '2.5rem' }}>Your Journey to Data Engineering Mastery</h2>
+                        <p className="lead">
+                            Follow this proven roadmap to transition from beginner to expert data engineer
+                        </p>
+                    </div>
+
+                    {/* Visual Roadmap */}
+                    <div className="visual-roadmap-section" style={{ marginBottom: '6rem' }}>
+                        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                            <div className="badge" style={{ background: '#eff6ff', color: '#3b82f6' }}>Visual Guide</div>
+                            <h2 style={{ fontSize: '2.5rem', marginTop: '1rem' }}>The Path to Mastery</h2>
+                            <p style={{ color: '#6b7280' }}>Follow this proven track to transition from beginner to expert</p>
+                        </div>
+
+                        <div className="card" style={{ padding: '1rem', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '32px', overflow: 'hidden', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)' }}>
+                            <img src={roadmapImg} alt="Data Engineer Career Roadmap" style={{ width: '100%', borderRadius: '24px', display: 'block' }} />
+                        </div>
+
+                        <div style={{ marginTop: '4rem' }}>
+                            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                                <div className="badge" style={{ background: '#fef2f2', color: '#ef4444' }}>Tech Stack</div>
+                                <h2 style={{ fontSize: '2.2rem', marginTop: '1rem' }}>Core Technologies You'll Master</h2>
+                                <p style={{ color: '#6b7280' }}>A snapshot of the tools and platforms covered in our programs</p>
+                            </div>
+                            <div className="card" style={{ padding: '2rem', background: '#0f172a', border: 'none', borderRadius: '32px', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3)' }}>
+                                <img src={techMapImg} alt="Technology Stack Map" style={{ width: '100%', borderRadius: '16px', display: 'block' }} />
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Learning Milestones */}
+                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                        <h2 style={{ fontSize: '2.5rem' }}>Detailed Learning Milestones</h2>
+                        <p style={{ color: '#6b7280' }}>Breakdown of your journey over the next 12 months</p>
+                    </div>
+
+                    <div className="detailed-milestones" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+                        <div className="card" style={{ padding: '2.5rem', borderLeft: '6px solid #3b82f6' }}>
+                            <h3 style={{ fontSize: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                                <span style={{ fontSize: '2rem' }}>📘</span> Phase 1: Foundations
+                            </h3>
+                            <p style={{ color: '#6b7280', marginBottom: '1.5rem' }}>0-3 Months | Building Core Competencies</p>
+                            <ul style={{ paddingLeft: '1.2rem', lineHeight: '2' }}>
+                                <li>Master SQL & Database Schema Design</li>
+                                <li>Python for Data Processing</li>
+                                <li>Cloud Fundamentals (Azure/AWS)</li>
+                                <li>Version Control with Git & GitHub</li>
+                            </ul>
+                            <div style={{ marginTop: '2rem', paddingTop: '1.5rem', borderTop: '1px solid #eee' }}>
+                                <strong style={{ color: '#111827' }}>Goal:</strong> Junior Data Analyst
+                            </div>
+                        </div>
+
+                        <div className="card" style={{ padding: '2.5rem', borderLeft: '6px solid #10b981' }}>
+                            <h3 style={{ fontSize: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                                <span style={{ fontSize: '2rem' }}>📗</span> Phase 2: Engineering
+                            </h3>
+                            <p style={{ color: '#6b7280', marginBottom: '1.5rem' }}>4-8 Months | Building Scalable Pipelines</p>
+                            <ul style={{ paddingLeft: '1.2rem', lineHeight: '2' }}>
+                                <li>Azure Data Factory Orchestration</li>
+                                <li>Big Data Processing with PySpark</li>
+                                <li>Databricks Lakehouse Platform</li>
+                                <li>Business Intelligence with Power BI</li>
+                            </ul>
+                            <div style={{ marginTop: '2rem', paddingTop: '1.5rem', borderTop: '1px solid #eee' }}>
+                                <strong style={{ color: '#111827' }}>Goal:</strong> Data Engineer
+                            </div>
+                        </div>
+
+                        <div className="card" style={{ padding: '2.5rem', borderLeft: '6px solid #ef4444' }}>
+                            <h3 style={{ fontSize: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                                <span style={{ fontSize: '2rem' }}>📕</span> Phase 3: Architecting
+                            </h3>
+                            <p style={{ color: '#6b7280', marginBottom: '1.5rem' }}>9-12+ Months | Advanced Solutions</p>
+                            <ul style={{ paddingLeft: '1.2rem', lineHeight: '2' }}>
+                                <li>End-to-End with Microsoft Fabric</li>
+                                <li>Real-time Data Streaming (Kafka)</li>
+                                <li>DevOps & CI/CD for Data</li>
+                                <li>Data Governance & Unity Catalog</li>
+                            </ul>
+                            <div style={{ marginTop: '2rem', paddingTop: '1.5rem', borderTop: '1px solid #eee' }}>
+                                <strong style={{ color: '#111827' }}>Goal:</strong> Senior Data Engineer
+                            </div>
                         </div>
                     </div>
                 </div>

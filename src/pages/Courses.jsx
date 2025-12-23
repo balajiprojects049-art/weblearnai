@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './Courses.css';
+import cloudInternshipImg from '../assets/cloud-internship.jpg';
 
 const Courses = () => {
+    const [selectedCourse, setSelectedCourse] = useState(null);
+    const [expandedSection, setExpandedSection] = useState(null);
+
     // Scroll to top when component mounts
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -18,6 +22,8 @@ const Courses = () => {
             price: '₹45,000',
             rating: 4.9,
             students: '2,500+',
+            icon: '🔧',
+            color: '#0078D4',
             whoIsThisFor: [
                 'Software developers transitioning to data engineering',
                 'Data analysts wanting to advance their careers',
@@ -51,6 +57,8 @@ const Courses = () => {
             price: '₹50,000',
             rating: 4.9,
             students: '1,800+',
+            icon: '🎯',
+            color: '#742774',
             whoIsThisFor: [
                 'Data engineers with Azure experience',
                 'Power BI developers advancing to Fabric',
@@ -84,6 +92,8 @@ const Courses = () => {
             price: '₹35,000',
             rating: 4.8,
             students: '3,200+',
+            icon: '📊',
+            color: '#F2C811',
             whoIsThisFor: [
                 'Business analysts wanting to create dashboards',
                 'Excel users looking to upgrade skills',
@@ -117,6 +127,8 @@ const Courses = () => {
             price: '₹55,000',
             rating: 4.7,
             students: '1,500+',
+            icon: '🔒',
+            color: '#DC143C',
             whoIsThisFor: [
                 'IT professionals interested in security',
                 'Network administrators advancing careers',
@@ -150,6 +162,8 @@ const Courses = () => {
             price: '₹48,000',
             rating: 4.8,
             students: '2,000+',
+            icon: '☁️',
+            color: '#FF9900',
             whoIsThisFor: [
                 'System administrators moving to cloud',
                 'Developers building cloud-native apps',
@@ -183,6 +197,8 @@ const Courses = () => {
             price: '₹40,000',
             rating: 4.9,
             students: '2,800+',
+            icon: '🤖',
+            color: '#3776AB',
             whoIsThisFor: [
                 'Developers wanting to add AI to applications',
                 'Data scientists exploring generative AI',
@@ -209,10 +225,40 @@ const Courses = () => {
         },
     ];
 
+    const sections = [
+        { id: 'whoIsThisFor', title: 'Who is this for?', icon: '👥', color: '#3b82f6' },
+        { id: 'whatYouWillLearn', title: 'What you will learn', icon: '🎯', color: '#10b981' },
+        { id: 'tools', title: 'Tools & Technologies', icon: '🛠️', color: '#f59e0b' },
+        { id: 'projects', title: 'Real-World Projects', icon: '💼', color: '#8b5cf6' },
+        { id: 'certification', title: 'Certification', icon: '🎓', color: '#ec4899' },
+    ];
+
+    const toggleSection = (sectionId) => {
+        setExpandedSection(expandedSection === sectionId ? null : sectionId);
+    };
+
+    const handleCourseClick = (courseId) => {
+        setSelectedCourse(courseId);
+        setExpandedSection(null);
+        setTimeout(() => {
+            document.getElementById('course-details')?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+    };
+
+    const handleBackClick = () => {
+        setSelectedCourse(null);
+        setExpandedSection(null);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
     return (
         <div className="courses-page">
             {/* Header */}
-            <section className="courses-hero gradient-bg-secondary">
+            <section className="courses-hero gradient-bg-secondary" style={{
+                backgroundImage: `linear-gradient(135deg, rgba(37, 99, 235, 0.50) 0%, rgba(124, 58, 237, 0.40) 100%), url(${cloudInternshipImg})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+            }}>
                 <div className="container">
                     <div className="courses-hero-content">
                         <h1 style={{ color: 'white' }}>Industry-Leading Training Programs</h1>
@@ -238,128 +284,206 @@ const Courses = () => {
                 </div>
             </section>
 
-            {/* All Courses */}
-            <section className="section courses-list">
-                <div className="container">
-                    {courses.map((course) => (
-                        <div key={course.id} id={course.id} className="course-detail">
-                            <div className="course-detail-header">
-                                <div>
-                                    <h2>{course.title}</h2>
-                                    <p className="course-tagline">{course.tagline}</p>
-                                    <div className="course-meta">
-                                        <span className="meta-item">
-                                            <strong>⏱️ Duration:</strong> {course.duration}
-                                        </span>
-                                        <span className="meta-item">
-                                            <strong>📊 Level:</strong> {course.level}
-                                        </span>
-                                        <span className="meta-item">
-                                            <strong>⭐ Rating:</strong> {course.rating}/5
-                                        </span>
-                                        <span className="meta-item">
-                                            <strong>👥 Students:</strong> {course.students}
-                                        </span>
-                                    </div>
-                                </div>
-                                <div className="course-price-box">
-                                    <div className="course-price">{course.price}</div>
-                                    <Link to="/contact" className="btn btn-primary">
-                                        Enroll Now
-                                    </Link>
-                                    <Link to="/contact" className="btn btn-secondary">
-                                        Talk to Advisor
-                                    </Link>
-                                </div>
-                            </div>
-
-                            <div className="course-content-grid">
-                                <div className="course-section">
-                                    <h3>👥 Who is this for?</h3>
-                                    <ul className="course-list">
-                                        {course.whoIsThisFor.map((item, idx) => (
-                                            <li key={idx}>{item}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                <div className="course-section">
-                                    <h3>🎯 What you will learn</h3>
-                                    <ul className="course-list">
-                                        {course.whatYouWillLearn.map((item, idx) => (
-                                            <li key={idx}>{item}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                <div className="course-section">
-                                    <h3>🛠️ Tools & Technologies</h3>
-                                    <div className="tools-grid">
-                                        {course.tools.map((tool, idx) => (
-                                            <span key={idx} className="tool-tag">
-                                                {tool}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                <div className="course-section">
-                                    <h3>💼 Real-World Projects</h3>
-                                    <ul className="project-list">
-                                        {course.projects.map((project, idx) => (
-                                            <li key={idx}>{project}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                <div className="course-section certification-box">
-                                    <h3>🎓 Certification</h3>
-                                    <p>{course.certification}</p>
-                                </div>
-                            </div>
+            {!selectedCourse ? (
+                /* Course Cards Grid */
+                <section className="section">
+                    <div className="container">
+                        <div className="section-header text-center">
+                            <div className="badge">Choose Your Path</div>
+                            <h2>Explore Our Courses</h2>
+                            <p className="lead">Select a course to view detailed curriculum and enrollment options</p>
                         </div>
-                    ))}
-                </div>
-            </section>
 
-            {/* Quick Links Section */}
-            <section className="section" style={{ background: 'var(--gray-50)' }}>
-                <div className="container">
-                    <div className="text-center" style={{ marginBottom: '3rem' }}>
-                        <h2>Additional Resources</h2>
-                        <p className="lead">Explore more to help you on your learning journey</p>
+                        <div className="grid grid-3">
+                            {courses.map((course) => (
+                                <div
+                                    key={course.id}
+                                    className="course-card"
+                                    onClick={() => handleCourseClick(course.id)}
+                                    style={{ cursor: 'pointer' }}
+                                >
+                                    <div className="course-card-icon" style={{ background: `linear-gradient(135deg, ${course.color} 0%, ${course.color}dd 100%)` }}>
+                                        <span style={{ fontSize: '3rem' }}>{course.icon}</span>
+                                    </div>
+                                    <div className="course-card-content">
+                                        <div className="course-card-header">
+                                            <span className="course-level">{course.level}</span>
+                                            <span className="course-duration">⏱️ {course.duration}</span>
+                                        </div>
+                                        <h3>{course.title}</h3>
+                                        <p className="course-tagline">{course.tagline}</p>
+                                        <div className="course-card-meta">
+                                            <span>⭐ {course.rating}/5</span>
+                                            <span>👥 {course.students}</span>
+                                        </div>
+                                        <div className="course-card-footer">
+                                            <div className="course-price">{course.price}</div>
+                                            <button className="btn btn-primary btn-sm">View Details →</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                    <div className="grid grid-4">
-                        <Link to="/certifications" className="card" style={{ textDecoration: 'none', textAlign: 'center' }}>
-                            <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🎓</div>
-                            <h4 style={{ color: 'var(--gray-900)' }}>Certifications</h4>
-                            <p style={{ margin: 0 }}>Explore industry-recognized certifications</p>
-                        </Link>
-                        <Link to="/mentors" className="card" style={{ textDecoration: 'none', textAlign: 'center' }}>
-                            <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>👨‍🏫</div>
-                            <h4 style={{ color: 'var(--gray-900)' }}>Meet Our Mentors</h4>
-                            <p style={{ margin: 0 }}>Learn from industry experts</p>
-                        </Link>
-                        <Link to="/roadmap" className="card" style={{ textDecoration: 'none', textAlign: 'center' }}>
-                            <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🗺️</div>
-                            <h4 style={{ color: 'var(--gray-900)' }}>Career Roadmap</h4>
-                            <p style={{ margin: 0 }}>Plan your learning path</p>
-                        </Link>
-                        <Link to="/placements" className="card" style={{ textDecoration: 'none', textAlign: 'center' }}>
-                            <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>💼</div>
-                            <h4 style={{ color: 'var(--gray-900)' }}>Placement Support</h4>
-                            <p style={{ margin: 0 }}>Get career assistance</p>
-                        </Link>
+                </section>
+            ) : (
+                /* Course Details with Expandable Sections */
+                <section className="section" id="course-details">
+                    <div className="container">
+                        <button onClick={handleBackClick} className="btn btn-secondary" style={{ marginBottom: '2rem' }}>
+                            ← Back to All Courses
+                        </button>
+
+                        {(() => {
+                            const course = courses.find(c => c.id === selectedCourse);
+                            return (
+                                <>
+                                    {/* Course Header */}
+                                    <div className="course-detail-header" style={{
+                                        background: `linear-gradient(135deg, ${course.color} 0%, ${course.color}dd 100%)`,
+                                        padding: '3rem',
+                                        borderRadius: '20px',
+                                        marginBottom: '3rem',
+                                        border: `2px solid ${course.color}`,
+                                        boxShadow: `0 10px 30px ${course.color}30`
+                                    }}>
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '1rem' }}>
+                                            <div style={{
+                                                fontSize: '4rem',
+                                                width: '100px',
+                                                height: '100px',
+                                                background: 'rgba(255, 255, 255, 0.2)',
+                                                borderRadius: '20px',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                backdropFilter: 'blur(10px)'
+                                            }}>
+                                                {course.icon}
+                                            </div>
+                                            <div style={{ flex: 1 }}>
+                                                <h2 style={{ marginBottom: '0.5rem', color: 'white' }}>{course.title}</h2>
+                                                <p className="course-tagline" style={{ fontSize: '1.1rem', marginBottom: '1rem', color: 'rgba(255, 255, 255, 0.95)' }}>{course.tagline}</p>
+                                                <div className="course-meta" style={{ color: 'white' }}>
+                                                    <span className="meta-item" style={{ color: 'white' }}>
+                                                        <strong style={{ color: 'white' }}>⏱️ Duration:</strong> {course.duration}
+                                                    </span>
+                                                    <span className="meta-item" style={{ color: 'white' }}>
+                                                        <strong style={{ color: 'white' }}>📊 Level:</strong> {course.level}
+                                                    </span>
+                                                    <span className="meta-item" style={{ color: 'white' }}>
+                                                        <strong style={{ color: 'white' }}>⭐ Rating:</strong> {course.rating}/5
+                                                    </span>
+                                                    <span className="meta-item" style={{ color: 'white' }}>
+                                                        <strong style={{ color: 'white' }}>👥 Students:</strong> {course.students}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div className="course-price-box" style={{ textAlign: 'center' }}>
+                                                <div className="course-price" style={{ fontSize: '2rem', marginBottom: '1rem', background: 'white', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{course.price}</div>
+                                                <Link to="/contact" className="btn btn-secondary" style={{ marginBottom: '0.5rem', width: '100%', background: 'white', color: course.color, border: 'none' }}>
+                                                    Enroll Now
+                                                </Link>
+                                                <Link to="/contact" className="btn btn-secondary" style={{ width: '100%', background: 'rgba(255, 255, 255, 0.2)', color: 'white', border: '2px solid white', backdropFilter: 'blur(10px)' }}>
+                                                    Talk to Advisor
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Interactive Section Cards */}
+                                    <div className="section-header text-center" style={{ marginBottom: '2rem' }}>
+                                        <h3>Course Curriculum</h3>
+                                        <p className="lead">Click on any section to explore the details</p>
+                                    </div>
+
+                                    <div style={{ display: 'grid', gap: '1.5rem', maxWidth: '900px', margin: '0 auto' }}>
+                                        {sections.map((section) => (
+                                            <div
+                                                key={section.id}
+                                                className={`section-card ${expandedSection === section.id ? 'expanded' : ''}`}
+                                                onClick={() => toggleSection(section.id)}
+                                                style={{
+                                                    cursor: 'pointer',
+                                                    transition: 'all 0.3s ease'
+                                                }}
+                                            >
+                                                <div className="section-card-header" style={{
+                                                    background: `linear-gradient(135deg, ${section.color}15 0%, ${section.color}05 100%)`,
+                                                    borderLeft: `4px solid ${section.color}`,
+                                                    padding: '1.5rem',
+                                                    borderRadius: '12px',
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'space-between'
+                                                }}>
+                                                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                                                        <span style={{ fontSize: '2rem' }}>{section.icon}</span>
+                                                        <h4 style={{ margin: 0, color: section.color }}>{section.title}</h4>
+                                                    </div>
+                                                    <span style={{ fontSize: '1.5rem', transition: 'transform 0.3s ease', transform: expandedSection === section.id ? 'rotate(180deg)' : 'rotate(0)' }}>
+                                                        ▼
+                                                    </span>
+                                                </div>
+
+                                                {expandedSection === section.id && (
+                                                    <div className="section-card-content" style={{
+                                                        padding: '2rem',
+                                                        background: 'white',
+                                                        borderRadius: '0 0 12px 12px',
+                                                        animation: 'slideDown 0.3s ease'
+                                                    }}>
+                                                        {section.id === 'whoIsThisFor' && (
+                                                            <ul className="course-list">
+                                                                {course.whoIsThisFor.map((item, idx) => (
+                                                                    <li key={idx}>{item}</li>
+                                                                ))}
+                                                            </ul>
+                                                        )}
+                                                        {section.id === 'whatYouWillLearn' && (
+                                                            <ul className="course-list">
+                                                                {course.whatYouWillLearn.map((item, idx) => (
+                                                                    <li key={idx}>{item}</li>
+                                                                ))}
+                                                            </ul>
+                                                        )}
+                                                        {section.id === 'tools' && (
+                                                            <div className="tools-grid">
+                                                                {course.tools.map((tool, idx) => (
+                                                                    <span key={idx} className="tool-tag">
+                                                                        {tool}
+                                                                    </span>
+                                                                ))}
+                                                            </div>
+                                                        )}
+                                                        {section.id === 'projects' && (
+                                                            <ul className="project-list">
+                                                                {course.projects.map((project, idx) => (
+                                                                    <li key={idx}>{project}</li>
+                                                                ))}
+                                                            </ul>
+                                                        )}
+                                                        {section.id === 'certification' && (
+                                                            <p style={{ fontSize: '1.05rem', lineHeight: '1.7', margin: 0 }}>{course.certification}</p>
+                                                        )}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </>
+                            );
+                        })()}
                     </div>
-                </div>
-            </section>
+                </section>
+            )}
 
             {/* CTA */}
             <section className="section cta-section gradient-bg-primary">
                 <div className="container">
                     <div className="text-center">
-                        <h2 style={{ color: 'white' }}>Not Sure Which Course to Choose?</h2>
-                        <p className="lead" style={{ color: 'rgba(255, 255, 255, 0.95)', marginBottom: '2rem' }}>
+                        <h2 style={{ color: 'var(--gray-900)' }}>Not Sure Which Course to Choose?</h2>
+                        <p className="lead" style={{ color: 'var(--gray-700)', marginBottom: '2rem' }}>
                             Book a free career consultation with our experts to find the perfect learning path
                         </p>
                         <Link to="/contact" className="btn btn-secondary btn-large">

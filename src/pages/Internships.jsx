@@ -1,11 +1,18 @@
 import { Link } from 'react-router-dom';
 import './Internships.css';
+import cloudInternshipHeroImg from '../assets/cloud-internship-hero.jpg';
 
 const Internships = () => {
     return (
         <div className="internships-page">
             {/* Hero Section */}
-            <section className="internships-hero gradient-bg-dark" style={{ padding: '6rem 0', textAlign: 'center' }}>
+            <section className="internships-hero gradient-bg-dark" style={{
+                padding: '6rem 0',
+                textAlign: 'center',
+                backgroundImage: `linear-gradient(135deg, rgba(30, 41, 59, 0.70) 0%, rgba(15, 23, 42, 0.60) 100%), url(${cloudInternshipHeroImg})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+            }}>
                 <div className="container">
                     <div className="badge" style={{ marginBottom: '1.5rem' }}>Hands-on Learning</div>
                     <h1 style={{ color: 'white', fontSize: '3.5rem', marginBottom: '1.5rem' }}>Cloud Internships</h1>
