@@ -435,6 +435,68 @@ const Home = () => {
                 </div>
             </section>
 
+            {/* Bonuses & Privileges Section */}
+            <section className="section bonuses-section">
+                <div className="container">
+                    <div className="section-header text-center">
+                        <h2>
+                            What Included{' '}
+                            <span style={{ color: 'var(--primary-blue)' }}>(Bonuses & Privileges)</span>
+                        </h2>
+                        <p className="lead">
+                            When you enroll, you also get exclusive bonuses worth thousands
+                        </p>
+                    </div>
+
+                    <div className="bonuses-grid">
+                        {/* Bonus #1 */}
+                        <div className="bonus-card">
+                            <div className="bonus-gift-icon">🎁</div>
+                            <div className="bonus-present-icon">🎁</div>
+                            <div className="bonus-badge">Bonus #1</div>
+                            <h4>Interview Prep Kit</h4>
+                            <p>Real-world Q&As, simplified answers, and comprehensive cheat sheets to ace your interviews.</p>
+                        </div>
+
+                        {/* Bonus #2 */}
+                        <div className="bonus-card">
+                            <div className="bonus-gift-icon">🎁</div>
+                            <div className="bonus-present-icon">🎁</div>
+                            <div className="bonus-badge">Bonus #2</div>
+                            <h4>Databricks Notebooks</h4>
+                            <p>Access to coding practice materials including SQL, PySpark, and Python notebooks.</p>
+                        </div>
+
+                        {/* Bonus #3 */}
+                        <div className="bonus-card">
+                            <div className="bonus-gift-icon">🎁</div>
+                            <div className="bonus-present-icon">🎁</div>
+                            <div className="bonus-badge">Bonus #3</div>
+                            <h4>Lifetime Access</h4>
+                            <p>Session recordings and select tutorials available for lifetime learning.</p>
+                        </div>
+
+                        {/* Bonus #4 */}
+                        <div className="bonus-card">
+                            <div className="bonus-gift-icon">🎁</div>
+                            <div className="bonus-present-icon">🎁</div>
+                            <div className="bonus-badge">Bonus #4</div>
+                            <h4>1:1 Resume & Job Strategy</h4>
+                            <p>Personal guidance to optimize your resume and job search strategy.</p>
+                        </div>
+
+                        {/* Bonus #5 */}
+                        <div className="bonus-card">
+                            <div className="bonus-gift-icon">🎁</div>
+                            <div className="bonus-present-icon">🎁</div>
+                            <div className="bonus-badge">Bonus #5</div>
+                            <h4>Use-Case Assignments</h4>
+                            <p>Practice material based on real industry scenarios and challenges.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* Testimonials - Infinite Auto-Scroll Carousel */}
             <section className="section testimonials-section bg-light">
                 <div className="container">
