@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Contact.css';
+import contactHero from '../assets/contact-hero.jpg';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -28,6 +29,8 @@ const Contact = () => {
         setStatus('Sending...');
 
         try {
+            console.log('📤 Submitting form data:', formData);
+
             // Send data to backend API
             const response = await fetch('/api/submit-contact', {
                 method: 'POST',
@@ -37,11 +40,14 @@ const Contact = () => {
                 body: JSON.stringify(formData),
             });
 
+            console.log('📡 Response status:', response.status);
+
             const result = await response.json();
+            console.log('📥 Response data:', result);
 
             if (result.success) {
                 setStatus('Message sent successfully! We\'ll get back to you soon. ✅');
-                console.log('Form submitted successfully:', result);
+                console.log('✅ Form submitted successfully:', result);
 
                 // Reset form after success
                 setTimeout(() => {
@@ -59,19 +65,29 @@ const Contact = () => {
                     setStatus('');
                 }, 3000);
             } else {
-                setStatus('Error: ' + (result.error || 'Failed to send message. Please try again.'));
-                console.error('Submission error:', result);
+                const errorMsg = result.error || result.details || 'Failed to send message';
+                setStatus('Error: ' + errorMsg + '. Please try again.');
+                console.error('❌ Submission error:', result);
+
+                // Show alert with error details for debugging
+                alert('Submission failed!\n\nError: ' + errorMsg + '\n\nCheck browser console for details.');
             }
         } catch (error) {
             setStatus('Error: Failed to connect to server. Please try again. ❌');
-            console.error('Network error:', error);
+            console.error('❌ Network error:', error);
+
+            // Show alert for network errors
+            alert('Network Error!\n\n' + error.message + '\n\nPlease check:\n1. Is your dev server running?\n2. Is the API endpoint working?\n3. Check browser console for details.');
         }
     };
 
     return (
         <div className="contact-page">
             {/* Hero */}
-            <section className="contact-hero gradient-bg-secondary">
+            <section
+                className="contact-hero"
+                style={{ backgroundImage: `url(${contactHero})` }}
+            >
                 <div className="container">
                     <div className="text-center">
                         <h1 style={{ color: 'white' }}>Get In Touch</h1>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import certBadges from '../assets/cert-badges.png';
+import aboutHero from '../assets/about-hero.jpg';
 
 const About = () => {
     const [openIndex, setOpenIndex] = useState(null);
@@ -13,7 +14,7 @@ const About = () => {
             name: 'Munavath',
             avatar: '👨‍💼',
             role: 'Co-founder of weblearnai / Certified Professional Coach',
-            description: "Hi, I’m Munavath, a Senior Data Engineer skilled in designing and building data pipelines, integrating complex data systems, and delivering real-world analytics solutions across multiple domains. I'm passionate about helping aspiring professionals kickstart their Data Engineering journey by turning complex topics simple and hands-on by practical approach.",
+            description: "Hi, I'm Munavath, a Senior Data Engineer skilled in designing and building data pipelines, integrating complex data systems, and delivering real-world analytics solutions across multiple domains. I'm passionate about helping aspiring professionals kickstart their Data Engineering journey by turning complex topics simple and hands-on by practical approach.",
             expertise: "Microsoft and Databricks certified professional with credentials in:",
             certs: [
                 'Microsoft Certified: Azure Fundamentals',
@@ -59,7 +60,7 @@ const About = () => {
             items: [
                 {
                     question: 'Who is eligible for weblearnai Academy?',
-                    answer: 'This program is perfect for working professionals from both tech and non-tech backgrounds. It’s also great for graduates or anyone from other fields who are ready to work hard and build a career in Data Engineering.'
+                    answer: 'This program is perfect for working professionals from both tech and non-tech backgrounds. It\'s also great for graduates or anyone from other fields who are ready to work hard and build a career in Data Engineering.'
                 },
                 {
                     question: 'When are the live classes held?',
@@ -115,8 +116,11 @@ const About = () => {
     };
 
     return (
-        <div className="about-page" style={{ paddingTop: '80px' }}>
-            <section className="course-hero cert-hero" style={{ padding: '6rem 0', textAlign: 'center', background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', position: 'relative' }}>
+        <div className="about-page">
+            <section
+                className="course-hero cert-hero about-hero"
+                style={{ backgroundImage: `url(${aboutHero})` }}
+            >
                 <div className="container">
                     <h1 style={{ color: 'white', fontSize: '3.5rem', marginBottom: '1rem' }}>About Weblearnai Academy</h1>
                     <p className="lead" style={{ color: 'rgba(255, 255, 255, 0.95)', maxWidth: '800px', margin: '0 auto' }}>

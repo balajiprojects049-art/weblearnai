@@ -301,11 +301,10 @@ const Courses = () => {
     return (
         <div className="courses-page">
             {/* Header */}
-            <section className="courses-hero gradient-bg-secondary" style={{
-                backgroundImage: `linear-gradient(135deg, rgba(37, 99, 235, 0.85) 0%, rgba(124, 58, 237, 0.85) 100%), url(${cloudInternshipImg})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-            }}>
+            <section
+                className="courses-hero"
+                style={{ backgroundImage: `url(${cloudInternshipImg})` }}
+            >
                 <div className="container">
                     <div className="courses-hero-content">
                         <h1 style={{ color: 'white' }}>Industry-Leading Training Programs</h1>

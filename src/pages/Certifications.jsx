@@ -4,6 +4,7 @@ import './CertificationsPage.css';
 import texamCertifications from '../assets/texam-certifications.png';
 import azureTechGroup from '../assets/azure-tech-group.png';
 import certLogosWall from '../assets/certification-logos-wall.png';
+import certificationsHero from '../assets/certifications-hero.jpg';
 
 const Certifications = () => {
     // Scroll to top when component mounts
@@ -105,8 +106,10 @@ const Certifications = () => {
     return (
         <div className="certifications-page">
             {/* Hero Section */}
-            <section className="course-hero cert-hero">
-                <div className="course-hero-overlay"></div>
+            <section
+                className="course-hero cert-hero"
+                style={{ backgroundImage: `url(${certificationsHero})` }}
+            >
                 <div className="container">
                     <div className="course-hero-content">
                         <div className="course-badge">Industry Recognized</div>

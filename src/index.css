@@ -63,6 +63,16 @@
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ================================================
+     HERO SECTION GLOBAL VARIABLES
+     ONE SOURCE OF TRUTH FOR ALL HERO SECTIONS
+  ================================================ */
+  --hero-height-desktop: 100vh;
+  --hero-height-tablet: 85vh;
+  --hero-height-mobile: 75vh;
+  --hero-min-height: 600px;
+  --hero-max-height: 100vh;
 }
 
 body {
@@ -580,5 +590,218 @@ p {
 
   100% {
     background-position: -200% 0;
+  }
+}
+
+/* ================================================
+   GLOBAL HERO SECTION SYSTEM
+   ENFORCED CONSISTENCY ACROSS ALL PAGES
+   NO INLINE STYLES | NO PAGE OVERRIDES
+================================================ */
+
+/* PRIMARY HERO CLASS - USE ON ALL HERO SECTIONS */
+.hero-section {
+  /* Height System - Uses CSS Variables */
+  height: var(--hero-height-desktop);
+  min-height: var(--hero-min-height);
+  max-height: var(--hero-max-height);
+
+  /* Layout System */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  /* Prevent Content from Changing Height */
+  flex-shrink: 0;
+
+  /* Background Defaults */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Z-index Control */
+  z-index: 1;
+}
+
+/* Content Container Inside Hero */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+  text-align: center;
+
+  /* Prevent overflow */
+  overflow: hidden;
+}
+
+/* Hero Text Elements - Responsive Scaling */
+.hero-section h1 {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: white;
+
+  /* Text Truncation if Needed */
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-section h2,
+.hero-section .hero-subtitle {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.95);
+
+  /* Multi-line Clamp */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-clamp: 3;
+  overflow: hidden;
+}
+
+.hero-section p {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+/* Background Media Handling */
+.hero-section img,
+.hero-section video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+}
+
+/* Optional Overlay */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* ================================================
+   RESPONSIVE BREAKPOINTS
+   ONLY HEIGHT VARIABLES CHANGE
+================================================ */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hero-section {
+    height: var(--hero-height-tablet);
+    min-height: 500px;
+  }
+
+  .hero-content {
+    padding: 1.5rem;
+  }
+}
+
+/* Mobile (Up to 768px) */
+@media (max-width: 768px) {
+  .hero-section {
+    height: var(--hero-height-mobile);
+    min-height: 450px;
+  }
+
+  .hero-content {
+    padding: 1.25rem;
+  }
+
+  .hero-section h1 {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+  }
+}
+
+/* Extra Small Mobile (Up to 480px) */
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 400px;
+  }
+
+  .hero-content {
+    padding: 1rem;
+  }
+}
+
+/* ================================================
+   LEGACY CLASS COMPATIBILITY
+   Maps old classes to new system
+================================================ */
+.internships-hero,
+.course-hero,
+.cert-hero,
+.contact-hero,
+.about-hero,
+.courses-hero {
+  /* Inherit from global hero */
+  height: var(--hero-height-desktop) !important;
+  min-height: var(--hero-min-height) !important;
+  max-height: var(--hero-max-height) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  position: relative !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Responsive for legacy classes */
+@media (max-width: 1024px) and (min-width: 769px) {
+
+  .internships-hero,
+  .course-hero,
+  .cert-hero,
+  .contact-hero,
+  .about-hero,
+  .courses-hero {
+    height: var(--hero-height-tablet) !important;
+    min-height: 500px !important;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .internships-hero,
+  .course-hero,
+  .cert-hero,
+  .contact-hero,
+  .about-hero,
+  .courses-hero {
+    height: var(--hero-height-mobile) !important;
+    min-height: 450px !important;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .internships-hero,
+  .course-hero,
+  .cert-hero,
+  .contact-hero,
+  .about-hero,
+  .courses-hero {
+    min-height: 400px !important;
   }
 }
