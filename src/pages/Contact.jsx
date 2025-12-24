@@ -23,47 +23,49 @@ const Contact = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setStatus('Sending...');
 
-        // Create submission object with timestamp
-        const submission = {
-            id: Date.now().toString(),
-            ...formData,
-            timestamp: new Date().toLocaleString('en-IN', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: true
-            })
-        };
-
-        // Save to localStorage
-        const existingSubmissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
-        existingSubmissions.unshift(submission); // Add to beginning of array (newest first)
-        localStorage.setItem('contactSubmissions', JSON.stringify(existingSubmissions));
-
-        setStatus('Message sent successfully! We\'ll get back to you soon.');
-        console.log('Form submitted and saved:', submission);
-
-        // Reset form
-        setTimeout(() => {
-            setFormData({
-                name: '',
-                email: '',
-                phone: '',
-                topicInterest: '',
-                studentStatus: '',
-                studentDetails: '',
-                experienceYears: '',
-                graduatedDetails: '',
-                message: '',
+        try {
+            // Send data to backend API
+            const response = await fetch('/api/submit-contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
             });
-            setStatus('');
-        }, 3000);
+
+            const result = await response.json();
+
+            if (result.success) {
+                setStatus('Message sent successfully! We\'ll get back to you soon. ✅');
+                console.log('Form submitted successfully:', result);
+
+                // Reset form after success
+                setTimeout(() => {
+                    setFormData({
+                        name: '',
+                        email: '',
+                        phone: '',
+                        topicInterest: '',
+                        studentStatus: '',
+                        studentDetails: '',
+                        experienceYears: '',
+                        graduatedDetails: '',
+                        message: '',
+                    });
+                    setStatus('');
+                }, 3000);
+            } else {
+                setStatus('Error: ' + (result.error || 'Failed to send message. Please try again.'));
+                console.error('Submission error:', result);
+            }
+        } catch (error) {
+            setStatus('Error: Failed to connect to server. Please try again. ❌');
+            console.error('Network error:', error);
+        }
     };
 
     return (

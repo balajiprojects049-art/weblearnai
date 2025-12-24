@@ -44,10 +44,32 @@ const AdminDashboard = () => {
             return;
         }
 
-        // Load submissions from localStorage
-        const savedSubmissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
-        setSubmissions(savedSubmissions);
-        setFilteredSubmissions(savedSubmissions);
+        // Fetch submissions from database API
+        const fetchSubmissions = async () => {
+            try {
+                const response = await fetch('/api/get-submissions');
+                const result = await response.json();
+
+                if (result.success) {
+                    setSubmissions(result.submissions);
+                    setFilteredSubmissions(result.submissions);
+                } else {
+                    console.error('Failed to fetch submissions:', result.error);
+                    // Fallback to localStorage if API fails
+                    const savedSubmissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
+                    setSubmissions(savedSubmissions);
+                    setFilteredSubmissions(savedSubmissions);
+                }
+            } catch (error) {
+                console.error('Error fetching submissions:', error);
+                // Fallback to localStorage if API fails
+                const savedSubmissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
+                setSubmissions(savedSubmissions);
+                setFilteredSubmissions(savedSubmissions);
+            }
+        };
+
+        fetchSubmissions();
     }, [navigate]);
 
     // Filter submissions based on search and course filter
@@ -74,20 +96,31 @@ const AdminDashboard = () => {
         navigate('/admin/login');
     };
 
-    const handleDelete = (id) => {
+    const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this submission?')) {
-            const updated = submissions.filter(sub => sub.id !== id);
-            setSubmissions(updated);
-            localStorage.setItem('contactSubmissions', JSON.stringify(updated));
+            try {
+                const response = await fetch(`/api/delete-submission?id=${id}`, {
+                    method: 'DELETE',
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    const updated = submissions.filter(sub => sub.id !== id);
+                    setSubmissions(updated);
+                    alert('Submission deleted successfully!');
+                } else {
+                    alert('Failed to delete submission: ' + result.error);
+                }
+            } catch (error) {
+                console.error('Error deleting submission:', error);
+                alert('Failed to delete submission. Please try again.');
+            }
         }
     };
 
     const handleDeleteAll = () => {
-        if (window.confirm('Are you sure you want to delete ALL submissions? This cannot be undone!')) {
-            setSubmissions([]);
-            setFilteredSubmissions([]);
-            localStorage.setItem('contactSubmissions', JSON.stringify([]));
-        }
+        alert('To delete all submissions, please run this SQL command in your Neon database:\n\nDELETE FROM contact_submissions;\n\nThen refresh this page.');
     };
 
     const downloadCSV = () => {
