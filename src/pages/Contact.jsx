@@ -356,6 +356,16 @@ const Contact = () => {
                                 <h3>Contact Information</h3>
 
                                 <div className="info-item">
+                                    <div className="info-icon">📞</div>
+                                    <div>
+                                        <div className="info-label">Phone</div>
+                                        <a href="tel:+919154255508" className="info-value">
+                                            +91 91542 55508
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div className="info-item">
                                     <div className="info-icon">📧</div>
                                     <div>
                                         <div className="info-label">Email</div>
@@ -366,20 +376,10 @@ const Contact = () => {
                                 </div>
 
                                 <div className="info-item">
-                                    <div className="info-icon">📱</div>
-                                    <div>
-                                        <div className="info-label">Phone</div>
-                                        <a href="tel:+919876543210" className="info-value">
-                                            +91 98765 43210
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div className="info-item">
                                     <div className="info-icon">💬</div>
                                     <div>
                                         <div className="info-label">WhatsApp</div>
-                                        <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="info-value">
+                                        <a href="https://wa.me/919154255508" target="_blank" rel="noopener noreferrer" className="info-value">
                                             Chat with us
                                         </a>
                                     </div>
@@ -387,11 +387,39 @@ const Contact = () => {
 
                                 <div className="info-item">
                                     <div className="info-icon">📍</div>
-                                    <div>
-                                        <div className="info-label">Address</div>
-                                        <div className="info-value">
-                                            MG Road, Bangalore<br />
-                                            Karnataka 560001, India
+                                    <div style={{ width: '100%' }}>
+                                        <div className="info-label">Our Offices</div>
+                                        {/* Hyderabad Office */}
+                                        <div style={{
+                                            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                                            padding: '1rem',
+                                            borderRadius: '12px',
+                                            marginBottom: '1rem',
+                                            color: 'white'
+                                        }}>
+                                            <div style={{ fontWeight: '700', fontSize: '1.1rem', marginBottom: '0.5rem' }}>
+                                                🏢 Hyderabad Office
+                                            </div>
+                                            <div style={{ fontSize: '0.95rem', opacity: '0.95', marginBottom: '0.3rem' }}>
+                                                📍 Near Uppel Metro Station
+                                            </div>
+                                            <div style={{ fontSize: '0.95rem', opacity: '0.95' }}>
+                                                Telangana, India
+                                            </div>
+                                        </div>
+                                        {/* Bangalore Office */}
+                                        <div style={{
+                                            background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                                            padding: '1rem',
+                                            borderRadius: '12px',
+                                            color: 'white'
+                                        }}>
+                                            <div style={{ fontWeight: '700', fontSize: '1.1rem', marginBottom: '0.5rem' }}>
+                                                🏢 Bangalore Office
+                                            </div>
+                                            <div style={{ fontSize: '0.95rem', opacity: '0.95' }}>
+                                                Karnataka, India
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -426,13 +454,14 @@ const Contact = () => {
             <section className="map-section">
                 <div className="map-container">
                     <iframe
-                        title="Weblearnai Location"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.948204178704!2d77.60350431482185!3d12.971598990861024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                        title="Weblearnai Academy Location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.3160404457!2d78.24323159488143!3d17.41262079362421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1735069000000!5m2!1sen!2sin"
                         width="100%"
                         height="450"
                         style={{ border: 0 }}
                         allowFullScreen=""
                         loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
                     />
                 </div>
             </section>

@@ -122,15 +122,29 @@ const Footer = () => {
                                 </div>
                                 <div className="contact-item">
                                     <span className="contact-icon">📱</span>
-                                    <a href="tel:+919876543210" className="contact-link">
-                                        +91 98765 43210
+                                    <a href="tel:+919154255508" className="contact-link">
+                                        +91 91542 55508
                                     </a>
                                 </div>
                                 <div className="contact-item">
                                     <span className="contact-icon">📍</span>
-                                    <span className="contact-text">
-                                        Bangalore, Karnataka, India
-                                    </span>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                                        <span className="contact-text" style={{ fontWeight: '600' }}>
+                                            Hyderabad Office
+                                        </span>
+                                        <span className="contact-text" style={{ fontSize: '0.9rem', opacity: '0.9' }}>
+                                            Near Uppel Metro Station
+                                        </span>
+                                        <span className="contact-text" style={{ fontSize: '0.9rem', opacity: '0.9' }}>
+                                            Telangana, India
+                                        </span>
+                                        <span className="contact-text" style={{ fontWeight: '600', marginTop: '0.5rem' }}>
+                                            Bangalore Office
+                                        </span>
+                                        <span className="contact-text" style={{ fontSize: '0.9rem', opacity: '0.9' }}>
+                                            Karnataka, India
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
