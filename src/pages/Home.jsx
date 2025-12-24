@@ -237,120 +237,51 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Our Commitment to Your Success */}
-            <section className="section bg-light">
-                <div className="container">
-                    <div className="section-header text-center">
-                        <div className="badge">Our Commitment</div>
-                        <h2>Your Success is Our Mission</h2>
-                        <p className="lead">
-                            At Weblearnai Trainings, we believe in hard work, dedication, and passion for both recruitment and training
-                        </p>
-                    </div>
-
-                    <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-                        <div className="card" style={{ padding: '3rem', background: 'white', borderRadius: '20px', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.08)' }}>
-                            <div style={{ display: 'grid', gap: '1.5rem' }}>
-                                {/* Key Point 1 */}
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#f8fafc', borderRadius: '12px', borderLeft: '4px solid #3b82f6' }}>
-                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>💯</span>
-                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
-                                        We give our <strong>100% to support all individuals</strong>—whether from IT or non-IT backgrounds, including freshers and interns—who want to build their careers.
-                                    </p>
-                                </div>
-
-                                {/* Key Point 2 */}
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fef3f2', borderRadius: '12px', borderLeft: '4px solid #f59e0b' }}>
-                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🎓</span>
-                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
-                                        We provide <strong>internships along with certification</strong> to strengthen your professional journey, offering support for both IT and non-IT learners in achieving certification.
-                                    </p>
-                                </div>
-
-                                {/* Key Point 3 */}
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#f0fdf4', borderRadius: '12px', borderLeft: '4px solid #10b981' }}>
-                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🚀</span>
-                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
-                                        We aim to create <strong>learning opportunities for everyone</strong> that can help them build their careers and progress through technology enhancement.
-                                    </p>
-                                </div>
-
-                                {/* Key Point 4 */}
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fef9f3', borderRadius: '12px', borderLeft: '4px solid #8b5cf6' }}>
-                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>💪</span>
-                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
-                                        Our focus is on developing <strong>skills that enable individuals to resolve challenging tasks</strong> in their workplaces.
-                                    </p>
-                                </div>
-
-                                {/* Key Point 5 */}
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fef3f8', borderRadius: '12px', borderLeft: '4px solid #ec4899' }}>
-                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🎯</span>
-                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
-                                        With <strong>assessments, learning paths, and courses conducted by industry experts</strong>, our platform helps you achieve your goals.
-                                    </p>
-                                </div>
-
-                                {/* Key Point 6 */}
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#eff6ff', borderRadius: '12px', borderLeft: '4px solid #06b6d4' }}>
-                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🆘</span>
-                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
-                                        Quick & hassle-free <strong>doubt resolution from our 100+ Teaching Assistants</strong>
-                                    </p>
-                                </div>
-
-                                {/* Key Point 7 */}
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fdf4ff', borderRadius: '12px', borderLeft: '4px solid #a855f7' }}>
-                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>👥</span>
-                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
-                                        <strong>Aspirational peer group</strong> to discuss projects, share job referrals, and provide proper interview guidance.
-                                    </p>
-                                </div>
-
-                                {/* Key Point 8 */}
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#f0fdf4', borderRadius: '12px', borderLeft: '4px solid #22c55e' }}>
-                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>⏰</span>
-                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
-                                        <strong>Flexible program</strong> to continue learning despite a super hectic schedule
-                                    </p>
-                                </div>
-
-                                {/* Key Point 9 */}
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fff7ed', borderRadius: '12px', borderLeft: '4px solid #f97316' }}>
-                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>📹</span>
-                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
-                                        <strong>Recorded Lectures with Lifetime access</strong>
-                                    </p>
-                                </div>
-
-                                {/* Key Point 10 */}
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fef2f2', borderRadius: '12px', borderLeft: '4px solid #ef4444' }}>
-                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🔄</span>
-                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
-                                        <strong>Flexibility to switch and pause batches</strong>
-                                    </p>
-                                </div>
-
-                                {/* Key Point 11 */}
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#ecfdf5', borderRadius: '12px', borderLeft: '4px solid #14b8a6' }}>
-                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>💼</span>
-                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
-                                        <strong>Career support via our 100+ employer partners</strong>, mock interviews, and career planning services
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             {/* Popular Programs */}
-            <section className="section programs-section gradient-bg-primary">
-                <div className="container">
+            <section className="section programs-section" style={{
+                background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+                position: 'relative',
+                overflow: 'hidden'
+            }}>
+                {/* Decorative Background Elements - Watermark Style */}
+                <div style={{
+                    position: 'absolute',
+                    top: '-100px',
+                    right: '-100px',
+                    width: '400px',
+                    height: '400px',
+                    borderRadius: '50%',
+                    background: 'radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%)',
+                    pointerEvents: 'none'
+                }}></div>
+                <div style={{
+                    position: 'absolute',
+                    bottom: '-150px',
+                    left: '-150px',
+                    width: '500px',
+                    height: '500px',
+                    borderRadius: '50%',
+                    background: 'radial-gradient(circle, rgba(124, 58, 237, 0.06) 0%, transparent 70%)',
+                    pointerEvents: 'none'
+                }}></div>
+                <div style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '800px',
+                    height: '800px',
+                    background: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(59, 130, 246, 0.02) 35px, rgba(59, 130, 246, 0.02) 70px)',
+                    pointerEvents: 'none',
+                    opacity: 0.5
+                }}></div>
+
+                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                     <div className="section-header text-center">
                         <div className="badge">Popular Programs</div>
-                        <h2 style={{ color: 'white' }}>Industry-Leading Training Programs</h2>
-                        <p className="lead" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
+                        <h2 style={{ color: '#111827' }}>Industry-Leading Training Programs</h2>
+                        <p className="lead" style={{ color: '#4b5563' }}>
                             Comprehensive, hands-on courses designed by industry experts
                         </p>
                     </div>
@@ -500,6 +431,110 @@ const Home = () => {
             {/* Testimonials - Infinite Auto-Scroll Carousel */}
             <section className="section testimonials-section bg-light">
                 <div className="container">
+                    {/* Section Header for Commitment Points */}
+                    <div className="section-header text-center" style={{ marginBottom: '3rem' }}>
+                        <div className="badge">Our Commitment</div>
+                        <h2>Your Success is Our Mission</h2>
+                        <p className="lead">
+                            At Weblearnai Trainings, we believe in hard work, dedication, and passion for both recruitment and training
+                        </p>
+                    </div>
+
+                    {/* Commitment Points - Above Success Stories */}
+                    <div style={{ maxWidth: '1000px', margin: '0 auto 5rem' }}>
+                        <div className="card" style={{ padding: '3rem', background: 'white', borderRadius: '20px', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.08)' }}>
+                            <div style={{ display: 'grid', gap: '1.5rem' }}>
+                                {/* Key Point 1 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#f8fafc', borderRadius: '12px', borderLeft: '4px solid #3b82f6' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>💯</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        We give our <strong>100% to support all individuals</strong>—whether from IT or non-IT backgrounds, including freshers and interns—who want to build their careers.
+                                    </p>
+                                </div>
+
+                                {/* Key Point 2 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fef3f2', borderRadius: '12px', borderLeft: '4px solid #f59e0b' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🎓</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        We provide <strong>internships along with certification</strong> to strengthen your professional journey, offering support for both IT and non-IT learners in achieving certification.
+                                    </p>
+                                </div>
+
+                                {/* Key Point 3 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#f0fdf4', borderRadius: '12px', borderLeft: '4px solid #10b981' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🚀</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        We aim to create <strong>learning opportunities for everyone</strong> that can help them build their careers and progress through technology enhancement.
+                                    </p>
+                                </div>
+
+                                {/* Key Point 4 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fef9f3', borderRadius: '12px', borderLeft: '4px solid #8b5cf6' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>💪</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        Our focus is on developing <strong>skills that enable individuals to resolve challenging tasks</strong> in their workplaces.
+                                    </p>
+                                </div>
+
+                                {/* Key Point 5 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fef3f8', borderRadius: '12px', borderLeft: '4px solid #ec4899' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🎯</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        With <strong>assessments, learning paths, and courses conducted by industry experts</strong>, our platform helps you achieve your goals.
+                                    </p>
+                                </div>
+
+                                {/* Key Point 6 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#eff6ff', borderRadius: '12px', borderLeft: '4px solid #06b6d4' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🆘</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        Quick & hassle-free <strong>doubt resolution from our 100+ Teaching Assistants</strong>
+                                    </p>
+                                </div>
+
+                                {/* Key Point 7 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fdf4ff', borderRadius: '12px', borderLeft: '4px solid #a855f7' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>👥</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        <strong>Aspirational peer group</strong> to discuss projects, share job referrals, and provide proper interview guidance.
+                                    </p>
+                                </div>
+
+                                {/* Key Point 8 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#f0fdf4', borderRadius: '12px', borderLeft: '4px solid #22c55e' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>⏰</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        <strong>Flexible program</strong> to continue learning despite a super hectic schedule
+                                    </p>
+                                </div>
+
+                                {/* Key Point 9 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fff7ed', borderRadius: '12px', borderLeft: '4px solid #f97316' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>📹</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        <strong>Recorded Lectures with Lifetime access</strong>
+                                    </p>
+                                </div>
+
+                                {/* Key Point 10 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fef2f2', borderRadius: '12px', borderLeft: '4px solid #ef4444' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🔄</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        <strong>Flexibility to switch and pause batches</strong>
+                                    </p>
+                                </div>
+
+                                {/* Key Point 11 */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#ecfdf5', borderRadius: '12px', borderLeft: '4px solid #14b8a6' }}>
+                                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>💼</span>
+                                    <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                        <strong>Career support via our 100+ employer partners</strong>, mock interviews, and career planning services
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div className="section-header text-center">
                         <div className="badge">Success Stories</div>
                         <h2>Hear from Our Successful Alumni</h2>

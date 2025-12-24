@@ -208,11 +208,9 @@ const AzureFabricCourse = () => {
             {/* Hero Section */}
             <section
                 className="course-hero"
-                style={{
-                    backgroundImage: `linear-gradient(135deg, rgba(37, 99, 235, 0.85) 0%, rgba(124, 58, 237, 0.85) 100%), url(${azureFabricHeroImg})`
-                }}
+                style={{ backgroundImage: `url(${azureFabricHeroImg})` }}
             >
-                <div className="course-hero-overlay"></div>
+
                 <div className="container">
                     <div className="course-hero-content">
                         <div className="course-badge">Cloud Data Engineering</div>
