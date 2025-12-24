@@ -514,12 +514,12 @@ const AzureFabricCourse = () => {
                             <div className="overview-item">
                                 <h3>🎯 What You'll Master</h3>
                                 <ul>
-                                    <li>Azure Data Factory pipelines and orchestration</li>
-                                    <li>Azure Databricks with PySpark</li>
-                                    <li>Microsoft Fabric end-to-end platform</li>
-                                    <li>Delta Lake and Unity Catalog</li>
-                                    <li>Power BI and Power Apps</li>
-                                    <li>GitHub and Apache Airflow</li>
+                                    <li><strong>Azure Cloud:</strong> Understand core Azure services to build a strong infrastructure.</li>
+                                    <li><strong>Data Storage:</strong> Store and manage big data using <strong>Azure Data Lake</strong>.</li>
+                                    <li><strong>Data Processing:</strong> Perform advanced transformations with <strong>Azure Databricks</strong>.</li>
+                                    <li><strong>Real-Time Analytics:</strong> Work with streaming data using Azure Stream Analytics.</li>
+                                    <li><strong>Data Warehousing:</strong> Use <strong>Azure Synapse Analytics</strong> for powerful data modeling and analysis.</li>
+                                    <li><strong>Security & Governance:</strong> Learn to protect and manage your data the right way.</li>
                                 </ul>
                             </div>
 
@@ -547,11 +547,10 @@ const AzureFabricCourse = () => {
                             <div className="overview-item">
                                 <h3>🎁 What You Get</h3>
                                 <ul>
-                                    <li>Live instructor-led classes</li>
-                                    <li>Real-world projects</li>
-                                    <li>Course completion certificate</li>
-                                    <li>Lifetime access to materials</li>
-                                    <li>Job placement assistance</li>
+                                    <li>Design and build end-to-end data pipelines in the Azure cloud.</li>
+                                    <li>Pick the right Azure tools for every stage of the data lifecycle.</li>
+                                    <li>Monitor, optimize, and scale pipelines for real-world use.</li>
+                                    <li>Become a confident, job-ready Data Engineer with skills companies need.</li>
                                 </ul>
                             </div>
                         </div>

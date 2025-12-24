@@ -1,0 +1,12 @@
+/* Web Development Course Page - Inherits from AWS course styles */
+@import './AWSDataEngineerCourse.css';
+
+/* Web Dev specific styling */
+.web-dev-course {
+    min-height: 100vh;
+}
+
+/* Additional hover effects for modules */
+.web-dev-course .card:hover {
+    transform: translateY(-6px);
+}

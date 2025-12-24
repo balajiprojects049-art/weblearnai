@@ -98,7 +98,7 @@ const Home = () => {
             duration: '14 Weeks',
             skills: ['React', 'Node.js', 'MongoDB', 'JavaScript'],
             level: 'Beginner-Advanced',
-            link: '/courses#web-development',
+            link: '/courses/web-development',
             image: webDevelopmentImg,
         },
     ];

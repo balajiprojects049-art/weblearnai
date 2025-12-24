@@ -625,6 +625,37 @@ p {
   z-index: 1;
 }
 
+/* Dark overlay for better text visibility */
+.hero-section::before,
+.internships-hero::before,
+.course-hero::before,
+.cert-hero::before,
+.contact-hero::before,
+.about-hero::before,
+.courses-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.4) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Ensure content is above overlay */
+.hero-section>*,
+.internships-hero>*,
+.course-hero>*,
+.cert-hero>*,
+.contact-hero>*,
+.about-hero>*,
+.courses-hero>* {
+  position: relative;
+  z-index: 2;
+}
+
 /* Content Container Inside Hero */
 .hero-content {
   position: relative;

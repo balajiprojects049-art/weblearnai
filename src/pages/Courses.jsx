@@ -33,7 +33,7 @@ const Courses = () => {
             icon: '🔧',
             color: '#0078D4',
             whoIsThisFor: [
-                'Software developers transitioning to data engineering',
+                'Anyone transitioning to data engineering',
                 'Data analysts wanting to advance their careers',
                 'IT professionals with basic SQL/Python knowledge',
                 'Fresh graduates with technical backgrounds',
