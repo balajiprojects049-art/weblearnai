@@ -10,7 +10,7 @@ import testimonialMeghana from '../assets/testimonial-meghana.jpg';
 import testimonialDhanalaxmi from '../assets/testimonial-dhanalaxmi.jpg';
 import testimonialVamshi from '../assets/testimonial-vamshi.jpg';
 import testimonialAnitha from '../assets/testimonial-anitha.jpg';
-import testimonialGaurav from '../assets/testimonial-gaurav.jpg';
+import testimonialGaurav from '../assets/testimonial-gaurav-new.jpg';
 import testimonialSusmita from '../assets/testimonial-susmita.jpg';
 import testimonialHemanth from '../assets/testimonial-hemanth.jpg';
 
