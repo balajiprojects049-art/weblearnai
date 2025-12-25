@@ -1,37 +1,28 @@
-/* Certifications Page - Inherits from AWS course styles */
-@import './AWSDataEngineerCourse.css';
+/* ==========================================================================
+   CERTIFICATIONS PAGE STYLES - REWRITTEN & OPTIMIZED
+   ========================================================================== */
 
-/* Certification-specific hero - clean, no overlay */
-.cert-hero {
-    position: relative;
-    overflow: hidden;
-    background: none;
+/* Inherits variable definitions but overrides layout */
+.certifications-page {
+    width: 100%;
+    overflow-x: hidden;
 }
 
-/* Certification-specific icon sizing */
-.certifications-page .tech-icon-wrapper {
-    width: 70px;
-    height: 70px;
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
-.certifications-page .tech-icon-text {
-    font-size: 40px;
-}
+/* --- Hero Section --- */
+/* .cert-hero styles are now inherited from the global .hero system in index.css */
 
-/* All other styles are inherited from AWSDataEngineerCourse.css */
-
-
-.cert-showcase-container {
-    padding: 2rem 0;
-}
-
-
-/* List-based Certification Tracks */
+/* --- Certification Tracks List --- */
 .cert-tracks-list {
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    margin-top: 3rem;
+    margin-top: 4rem;
 }
 
 .cert-track-item {
@@ -42,165 +33,194 @@
     border-radius: 24px;
     border: 1px solid rgba(0, 0, 0, 0.05);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    align-items: flex-start;
 }
 
 .cert-track-item:hover {
-    transform: translateX(12px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    border-color: var(--track-color);
-}
-
-.cert-track-icon-col {
-    flex-shrink: 0;
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-blue, #2563eb);
 }
 
 .cert-track-icon-wrapper {
     width: 90px;
     height: 90px;
+    flex-shrink: 0;
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-    transition: transform 0.3s ease;
-}
-
-.cert-track-item:hover .cert-track-icon-wrapper {
-    transform: scale(1.1) rotate(5deg);
-}
-
-.cert-track-emoji {
+    background: #f3f4f6;
     font-size: 3rem;
 }
 
 .cert-track-content-col {
-    flex-grow: 1;
+    flex: 1;
+    min-width: 0;
+    /* Flexbox text overflow fix */
 }
 
 .cert-track-content-col h3 {
     font-size: 2rem;
     color: #111827;
     margin-bottom: 0.75rem;
-    font-weight: 700;
+    margin-top: 0;
 }
 
 .track-main-desc {
     font-size: 1.15rem;
     color: #4b5563;
-    margin-bottom: 2.5rem;
-    font-weight: 500;
-    max-width: 800px;
+    margin-bottom: 2rem;
+    line-height: 1.6;
 }
 
-/* Updated Showcase Grid */
-.cert-showcase-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2.5rem;
-    margin-top: 3rem;
-}
-
-.cert-image-wrapper {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    transition: all 0.3s ease;
-}
-
-.cert-image-wrapper:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-.cert-showcase-image {
-    width: 100%;
-    height: 300px;
-    object-fit: contain;
-    border-radius: 12px;
-}
-
-.img-caption {
-    margin-top: 1.5rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #374151;
-    text-align: center;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    width: 100%;
-}
-
-/* Points List Styling */
+/* Points Grid */
 .cert-points-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
     list-style: none;
     padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    margin: 0;
 }
 
 .cert-points-list li {
     background: #f9fafb;
-    padding: 1.75rem;
+    padding: 1.5rem;
     border-radius: 16px;
-    border-left: 5px solid var(--track-color);
-    transition: all 0.3s ease;
+    border-left: 4px solid var(--primary-blue, #2563eb);
+    transition: background 0.2s;
 }
 
 .cert-points-list li:hover {
-    background: #f3f4f6;
-    transform: translateY(-3px);
+    background: #eff6ff;
 }
 
 .point-header {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 0.75rem;
-}
-
-.point-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-}
-
-.point-header strong {
-    font-size: 1.1rem;
-    color: #111827;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: #1f2937;
 }
 
 .point-desc {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: #6b7280;
-    line-height: 1.6;
-    margin: 0;
+    line-height: 1.5;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 992px) {
+/* --- Showcase Grid (Visuals) --- */
+.cert-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+.cert-image-wrapper {
+    background: white;
+    padding: 2rem;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.cert-showcase-image {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+}
+
+.img-caption {
+    font-weight: 600;
+    color: #374151;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+    display: block;
+}
+
+/* ==========================================================================
+   MOBILE & TABLET OPTIMIZATIONS
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .cert-track-item {
+        padding: 2rem;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Global Reset */
+    .certifications-page {
+        overflow-x: hidden;
+    }
+
+    /* Hero */
+    .cert-hero {
+        padding-top: 100px;
+        min-height: auto;
+        padding-bottom: 3rem;
+    }
+
+    .cert-hero h1 {
+        font-size: 2rem;
+    }
+
+    /* Track Items */
     .cert-track-item {
         flex-direction: column;
-        gap: 2rem;
-        padding: 2rem;
+        padding: 1.5rem;
+        /* Reduced padding */
+        gap: 1.5rem;
+        border-radius: 20px;
     }
 
-    .cert-track-item:hover {
-        transform: translateY(-8px);
+    .cert-track-icon-wrapper {
+        width: 70px;
+        height: 70px;
+        font-size: 2.5rem;
+        margin: 0 auto;
+        /* Center icon on mobile */
     }
 
-    .cert-points-list {
-        grid-template-columns: 1fr;
+    .cert-track-content-col {
+        text-align: center;
+        /* Center text on mobile */
     }
 
     .cert-track-content-col h3 {
         font-size: 1.5rem;
+    }
+
+    .track-main-desc {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Points Grid */
+    .cert-points-list {
+        grid-template-columns: 1fr;
+        /* Force single column */
+        gap: 1rem;
+        text-align: left;
+        /* Keep bullets left-aligned */
+    }
+
+    .cert-points-list li {
+        padding: 1.25rem;
+    }
+
+    /* Showcase Grid */
+    .cert-showcase-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 }

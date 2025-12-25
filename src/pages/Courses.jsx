@@ -287,9 +287,7 @@ const Courses = () => {
     const handleCourseClick = (courseId) => {
         setSelectedCourse(courseId);
         setExpandedSection(null);
-        setTimeout(() => {
-            document.getElementById('course-details')?.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     const handleBackClick = () => {
@@ -303,7 +301,11 @@ const Courses = () => {
             {/* Header */}
             <section
                 className="courses-hero"
-                style={{ backgroundImage: `url(${cloudInternshipImg})` }}
+                style={{
+                    backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.85)), url(${cloudInternshipImg})`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover'
+                }}
             >
                 <div className="container">
                     <div className="courses-hero-content">
@@ -424,7 +426,7 @@ const Courses = () => {
                                         border: `2px solid ${course.color}`,
                                         boxShadow: `0 10px 30px ${course.color}30`
                                     }}>
-                                        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '1rem' }}>
+                                        <div className="course-header-flex">
                                             <div style={{
                                                 fontSize: '5rem',
                                                 width: '150px',
@@ -568,9 +570,11 @@ const Courses = () => {
                         <p className="lead" style={{ color: 'var(--gray-700)', marginBottom: '2rem' }}>
                             Book a free career consultation with our experts to find the perfect learning path
                         </p>
-                        <Link to="/contact" className="btn btn-secondary btn-large">
-                            Book Free Consultation
-                        </Link>
+                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                            <Link to="/contact" className="btn btn-secondary btn-large">
+                                Book Free Consultation
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </section>

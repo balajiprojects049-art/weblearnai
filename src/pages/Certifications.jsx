@@ -106,33 +106,20 @@ const Certifications = () => {
     return (
         <div className="certifications-page">
             {/* Hero Section */}
+            {/* Hero Section */}
             <section
                 className="course-hero cert-hero"
                 style={{ backgroundImage: `url(${certificationsHero})` }}
             >
                 <div className="container">
                     <div className="course-hero-content">
-                        <div className="course-badge">Industry Recognized</div>
+                        <div className="course-badge" style={{ marginBottom: '1rem' }}>Industry Recognized</div>
                         <h1>Professional Certifications</h1>
                         <p className="course-subtitle">
-                            Weblearnai offers globally recognized certifications that validate your expertise across multiple domains.
-                            Gain hands-on skills and industry credentials in Cloud Computing, Data Science, Cybersecurity, AI, and Project Management.
-                            Our certification programs prepare you for real-world roles with practical training, live projects, and expert mentorship.
+                            Validate your expertise across multiple domains with globally recognized certifications.
                         </p>
-                        <div className="course-meta">
-                            <span className="meta-item">🌍 Global Recognition</span>
-                            <span className="meta-item">🎯 Expert Mentorship</span>
-                            <span className="meta-item">📜 Industry Credentials</span>
-                        </div>
-                        <div className="course-cta">
-                            <Link to="/contact" className="btn btn-primary btn-large">
-                                Get Started
-                            </Link>
-                            <Link to="/contact" className="btn btn-secondary btn-large">
-                                View Programs
-                            </Link>
-                        </div>
-                        {/* Back to Home Button */}
+
+                        {/* Back to Home Button - Exact Internship Style */}
                         <div style={{ marginTop: '2rem', textAlign: 'center' }}>
                             <Link to="/" style={{
                                 display: 'inline-flex',

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Contact.css';
 import contactHero from '../assets/contact-hero.jpg';
 
@@ -14,6 +14,10 @@ const Contact = () => {
         graduatedDetails: '', // For Graduated but not working: Year of graduation
         message: '',
     });
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const [status, setStatus] = useState('');
 

@@ -227,6 +227,20 @@
     margin-bottom: 2rem;
 }
 
+.course-header-flex {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .course-header-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
 .course-detail h2 {
     font-size: 2rem;
     color: var(--gray-900);
@@ -397,12 +411,40 @@
 
 @media (max-width: 768px) {
     .courses-hero {
-        padding: 3rem 0;
+        padding: 4rem 1.5rem;
+    }
+
+    .courses-hero-content h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
     }
 
     .courses-stats {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .course-stat {
+        flex: 1 1 auto;
+        min-width: 100px;
+    }
+
+    .course-stat-number {
+        font-size: 2rem;
+    }
+
+    .course-stat-label {
+        font-size: 0.85rem;
+    }
+
+    .courses-hero .btn,
+    .courses-hero a {
+        width: 100%;
+        justify-content: center;
     }
 
     .courses-page .grid-3 {

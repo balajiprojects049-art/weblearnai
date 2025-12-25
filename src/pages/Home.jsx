@@ -341,12 +341,12 @@ const Home = () => {
             </section>
 
             {/* Books & Publications */}
-            <section className="section books-section gradient-bg-secondary">
+            <section className="section books-section">
                 <div className="container">
                     <div className="section-header text-center">
                         <div className="badge">Books & Publications</div>
-                        <h2 style={{ color: 'white' }}>Learn from Our Expert Authors</h2>
-                        <p className="lead" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
+                        <h2>Learn from Our Expert Authors</h2>
+                        <p className="lead">
                             Comprehensive guides written by our industry-expert instructors
                         </p>
                     </div>
@@ -358,7 +358,7 @@ const Home = () => {
                             </div>
                         ))}
                     </div>
-                    <div className="text-center" style={{ marginTop: '3rem' }}>
+                    <div style={{ marginTop: '3rem', display: 'flex', justifyContent: 'center' }}>
                         <Link to="/courses" className="btn btn-secondary btn-large">
                             Explore All Books
                         </Link>

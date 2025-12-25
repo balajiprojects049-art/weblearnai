@@ -118,13 +118,10 @@ const About = () => {
 
     return (
         <div className="about-page">
-            <section
-                className="course-hero cert-hero about-hero"
-                style={{ backgroundImage: `url(${aboutHero})` }}
-            >
+            <section className="about-hero" style={{ backgroundImage: `url(${aboutHero})` }}>
                 <div className="container">
-                    <h1 style={{ color: 'white', fontSize: '3.5rem', marginBottom: '1rem' }}>About Weblearnai Academy</h1>
-                    <p className="lead" style={{ color: 'rgba(255, 255, 255, 0.95)', maxWidth: '800px', margin: '0 auto' }}>
+                    <h1>About Weblearnai Academy</h1>
+                    <p className="lead">
                         Empowering careers through world-class IT training and expert mentorship.
                     </p>
                 </div>
@@ -337,11 +334,11 @@ const About = () => {
                         <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.2rem', marginBottom: '2.5rem' }}>
                             Join hundreds of successful graduates who have transformed their careers with us.
                         </p>
-                        <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
+                        <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                             <a href="/contact" className="btn btn-primary" style={{ background: 'white', color: '#059669', padding: '1rem 3rem', fontWeight: 'bold' }}>
                                 Enroll Now
                             </a>
-                            <a href="/contact" className="btn btn-secondary" style={{ border: '2px solid white', color: 'white', padding: '1rem 3rem', fontWeight: 'bold' }}>
+                            <a href="/contact" className="btn btn-secondary" style={{ background: 'transparent', border: '2px solid white', color: 'white', padding: '1rem 3rem', fontWeight: 'bold' }}>
                                 Talk to Expert
                             </a>
                         </div>
