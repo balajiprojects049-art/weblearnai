@@ -303,7 +303,7 @@ const Courses = () => {
                 className="courses-hero"
                 style={{
                     backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.85)), url(${cloudInternshipImg})`,
-                    backgroundPosition: 'center',
+                    backgroundPosition: 'center 45%',
                     backgroundSize: 'cover'
                 }}
             >
