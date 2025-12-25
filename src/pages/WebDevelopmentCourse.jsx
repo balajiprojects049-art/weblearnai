@@ -248,7 +248,11 @@ const WebDevelopmentCourse = () => {
             {/* Hero Section */}
             <section
                 className="course-hero"
-                style={{ backgroundImage: `url(${webDevHero})` }}
+                style={{
+                    backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), url(${webDevHero})`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover'
+                }}
             >
                 <div className="container">
                     <div className="course-hero-content">

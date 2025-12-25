@@ -1,14 +1,21 @@
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import './Internships.css';
 import internshipsHero from '../assets/internships-hero.jpg';
 
 const Internships = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div className="internships-page">
             {/* Hero Section */}
             <section
                 className="internships-hero"
-                style={{ backgroundImage: `url(${internshipsHero})` }}
+                style={{
+                    backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), url(${internshipsHero})`
+                }}
             >
                 <div className="container">
                     <div className="badge" style={{ marginBottom: '1.5rem' }}>Hands-on Learning</div>
