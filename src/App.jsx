@@ -14,6 +14,7 @@ import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import { Certifications, Mentors, Roadmap, About, Placements, FAQs } from './pages';
 import './index.css';
+import './mobile-responsive.css';
 
 function App() {
   return (

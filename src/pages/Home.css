@@ -717,7 +717,6 @@
     .hero-content-center {
         padding: 1.5rem;
         padding-top: 15vh;
-        /* Less top padding on mobile but still pushed down */
     }
 
     .hero-main-title {
@@ -753,33 +752,57 @@
         width: 100%;
     }
 
+    /* Fix bonuses grid */
     .bonuses-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: 1.5rem;
     }
 
-    .bonuses-grid .bonus-card:nth-child(4),
-    .bonuses-grid .bonus-card:nth-child(5) {
-        grid-column: auto;
-        margin-left: 0;
-        margin-right: 0;
+    .bonuses-grid .bonus-card {
+        grid-column: auto !important;
+    }
+
+    /* Fix programs grid */
+    .programs-section .grid-3 {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+    }
+
+    .programs-section .grid-3>* {
+        grid-column: auto !important;
     }
 
     .testimonial-carousel-track {
         animation-duration: 20s !important;
-        /* Faster scroll speed */
     }
 
     .testimonial-card-carousel {
-        min-width: 320px !important;
-        /* Smaller cards on mobile */
+        min-width: 280px !important;
+        max-width: 280px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-main-title {
+        font-size: 2rem !important;
+    }
+
+    .testimonial-card-carousel {
+        min-width: 260px !important;
+        max-width: 260px !important;
+    }
+
+    .bonus-card,
+    .program-card {
+        padding: 1.5rem;
     }
 }
 
 /* Infinite Auto-Scroll Carousel for Testimonials - News Ticker Style */
 .testimonial-carousel-container {
-    overflow: hidden;
+    overflow: hidden !important;
     width: 100%;
+    max-width: 100vw;
     margin-top: 3rem;
     position: relative;
 }

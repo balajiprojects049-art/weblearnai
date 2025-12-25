@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import certBadges from '../assets/cert-badges.png';
 import aboutHero from '../assets/about-hero.jpg';
+import './About.css';
 
 const About = () => {
     const [openIndex, setOpenIndex] = useState(null);
