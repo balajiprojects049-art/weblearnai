@@ -118,7 +118,11 @@ const About = () => {
 
     return (
         <div className="about-page">
-            <section className="about-hero" style={{ backgroundImage: `url(${aboutHero})` }}>
+            <section className="about-hero" style={{
+                backgroundImage: `url(${aboutHero})`,
+                backgroundPosition: 'center 45%',
+                backgroundSize: 'cover'
+            }}>
                 <div className="container">
                     <h1>About Weblearnai Academy</h1>
                     <p className="lead">
