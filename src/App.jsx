@@ -16,10 +16,13 @@ import { Certifications, Mentors, Roadmap, About, Placements, FAQs } from './pag
 import './index.css';
 import './mobile-responsive.css';
 
+import FloatingSocials from './components/FloatingSocials';
+
 function App() {
   return (
     <Router>
       <div className="App">
+        <FloatingSocials />
         <Routes>
           {/* Admin Routes (No Header/Footer) */}
           <Route path="/admin/login" element={<AdminLogin />} />

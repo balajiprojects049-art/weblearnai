@@ -4,11 +4,11 @@ import './Courses.css';
 import cloudInternshipImg from '../assets/cloud-internship.jpg';
 
 // Import course icons
-import azureDatabricksIcon from '../assets/azure-databricks-icon.png';
-import microsoftFabricIcon from '../assets/microsoft-fabric-icon.png';
-import sqlDatabaseIcon from '../assets/sql-database-icon.png';
-import cloudEngineeringIcon from '../assets/cloud-engineering-icon.png';
-import pythonAiIcon from '../assets/python-ai-icon.png';
+import azureDatabricksIcon from '../assets/azure-databricks-red-logo.png';
+import microsoftFabricIcon from '../assets/microdoft fabric.png';
+import sqlDatabaseIcon from '../assets/SQL.png';
+import cloudEngineeringIcon from '../assets/cloud-engineering-final.png';
+import pythonAiIcon from '../assets/Gen ai.png';
 
 const Courses = () => {
     const [selectedCourse, setSelectedCourse] = useState(null);
@@ -31,7 +31,7 @@ const Courses = () => {
             students: '2,500+',
             iconImage: azureDatabricksIcon,
             icon: '🔧',
-            color: '#0078D4',
+            color: '#E65100',
             whoIsThisFor: [
                 'Anyone transitioning to data engineering',
                 'Data analysts wanting to advance their careers',
@@ -67,7 +67,7 @@ const Courses = () => {
             students: '1,800+',
             iconImage: microsoftFabricIcon,
             icon: '🎯',
-            color: '#742774',
+            color: '#008272',
             whoIsThisFor: [
                 'Data engineers with Azure experience',
                 'Power BI developers advancing to Fabric',
@@ -209,7 +209,7 @@ const Courses = () => {
             students: '2,000+',
             iconImage: cloudEngineeringIcon,
             icon: '☁️',
-            color: '#FF9900',
+            color: '#0284C7',
             whoIsThisFor: [
                 'System administrators moving to cloud',
                 'Developers building cloud-native apps',
@@ -379,9 +379,9 @@ const Courses = () => {
                                 >
                                     <div className="course-card-icon" style={{ background: `linear-gradient(135deg, ${course.color} 0%, ${course.color}dd 100%)` }}>
                                         {course.iconImage ? (
-                                            <img src={course.iconImage} alt={course.title} style={{ width: '120px', height: '120px', objectFit: 'contain' }} />
+                                            <img src={course.iconImage} alt={course.title} style={{ width: '150px', height: '150px', objectFit: 'contain' }} />
                                         ) : (
-                                            <span style={{ fontSize: '4.5rem' }}>{course.icon}</span>
+                                            <span style={{ fontSize: '5.5rem' }}>{course.icon}</span>
                                         )}
                                     </div>
                                     <div className="course-card-content">
@@ -429,8 +429,8 @@ const Courses = () => {
                                         <div className="course-header-flex">
                                             <div style={{
                                                 fontSize: '5rem',
-                                                width: '150px',
-                                                height: '150px',
+                                                width: '180px',
+                                                height: '180px',
                                                 background: 'rgba(255, 255, 255, 0.9)',
                                                 borderRadius: '20px',
                                                 display: 'flex',
@@ -442,7 +442,7 @@ const Courses = () => {
                                                 {course.iconImage ? (
                                                     <img src={course.iconImage} alt={course.title} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                                                 ) : (
-                                                    <span style={{ fontSize: '5rem' }}>{course.icon}</span>
+                                                    <span style={{ fontSize: '6rem' }}>{course.icon}</span>
                                                 )}
                                             </div>
                                             <div style={{ flex: 1 }}>
