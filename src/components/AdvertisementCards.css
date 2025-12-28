@@ -258,12 +258,223 @@
     color: white;
 }
 
-/* Existing card styles can remain below or be ignored if not used */
-.ad-card {
-    display: none;
+
+/* =========================================
+   RESTORED ADMIN CARD STYLES (LIST VIEW) 
+   ========================================= */
+
+/* Advertisement Cards Container */
+.ad-container {
+    padding: 1rem;
+    margin: 1rem auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Single column for list */
+    gap: 1.5rem;
 }
 
-/* Hide the old cards if they inadvertently render */
-.ad-container {
-    display: none;
+/* Base Card Style */
+.ad-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ad-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.ad-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ad-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    padding-right: 80px;
+    /* Space for badge */
+}
+
+.ad-content p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+}
+
+.ad-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0.5rem 0;
+}
+
+.ad-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.ad-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.9rem;
+}
+
+/* --- Style 1: Modern Glass (Blue/Purple) --- */
+.ad-style-1 {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    color: white;
+    background-image: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+}
+
+.ad-style-1 .ad-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.ad-style-1 .ad-btn {
+    background: white;
+    color: #1e3a8a;
+}
+
+.ad-style-1 .ad-btn:hover {
+    background: #f0f9ff;
+    transform: scale(1.05);
+}
+
+/* --- Style 2: Urgent / Bold (Red/Black) --- */
+.ad-style-2 {
+    background: #111;
+    color: white;
+    border: 2px solid #ef4444;
+    box-shadow: 5px 5px 0px #ef4444;
+}
+
+.ad-style-2 .ad-badge {
+    background: #ef4444;
+    color: white;
+}
+
+.ad-style-2 h3 {
+    text-transform: uppercase;
+    font-style: italic;
+    color: #ef4444;
+}
+
+.ad-style-2 .ad-price {
+    color: #ef4444;
+}
+
+.ad-style-2 .ad-btn {
+    background: #ef4444;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ad-style-2 .ad-btn:hover {
+    background: #dc2626;
+    box-shadow: 0 0 10px #ef4444;
+}
+
+/* --- Style 3: Minimalist (White/Gray) --- */
+.ad-style-3 {
+    background: white;
+    color: #333;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.ad-style-3 .ad-badge {
+    background: #f3f4f6;
+    color: #333;
+}
+
+.ad-style-3 h3 {
+    font-weight: 300;
+    color: #111;
+}
+
+.ad-style-3 .ad-btn {
+    background: #111;
+    color: white;
+    border-radius: 4px;
+}
+
+.ad-style-3 .ad-btn:hover {
+    background: #333;
+}
+
+/* --- Style 4: Playful Gradient (Orange/Purple) --- */
+.ad-style-4 {
+    background: linear-gradient(45deg, #FF9A9E 0%, #FECFEF 99%, #FECFEF 100%);
+    color: #555;
+    background-size: 200% 200%;
+    animation: gradientMove 5s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.ad-style-4 .ad-badge {
+    background: white;
+    color: #FF6B6B;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ad-style-4 h3 {
+    color: #845EC2;
+    font-weight: 800;
+}
+
+.ad-style-4 .ad-btn {
+    background: #845EC2;
+    color: white;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(132, 94, 194, 0.4);
+}
+
+.ad-style-4 .ad-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(132, 94, 194, 0.6);
 }
