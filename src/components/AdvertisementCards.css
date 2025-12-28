@@ -1,228 +1,269 @@
-/* Advertisement Cards Container */
-.ad-container {
-    padding: 1rem;
-    margin: 2rem auto;
-    max-width: 1200px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-/* Base Card Style */
-.ad-card {
-    position: relative;
-    border-radius: 16px;
-    overflow: hidden;
-    padding: 2rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    min-height: 250px;
+/* --- POPUP OVERLAY --- */
+.ad-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.ad-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-}
-
-.ad-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.ad-content h3 {
-    font-size: 1.75rem;
-    margin-bottom: 0.5rem;
-    line-height: 1.2;
-}
-
-.ad-content p {
-    font-size: 1rem;
-    opacity: 0.9;
-    margin-bottom: 1.5rem;
-}
-
-.ad-price {
-    font-size: 2rem;
-    font-weight: 800;
-    margin: 1rem 0;
-}
-
-.ad-footer {
-    display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-top: auto;
+    animation: fadeInOverlay 0.5s ease-out forwards;
 }
 
-.ad-btn {
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s;
-    border: none;
-    cursor: pointer;
-    display: inline-block;
-}
-
-/* --- Style 1: Modern Glass (Blue/Purple) --- */
-.ad-style-1 {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    color: white;
-    background-image: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-}
-
-.ad-style-1 .ad-badge {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.ad-style-1 .ad-btn {
-    background: white;
-    color: #1e3a8a;
-}
-
-.ad-style-1 .ad-btn:hover {
-    background: #f0f9ff;
-    transform: scale(1.05);
-}
-
-/* --- Style 2: Urgent / Bold (Red/Black) --- */
-.ad-style-2 {
-    background: #111;
-    color: white;
-    border: 2px solid #ef4444;
-    box-shadow: 5px 5px 0px #ef4444;
-}
-
-.ad-style-2 .ad-badge {
-    background: #ef4444;
-    color: white;
-}
-
-.ad-style-2 h3 {
-    text-transform: uppercase;
-    font-style: italic;
-    color: #ef4444;
-}
-
-.ad-style-2 .ad-price {
-    color: #ef4444;
-}
-
-.ad-style-2 .ad-btn {
-    background: #ef4444;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.ad-style-2 .ad-btn:hover {
-    background: #dc2626;
-    box-shadow: 0 0 10px #ef4444;
-}
-
-/* --- Style 3: Minimalist (White/Gray) --- */
-.ad-style-3 {
-    background: white;
-    color: #333;
-    border: 1px solid #eee;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-}
-
-.ad-style-3 .ad-badge {
-    background: #f3f4f6;
-    color: #333;
-}
-
-.ad-style-3 h3 {
-    font-weight: 300;
-    color: #111;
-}
-
-.ad-style-3 .ad-btn {
-    background: #111;
-    color: white;
-    border-radius: 4px;
-}
-
-.ad-style-3 .ad-btn:hover {
-    background: #333;
-}
-
-/* --- Style 4: Playful Gradient (Orange/Purple) --- */
-.ad-style-4 {
-    background: linear-gradient(45deg, #FF9A9E 0%, #FECFEF 99%, #FECFEF 100%);
-    color: #555;
-    background-size: 200% 200%;
-    animation: gradientMove 5s ease infinite;
-}
-
-@keyframes gradientMove {
-    0% {
-        background-position: 0% 50%;
+@keyframes fadeInOverlay {
+    from {
+        opacity: 0;
     }
 
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
+    to {
+        opacity: 1;
     }
 }
 
-.ad-style-4 .ad-badge {
-    background: white;
-    color: #FF6B6B;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.ad-style-4 h3 {
-    color: #845EC2;
-    font-weight: 800;
-}
-
-.ad-style-4 .ad-btn {
-    background: #845EC2;
+/* --- POPUP CARD --- */
+.ad-popup-card {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    padding: 3rem 2rem;
+    border-radius: 24px;
+    text-align: center;
     color: white;
-    border-radius: 50px;
-    box-shadow: 0 4px 15px rgba(132, 94, 194, 0.4);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transform: scale(0.8) translateY(50px);
+    animation: popupEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    overflow: hidden;
 }
 
-.ad-style-4 .ad-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(132, 94, 194, 0.6);
+@keyframes popupEntrance {
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
 
-/* Close Button (for users to dismiss) */
-.ad-close-btn {
+/* --- CLOSE BUTTON --- */
+.ad-popup-close {
     position: absolute;
-    top: 5px;
-    right: 5px;
-    background: transparent;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.2);
     border: none;
-    color: inherit;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
     font-size: 1.2rem;
     cursor: pointer;
-    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    z-index: 20;
+}
+
+.ad-popup-close:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: rotate(90deg);
+}
+
+/* --- CONTENT STYLING --- */
+.ad-popup-badge {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
     z-index: 10;
 }
 
-.ad-close-btn:hover {
-    opacity: 1;
+.ad-popup-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 10;
+}
+
+.ad-popup-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    position: relative;
+    z-index: 10;
+}
+
+.ad-popup-price {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.ad-popup-btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: white;
+    color: #111;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 10;
+}
+
+.ad-popup-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* --- DECORATIVE SHAPES --- */
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+    filter: blur(40px);
+    opacity: 0.6;
+}
+
+.shape-1 {
+    width: 200px;
+    height: 200px;
+    top: -50px;
+    left: -50px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.shape-2 {
+    width: 150px;
+    height: 150px;
+    bottom: -30px;
+    right: -30px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.shape-3 {
+    width: 100px;
+    height: 100px;
+    top: 40%;
+    left: 80%;
+    background: rgba(255, 255, 255, 0.2);
+    animation: floatShape 6s infinite ease-in-out;
+}
+
+@keyframes floatShape {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* --- THEMES (Adapting existing styles for Popup) --- */
+/* Style 1: Modern Blue */
+.ad-popup-style-1 {
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+}
+
+.ad-popup-style-1 .ad-popup-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.ad-popup-style-1 .ad-popup-btn {
+    color: #2563eb;
+}
+
+/* Style 2: Urgent Red */
+.ad-popup-style-2 {
+    background: linear-gradient(135deg, #111 0%, #222 100%);
+    border: 3px solid #ef4444;
+}
+
+.ad-popup-style-2 .ad-popup-badge {
+    background: #ef4444;
+    color: white;
+}
+
+.ad-popup-style-2 .ad-popup-title,
+.ad-popup-style-2 .ad-popup-price {
+    color: #ef4444;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+}
+
+.ad-popup-style-2 .ad-popup-btn {
+    background: #ef4444;
+    color: white;
+}
+
+/* Style 3: Clean White (Dark Text) */
+.ad-popup-style-3 {
+    background: white;
+    color: #111;
+}
+
+.ad-popup-style-3 .ad-popup-badge {
+    background: #111;
+    color: white;
+}
+
+.ad-popup-style-3 .ad-popup-btn {
+    background: #111;
+    color: white;
+}
+
+.ad-popup-style-3 .shape {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Style 4: Fun Gradient */
+.ad-popup-style-4 {
+    background: linear-gradient(45deg, #FF9A9E 0%, #FECFEF 99%, #FECFEF 100%);
+    color: #4a4a4a;
+}
+
+.ad-popup-style-4 .ad-popup-badge {
+    background: white;
+    color: #ff6b6b;
+}
+
+.ad-popup-style-4 .ad-popup-title {
+    color: #845EC2;
+}
+
+.ad-popup-style-4 .ad-popup-btn {
+    background: #845EC2;
+    color: white;
+}
+
+/* Existing card styles can remain below or be ignored if not used */
+.ad-card {
+    display: none;
+}
+
+/* Hide the old cards if they inadvertently render */
+.ad-container {
+    display: none;
 }
