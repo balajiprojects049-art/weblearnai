@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import AdvertisementDisplay from '../components/AdvertisementDisplay';
 import { useEffect } from 'react';
 import './Home.css';
 import cloudInternshipImg from '../assets/cloud-internship.jpg';
@@ -214,6 +215,9 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Advertisements / News Section */}
+            <AdvertisementDisplay />
 
             {/* Why Choose Weblearnai */}
             <section className="section why-section">

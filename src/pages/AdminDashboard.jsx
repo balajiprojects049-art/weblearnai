@@ -2,9 +2,11 @@ import { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../assets/weblearnai-logo.png';
+import AdManager from '../components/admin/AdManager';
 import './AdminDashboard.css';
 
 const AdminDashboard = () => {
+    const [activeTab, setActiveTab] = useState('submissions');
     const [submissions, setSubmissions] = useState([]);
     const [filteredSubmissions, setFilteredSubmissions] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -223,6 +225,40 @@ const AdminDashboard = () => {
                             <h1 className="navbar-title">Admin Dashboard</h1>
                             <p className="navbar-subtitle">Manage your submissions</p>
                         </div>
+
+                        {/* TAB NAVIGATION */}
+                        <div style={{ marginLeft: '3rem', display: 'flex', gap: '1rem' }}>
+                            <button
+                                onClick={() => setActiveTab('submissions')}
+                                style={{
+                                    padding: '0.5rem 1rem',
+                                    borderRadius: '8px',
+                                    border: 'none',
+                                    background: activeTab === 'submissions' ? 'rgba(37, 99, 235, 0.1)' : 'transparent',
+                                    color: activeTab === 'submissions' ? '#2563eb' : '#64748b',
+                                    fontWeight: '600',
+                                    cursor: 'pointer',
+                                    transition: 'all 0.2s'
+                                }}
+                            >
+                                📋 Submissions
+                            </button>
+                            <button
+                                onClick={() => setActiveTab('ads')}
+                                style={{
+                                    padding: '0.5rem 1rem',
+                                    borderRadius: '8px',
+                                    border: 'none',
+                                    background: activeTab === 'ads' ? 'rgba(37, 99, 235, 0.1)' : 'transparent',
+                                    color: activeTab === 'ads' ? '#2563eb' : '#64748b',
+                                    fontWeight: '600',
+                                    cursor: 'pointer',
+                                    transition: 'all 0.2s'
+                                }}
+                            >
+                                📢 Advertisements
+                            </button>
+                        </div>
                     </div>
                     <div className="navbar-right">
                         <div className="user-menu-container">
@@ -273,289 +309,297 @@ const AdminDashboard = () => {
             {/* MAIN CONTENT */}
             <div className="dashboard-content">
                 <div className="dashboard-container">
-                    {/* STATS CARDS */}
-                    <motion.div
-                        className="stats-grid"
-                        initial="hidden"
-                        animate="visible"
-                        variants={{
-                            hidden: { opacity: 0 },
-                            visible: {
-                                opacity: 1,
-                                transition: { staggerChildren: 0.1 }
-                            }
-                        }}
-                    >
-                        {[
-                            { icon: '📊', label: 'Total Submissions', value: submissions.length, color: 'blue' },
-                            { icon: '🔍', label: 'Filtered Results', value: filteredSubmissions.length, color: 'purple' },
-                            { icon: '📅', label: 'Today\'s Leads', value: todayCount, color: 'green' },
-                            {
-                                icon: '📈', label: 'This Week', value: submissions.filter(s => {
-                                    const weekAgo = new Date();
-                                    weekAgo.setDate(weekAgo.getDate() - 7);
-                                    return new Date(s.timestamp) > weekAgo;
-                                }).length, color: 'orange'
-                            }
-                        ].map((stat, index) => (
+
+                    {activeTab === 'ads' ? (
+                        <AdManager />
+                    ) : (
+                        /* SUBMISSIONS DASHBOARD */
+                        <>
+                            {/* STATS CARDS */}
                             <motion.div
-                                key={index}
-                                className={`stat-card stat-${stat.color}`}
+                                className="stats-grid"
+                                initial="hidden"
+                                animate="visible"
                                 variants={{
-                                    hidden: { opacity: 0, y: 20 },
-                                    visible: { opacity: 1, y: 0 }
+                                    hidden: { opacity: 0 },
+                                    visible: {
+                                        opacity: 1,
+                                        transition: { staggerChildren: 0.1 }
+                                    }
                                 }}
-                                whileHover={{ y: -5, transition: { duration: 0.2 } }}
                             >
-                                <div className="stat-icon">{stat.icon}</div>
-                                <div className="stat-info">
+                                {[
+                                    { icon: '📊', label: 'Total Submissions', value: submissions.length, color: 'blue' },
+                                    { icon: '🔍', label: 'Filtered Results', value: filteredSubmissions.length, color: 'purple' },
+                                    { icon: '📅', label: 'Today\'s Leads', value: todayCount, color: 'green' },
+                                    {
+                                        icon: '📈', label: 'This Week', value: submissions.filter(s => {
+                                            const weekAgo = new Date();
+                                            weekAgo.setDate(weekAgo.getDate() - 7);
+                                            return new Date(s.timestamp) > weekAgo;
+                                        }).length, color: 'orange'
+                                    }
+                                ].map((stat, index) => (
                                     <motion.div
-                                        className="stat-value"
-                                        initial={{ opacity: 0, scale: 0.5 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        transition={{ delay: 0.2 + index * 0.1, type: 'spring' }}
+                                        key={index}
+                                        className={`stat-card stat-${stat.color}`}
+                                        variants={{
+                                            hidden: { opacity: 0, y: 20 },
+                                            visible: { opacity: 1, y: 0 }
+                                        }}
+                                        whileHover={{ y: -5, transition: { duration: 0.2 } }}
                                     >
-                                        {stat.value}
+                                        <div className="stat-icon">{stat.icon}</div>
+                                        <div className="stat-info">
+                                            <motion.div
+                                                className="stat-value"
+                                                initial={{ opacity: 0, scale: 0.5 }}
+                                                animate={{ opacity: 1, scale: 1 }}
+                                                transition={{ delay: 0.2 + index * 0.1, type: 'spring' }}
+                                            >
+                                                {stat.value}
+                                            </motion.div>
+                                            <div className="stat-label">{stat.label}</div>
+                                        </div>
                                     </motion.div>
-                                    <div className="stat-label">{stat.label}</div>
+                                ))}
+                            </motion.div>
+
+                            {/* FILTERS & SORTING */}
+                            <motion.div
+                                className="filters-section"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.4 }}
+                            >
+                                <div className="filters-header">
+                                    <h2>🔎 Advanced Filters</h2>
+                                    <motion.button
+                                        className="reset-filters-btn"
+                                        onClick={resetFilters}
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                    >
+                                        ↻ Reset All
+                                    </motion.button>
+                                </div>
+                                <div className="filters-grid">
+                                    {/* Search */}
+                                    <div className="filter-item">
+                                        <label className="filter-label">🔍 Search</label>
+                                        <input
+                                            type="text"
+                                            className="filter-input"
+                                            placeholder="Name, email, or phone..."
+                                            value={searchTerm}
+                                            onChange={(e) => setSearchTerm(e.target.value)}
+                                        />
+                                    </div>
+
+                                    {/* Course Filter */}
+                                    <div className="filter-item">
+                                        <label className="filter-label">📚 Course</label>
+                                        <select
+                                            className="filter-select"
+                                            value={filterCourse}
+                                            onChange={(e) => setFilterCourse(e.target.value)}
+                                        >
+                                            <option value="">All Courses</option>
+                                            {courseOptions.map(course => (
+                                                <option key={course} value={course}>{course}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+
+                                    {/* Status Filter */}
+                                    <div className="filter-item">
+                                        <label className="filter-label">👤 Status</label>
+                                        <select
+                                            className="filter-select"
+                                            value={filterStatus}
+                                            onChange={(e) => setFilterStatus(e.target.value)}
+                                        >
+                                            <option value="">All Status</option>
+                                            {statusOptions.map(status => (
+                                                <option key={status} value={status}>{status}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+
+                                    {/* Sort By */}
+                                    <div className="filter-item">
+                                        <label className="filter-label">↕️ Sort By</label>
+                                        <select
+                                            className="filter-select"
+                                            value={sortBy}
+                                            onChange={(e) => setSortBy(e.target.value)}
+                                        >
+                                            <option value="date-desc">Newest First</option>
+                                            <option value="date-asc">Oldest First</option>
+                                            <option value="name-asc">Name (A-Z)</option>
+                                            <option value="name-desc">Name (Z-A)</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </motion.div>
-                        ))}
-                    </motion.div>
 
-                    {/* FILTERS & SORTING */}
-                    <motion.div
-                        className="filters-section"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                    >
-                        <div className="filters-header">
-                            <h2>🔎 Advanced Filters</h2>
-                            <motion.button
-                                className="reset-filters-btn"
-                                onClick={resetFilters}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
+                            {/* ACTION BUTTONS */}
+                            <motion.div
+                                className="action-bar"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.5 }}
                             >
-                                ↻ Reset All
-                            </motion.button>
-                        </div>
-                        <div className="filters-grid">
-                            {/* Search */}
-                            <div className="filter-item">
-                                <label className="filter-label">🔍 Search</label>
-                                <input
-                                    type="text"
-                                    className="filter-input"
-                                    placeholder="Name, email, or phone..."
-                                    value={searchTerm}
-                                    onChange={(e) => setSearchTerm(e.target.value)}
-                                />
-                            </div>
-
-                            {/* Course Filter */}
-                            <div className="filter-item">
-                                <label className="filter-label">📚 Course</label>
-                                <select
-                                    className="filter-select"
-                                    value={filterCourse}
-                                    onChange={(e) => setFilterCourse(e.target.value)}
+                                <motion.button
+                                    className="btn-primary"
+                                    onClick={downloadCSV}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
                                 >
-                                    <option value="">All Courses</option>
-                                    {courseOptions.map(course => (
-                                        <option key={course} value={course}>{course}</option>
-                                    ))}
-                                </select>
-                            </div>
-
-                            {/* Status Filter */}
-                            <div className="filter-item">
-                                <label className="filter-label">👤 Status</label>
-                                <select
-                                    className="filter-select"
-                                    value={filterStatus}
-                                    onChange={(e) => setFilterStatus(e.target.value)}
+                                    📥 Download CSV
+                                </motion.button>
+                                <motion.button
+                                    className="btn-danger"
+                                    onClick={handleDeleteAll}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
                                 >
-                                    <option value="">All Status</option>
-                                    {statusOptions.map(status => (
-                                        <option key={status} value={status}>{status}</option>
-                                    ))}
-                                </select>
-                            </div>
+                                    🗑️ Delete All
+                                </motion.button>
+                            </motion.div>
 
-                            {/* Sort By */}
-                            <div className="filter-item">
-                                <label className="filter-label">↕️ Sort By</label>
-                                <select
-                                    className="filter-select"
-                                    value={sortBy}
-                                    onChange={(e) => setSortBy(e.target.value)}
-                                >
-                                    <option value="date-desc">Newest First</option>
-                                    <option value="date-asc">Oldest First</option>
-                                    <option value="name-asc">Name (A-Z)</option>
-                                    <option value="name-desc">Name (Z-A)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    {/* ACTION BUTTONS */}
-                    <motion.div
-                        className="action-bar"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.5 }}
-                    >
-                        <motion.button
-                            className="btn-primary"
-                            onClick={downloadCSV}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            📥 Download CSV
-                        </motion.button>
-                        <motion.button
-                            className="btn-danger"
-                            onClick={handleDeleteAll}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            🗑️ Delete All
-                        </motion.button>
-                    </motion.div>
-
-                    {/* DATA TABLE */}
-                    <motion.div
-                        className="table-container"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.6 }}
-                    >
-                        {loading ? (
-                            <div className="loading-skeleton">
-                                {[...Array(5)].map((_, i) => (
-                                    <div key={i} className="skeleton-row" />
-                                ))}
-                            </div>
-                        ) : filteredSubmissions.length === 0 ? (
-                            <div className="empty-state">
-                                <div className="empty-icon">📭</div>
-                                <h3>No submissions found</h3>
-                                <p>Try adjusting your filters or check back later</p>
-                            </div>
-                        ) : (
-                            <>
-                                <div className="table-wrapper">
-                                    <table className="data-table">
-                                        <thead>
-                                            <tr>
-                                                <th>Date & Time</th>
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Phone</th>
-                                                <th>Course</th>
-                                                <th>Status</th>
-                                                <th>Message</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <AnimatePresence>
-                                                {paginatedData.map((sub, index) => (
-                                                    <motion.tr
-                                                        key={sub.id}
-                                                        initial={{ opacity: 0, x: -20 }}
-                                                        animate={{ opacity: 1, x: 0 }}
-                                                        exit={{ opacity: 0, x: 20 }}
-                                                        transition={{ delay: index * 0.05 }}
-                                                    >
-                                                        <td data-label="Date">{sub.timestamp}</td>
-                                                        <td data-label="Name">
-                                                            <strong>{sub.name}</strong>
-                                                        </td>
-                                                        <td data-label="Email">{sub.email}</td>
-                                                        <td data-label="Phone">{sub.phone}</td>
-                                                        <td data-label="Course">
-                                                            <span className="course-badge">{getCourseName(sub)}</span>
-                                                        </td>
-                                                        <td data-label="Status">
-                                                            <span className="status-badge">
-                                                                {sub.studentStatus || 'N/A'}
-                                                                {sub.studentDetails && <><br /><small>({sub.studentDetails})</small></>}
-                                                                {sub.experienceYears && <><br /><small>({sub.experienceYears})</small></>}
-                                                                {sub.graduatedDetails && <><br /><small>(Grad: {sub.graduatedDetails})</small></>}
-                                                            </span>
-                                                        </td>
-                                                        <td data-label="Message" className="message-cell" title={sub.message}>
-                                                            {sub.message || 'No message'}
-                                                        </td>
-                                                        <td data-label="Actions">
-                                                            <motion.button
-                                                                className="btn-delete-row"
-                                                                onClick={() => handleDelete(sub.id)}
-                                                                whileHover={{ scale: 1.1 }}
-                                                                whileTap={{ scale: 0.9 }}
-                                                                title="Delete"
-                                                            >
-                                                                🗑️
-                                                            </motion.button>
-                                                        </td>
-                                                    </motion.tr>
-                                                ))}
-                                            </AnimatePresence>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                {/* PAGINATION */}
-                                {totalPages > 1 && (
-                                    <div className="pagination">
-                                        <div className="pagination-info">
-                                            Showing {((currentPage - 1) * pageSize) + 1} to {Math.min(currentPage * pageSize, filteredSubmissions.length)} of {filteredSubmissions.length} entries
-                                        </div>
-                                        <div className="pagination-controls">
-                                            <select
-                                                className="page-size-select"
-                                                value={pageSize}
-                                                onChange={(e) => {
-                                                    setPageSize(Number(e.target.value));
-                                                    setCurrentPage(1);
-                                                }}
-                                            >
-                                                <option value="5">5 per page</option>
-                                                <option value="10">10 per page</option>
-                                                <option value="25">25 per page</option>
-                                                <option value="50">50 per page</option>
-                                            </select>
-                                            <div className="pagination-buttons">
-                                                <motion.button
-                                                    onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
-                                                    disabled={currentPage === 1}
-                                                    whileHover={{ scale: 1.05 }}
-                                                    whileTap={{ scale: 0.95 }}
-                                                >
-                                                    ← Prev
-                                                </motion.button>
-                                                <span className="page-indicator">
-                                                    Page {currentPage} of {totalPages}
-                                                </span>
-                                                <motion.button
-                                                    onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
-                                                    disabled={currentPage === totalPages}
-                                                    whileHover={{ scale: 1.05 }}
-                                                    whileTap={{ scale: 0.95 }}
-                                                >
-                                                    Next →
-                                                </motion.button>
-                                            </div>
-                                        </div>
+                            {/* DATA TABLE */}
+                            <motion.div
+                                className="table-container"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.6 }}
+                            >
+                                {loading ? (
+                                    <div className="loading-skeleton">
+                                        {[...Array(5)].map((_, i) => (
+                                            <div key={i} className="skeleton-row" />
+                                        ))}
                                     </div>
+                                ) : filteredSubmissions.length === 0 ? (
+                                    <div className="empty-state">
+                                        <div className="empty-icon">📭</div>
+                                        <h3>No submissions found</h3>
+                                        <p>Try adjusting your filters or check back later</p>
+                                    </div>
+                                ) : (
+                                    <>
+                                        <div className="table-wrapper">
+                                            <table className="data-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date & Time</th>
+                                                        <th>Name</th>
+                                                        <th>Email</th>
+                                                        <th>Phone</th>
+                                                        <th>Course</th>
+                                                        <th>Status</th>
+                                                        <th>Message</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <AnimatePresence>
+                                                        {paginatedData.map((sub, index) => (
+                                                            <motion.tr
+                                                                key={sub.id}
+                                                                initial={{ opacity: 0, x: -20 }}
+                                                                animate={{ opacity: 1, x: 0 }}
+                                                                exit={{ opacity: 0, x: 20 }}
+                                                                transition={{ delay: index * 0.05 }}
+                                                            >
+                                                                <td data-label="Date">{sub.timestamp}</td>
+                                                                <td data-label="Name">
+                                                                    <strong>{sub.name}</strong>
+                                                                </td>
+                                                                <td data-label="Email">{sub.email}</td>
+                                                                <td data-label="Phone">{sub.phone}</td>
+                                                                <td data-label="Course">
+                                                                    <span className="course-badge">{getCourseName(sub)}</span>
+                                                                </td>
+                                                                <td data-label="Status">
+                                                                    <span className="status-badge">
+                                                                        {sub.studentStatus || 'N/A'}
+                                                                        {sub.studentDetails && <><br /><small>({sub.studentDetails})</small></>}
+                                                                        {sub.experienceYears && <><br /><small>({sub.experienceYears})</small></>}
+                                                                        {sub.graduatedDetails && <><br /><small>(Grad: {sub.graduatedDetails})</small></>}
+                                                                    </span>
+                                                                </td>
+                                                                <td data-label="Message" className="message-cell" title={sub.message}>
+                                                                    {sub.message || 'No message'}
+                                                                </td>
+                                                                <td data-label="Actions">
+                                                                    <motion.button
+                                                                        className="btn-delete-row"
+                                                                        onClick={() => handleDelete(sub.id)}
+                                                                        whileHover={{ scale: 1.1 }}
+                                                                        whileTap={{ scale: 0.9 }}
+                                                                        title="Delete"
+                                                                    >
+                                                                        🗑️
+                                                                    </motion.button>
+                                                                </td>
+                                                            </motion.tr>
+                                                        ))}
+                                                    </AnimatePresence>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        {/* PAGINATION */}
+                                        {totalPages > 1 && (
+                                            <div className="pagination">
+                                                <div className="pagination-info">
+                                                    Showing {((currentPage - 1) * pageSize) + 1} to {Math.min(currentPage * pageSize, filteredSubmissions.length)} of {filteredSubmissions.length} entries
+                                                </div>
+                                                <div className="pagination-controls">
+                                                    <select
+                                                        className="page-size-select"
+                                                        value={pageSize}
+                                                        onChange={(e) => {
+                                                            setPageSize(Number(e.target.value));
+                                                            setCurrentPage(1);
+                                                        }}
+                                                    >
+                                                        <option value="5">5 per page</option>
+                                                        <option value="10">10 per page</option>
+                                                        <option value="25">25 per page</option>
+                                                        <option value="50">50 per page</option>
+                                                    </select>
+                                                    <div className="pagination-buttons">
+                                                        <motion.button
+                                                            onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                                                            disabled={currentPage === 1}
+                                                            whileHover={{ scale: 1.05 }}
+                                                            whileTap={{ scale: 0.95 }}
+                                                        >
+                                                            ← Prev
+                                                        </motion.button>
+                                                        <span className="page-indicator">
+                                                            Page {currentPage} of {totalPages}
+                                                        </span>
+                                                        <motion.button
+                                                            onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                                                            disabled={currentPage === totalPages}
+                                                            whileHover={{ scale: 1.05 }}
+                                                            whileTap={{ scale: 0.95 }}
+                                                        >
+                                                            Next →
+                                                        </motion.button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </>
                                 )}
-                            </>
-                        )}
-                    </motion.div>
+                            </motion.div>
+                        </>
+                    )}
                 </div>
             </div>
         </div>
