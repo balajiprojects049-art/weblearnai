@@ -107,6 +107,41 @@
     font-weight: 300;
 }
 
+.ad-popup-features {
+    text-align: left;
+    margin: 0 auto 2rem;
+    padding-left: 0;
+    list-style: none;
+    max-width: 80%;
+    position: relative;
+    z-index: 10;
+}
+
+.ad-popup-features li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.9;
+}
+
+.ad-popup-features li::before {
+    content: '✓';
+    font-weight: bold;
+    color: inherit;
+    opacity: 0.8;
+}
+
+.ad-popup-date {
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 10;
+}
+
 .ad-popup-price {
     font-size: 3rem;
     font-weight: 900;

@@ -10,8 +10,10 @@ const AdManager = () => {
         price: '',
         badge: 'New Offer',
         style: 'style-1',
+        features: '',
         isActive: true,
-        startDate: new Date().toISOString().split('T')[0]
+        startDate: new Date().toISOString().split('T')[0],
+        endDate: ''
     });
 
     // Load ads from local storage
@@ -45,8 +47,10 @@ const AdManager = () => {
             price: '',
             badge: 'New Offer',
             style: 'style-1',
+            features: '',
             isActive: true,
-            startDate: new Date().toISOString().split('T')[0]
+            startDate: new Date().toISOString().split('T')[0],
+            endDate: ''
         });
 
         alert('Advertisement Created Successfully!');
@@ -93,6 +97,17 @@ const AdManager = () => {
                             />
                         </div>
 
+                        <div>
+                            <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Features (One per line)</label>
+                            <textarea
+                                name="features"
+                                value={formData.features}
+                                onChange={handleChange}
+                                placeholder="e.g. Live Sessions&#10;Global Certification&#10;Placement Support"
+                                style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid #e2e8f0', minHeight: '80px' }}
+                            />
+                        </div>
+
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                             <div>
                                 <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Price / Offer</label>
@@ -113,6 +128,29 @@ const AdManager = () => {
                                     value={formData.badge}
                                     onChange={handleChange}
                                     placeholder="e.g. LIMITED TIME"
+                                    style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}
+                                />
+                            </div>
+                        </div>
+
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                            <div>
+                                <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Start Date</label>
+                                <input
+                                    type="date"
+                                    name="startDate"
+                                    value={formData.startDate}
+                                    onChange={handleChange}
+                                    style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}
+                                />
+                            </div>
+                            <div>
+                                <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>End Date (Optional)</label>
+                                <input
+                                    type="date"
+                                    name="endDate"
+                                    value={formData.endDate}
+                                    onChange={handleChange}
                                     style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}
                                 />
                             </div>

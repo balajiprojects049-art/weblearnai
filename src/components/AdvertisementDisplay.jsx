@@ -37,6 +37,18 @@ const AdvertisementDisplay = () => {
                 <div className="ad-popup-badge">{activeAd.badge}</div>
                 <h3 className="ad-popup-title">{activeAd.title}</h3>
                 <p className="ad-popup-description">{activeAd.description}</p>
+
+                {activeAd.features && (
+                    <ul className="ad-popup-features">
+                        {activeAd.features.split('\n').filter(f => f.trim()).map((feature, i) => (
+                            <li key={i}>{feature}</li>
+                        ))}
+                    </ul>
+                )}
+
+                <div className="ad-popup-date">
+                    {activeAd.startDate} {activeAd.endDate ? ` - ${activeAd.endDate}` : ''}
+                </div>
                 <div className="ad-popup-price">{activeAd.price}</div>
 
                 <Link to="/contact" className="ad-popup-btn" onClick={() => setIsOpen(false)}>
