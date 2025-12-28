@@ -272,10 +272,10 @@ const AWSDataEngineerCourse = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* AWS Technologies */}
-            <section className="section">
+            < section className="section" >
                 <div className="container">
                     <div className="section-header text-center">
                         <div className="badge">AWS Services</div>
@@ -339,10 +339,10 @@ const AWSDataEngineerCourse = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Course Overview */}
-            <section className="section bg-light">
+            < section className="section bg-light" >
                 <div className="container">
                     <div className="course-overview">
                         <h2>Course Overview</h2>
@@ -402,10 +402,10 @@ const AWSDataEngineerCourse = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Download Syllabus Section */}
-            <section className="section bg-light">
+            < section className="section bg-light" >
                 <div className="container">
                     <div style={{
                         maxWidth: '900px',
@@ -510,10 +510,10 @@ const AWSDataEngineerCourse = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* CTA Section */}
-            <section className="section">
+            < section className="section" >
                 <div className="container">
                     <div className="cta-box">
                         <h2>Ready to Master AWS Data Engineering?</h2>
@@ -524,14 +524,14 @@ const AWSDataEngineerCourse = () => {
                             <Link to="/contact" className="btn btn-primary btn-large">
                                 Enroll Now
                             </Link>
-                            <Link to="/contact" className="btn btn-secondary btn-large">
+                            <a href="https://tidycal.com/weblearnai/30-minute-meeting" data-tidy="popup" className="btn btn-secondary btn-large">
                                 Talk to Advisor
-                            </Link>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </section >
+        </div >
     );
 };
 

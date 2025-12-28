@@ -289,6 +289,12 @@ const WebDevelopmentCourse = () => {
                                 fontSize: '0.95rem',
                                 border: '1px solid rgba(255, 255, 255, 0.3)',
                                 transition: 'all 0.3s ease'
+                            }} onMouseEnter={(e) => {
+                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.25)';
+                                e.currentTarget.style.transform = 'translateY(-2px)';
+                            }} onMouseLeave={(e) => {
+                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
+                                e.currentTarget.style.transform = 'translateY(0)';
                             }}>
                                 <span style={{ fontSize: '1.1rem' }}>←</span>
                                 Back to Home
@@ -296,10 +302,10 @@ const WebDevelopmentCourse = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Career Paths */}
-            <section className="section">
+            < section className="section" >
                 <div className="container">
                     <div className="section-header text-center">
                         <div className="badge">Career Paths</div>
@@ -327,10 +333,10 @@ const WebDevelopmentCourse = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Core Modules */}
-            <section className="section bg-light">
+            < section className="section bg-light" >
                 <div className="container">
                     <div className="section-header text-center">
                         <div className="badge">Syllabus</div>
@@ -404,10 +410,10 @@ const WebDevelopmentCourse = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Learning Paths */}
-            <section className="section">
+            < section className="section" >
                 <div className="container">
                     <div className="section-header text-center">
                         <div className="badge">How to Learn</div>
@@ -434,10 +440,10 @@ const WebDevelopmentCourse = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Roadmap */}
-            <section className="section bg-light">
+            < section className="section bg-light" >
                 <div className="container">
                     <div className="section-header text-center">
                         <div className="badge">Step-by-Step</div>
@@ -506,10 +512,10 @@ const WebDevelopmentCourse = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* AI & Modern Development */}
-            <section className="section">
+            < section className="section" >
                 <div className="container">
                     <div className="section-header text-center">
                         <div className="badge">2025 Focus</div>
@@ -542,10 +548,10 @@ const WebDevelopmentCourse = () => {
                         </p>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Final Outcomes */}
-            <section className="section bg-light">
+            < section className="section bg-light" >
                 <div className="container" style={{ maxWidth: '1000px' }}>
                     <div className="section-header text-center">
                         <div className="badge">What You'll Achieve</div>
@@ -588,10 +594,10 @@ const WebDevelopmentCourse = () => {
                         </p>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* CTA */}
-            <section className="section">
+            < section className="section" >
                 <div className="container">
                     <div className="cta-box">
                         <h2>Ready to Start Your Web Development Journey?</h2>
@@ -602,14 +608,14 @@ const WebDevelopmentCourse = () => {
                             <Link to="/contact" className="btn btn-primary btn-large">
                                 Enroll Now
                             </Link>
-                            <Link to="/contact" className="btn btn-secondary btn-large">
+                            <a href="https://tidycal.com/weblearnai/30-minute-meeting" data-tidy="popup" className="btn btn-secondary btn-large">
                                 Talk to Advisor
-                            </Link>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </section >
+        </div >
     );
 };
 

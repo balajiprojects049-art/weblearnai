@@ -319,9 +319,9 @@ const Certifications = () => {
                             <Link to="/contact" className="btn btn-primary btn-large">
                                 Enroll Now
                             </Link>
-                            <Link to="/contact" className="btn btn-secondary btn-large">
+                            <a href="https://tidycal.com/weblearnai/30-minute-meeting" data-tidy="popup" className="btn btn-secondary" style={{ background: 'transparent', border: '2px solid white', color: 'white', padding: '1rem 3rem', fontWeight: 'bold' }}>
                                 Talk to Advisor
-                            </Link>
+                            </a>
                         </div>
                     </div>
                 </div>

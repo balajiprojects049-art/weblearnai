@@ -206,9 +206,9 @@ const Home = () => {
                                 <Link to="/courses" className="btn btn-primary btn-large">
                                     Explore Courses
                                 </Link>
-                                <Link to="/contact" className="btn btn-secondary btn-large">
+                                <a href="https://tidycal.com/weblearnai/30-minute-meeting" data-tidy="popup" className="btn btn-secondary btn-large">
                                     Book Free Consultation
-                                </Link>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -680,9 +680,9 @@ const Home = () => {
                             <Link to="/courses" className="btn btn-primary btn-large">
                                 Browse All Courses
                             </Link>
-                            <Link to="/contact" className="btn btn-secondary btn-large">
+                            <a href="https://tidycal.com/weblearnai/30-minute-meeting" data-tidy="popup" className="btn btn-secondary btn-large">
                                 Talk to a Career Advisor
-                            </Link>
+                            </a>
                         </div>
                     </div>
                 </div>
