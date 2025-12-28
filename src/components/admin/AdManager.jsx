@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './AdvertisementCards.css';
+import '../AdvertisementCards.css';
 
 const AdManager = () => {
     const [ads, setAds] = useState([]);
