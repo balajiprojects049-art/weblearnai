@@ -5,8 +5,9 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.85);
+    /* Darker backdrop to focus on poster */
+    backdrop-filter: blur(12px);
     z-index: 9999;
     display: flex;
     justify-content: center;
@@ -24,26 +25,38 @@
     }
 }
 
-/* --- POPUP CARD --- */
+/* --- POPUP CARD (POSTER STYLE) --- */
 .ad-popup-card {
     position: relative;
     width: 90%;
-    max-width: 500px;
+    max-width: 380px;
+    /* Narrower for Portrait/Poster look */
+    min-height: 550px;
+    /* Taller */
     padding: 3rem 2rem;
-    border-radius: 24px;
+    border-radius: 4px;
+    /* Slightly sharper corners for poster feel */
     text-align: center;
     color: white;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    box-shadow:
+        0 50px 100px -20px rgba(0, 0, 0, 0.8),
+        /* Deep shadow */
+        0 0 0 10px rgba(255, 255, 255, 0.05);
+    /* Outer Frame effect */
     transform: scale(0.8) translateY(50px);
     animation: popupEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 @keyframes popupEntrance {
     to {
         opacity: 1;
-        transform: scale(1) translateY(0);
+        transform: scale(1) translateY(0) rotate(-2deg);
+        /* Slight tilt for style */
     }
 }
 
@@ -52,213 +65,291 @@
     position: absolute;
     top: 15px;
     right: 15px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
     color: white;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.2s;
-    z-index: 20;
+    z-index: 30;
 }
 
 .ad-popup-close:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 0, 0, 0.8);
     transform: rotate(90deg);
 }
 
 /* --- CONTENT STYLING --- */
 .ad-popup-badge {
-    display: inline-block;
-    padding: 0.5rem 1.2rem;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 800;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 0.75rem 2rem;
+    background: #FFD700;
+    color: black;
+    font-size: 0.9rem;
+    font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    position: relative;
-    z-index: 10;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    z-index: 20;
+    clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);
+    /* Banner shape */
 }
 
 .ad-popup-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 1rem;
+    font-size: 3rem;
+    /* Huge Poster Title */
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 1.5rem;
     position: relative;
     z-index: 10;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 .ad-popup-description {
     font-size: 1.1rem;
-    line-height: 1.6;
+    line-height: 1.5;
     margin-bottom: 2rem;
     opacity: 0.9;
     position: relative;
     z-index: 10;
-    font-weight: 300;
+    font-weight: 500;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem 0;
+    width: 100%;
 }
 
 .ad-popup-price {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 900;
-    margin-bottom: 2.5rem;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
     position: relative;
     z-index: 10;
-    letter-spacing: -1px;
+    font-family: monospace;
+    /* Digital/Ticket look */
+    color: #ffd700;
 }
 
 .ad-popup-btn {
     display: inline-block;
-    padding: 1.1rem 3.5rem;
-    font-size: 1rem;
-    font-weight: 700;
+    padding: 1.2rem 0;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 800;
     text-decoration: none;
-    border-radius: 50px;
+    border-radius: 0;
+    /* Square button for poster look */
     transition: all 0.3s;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 10;
-    letter-spacing: 1px;
     text-transform: uppercase;
+    letter-spacing: 2px;
+    background: white;
+    color: black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
 }
 
 .ad-popup-btn:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    background: #ffd700;
+    color: black;
 }
 
-/* --- DECORATIVE SHAPES --- */
+/* --- DECORATIVE SHAPES (Abstract Poster Art) --- */
 .shape {
     position: absolute;
-    border-radius: 50%;
     z-index: 1;
-    filter: blur(60px);
-    opacity: 0.4;
+    filter: blur(80px);
+    opacity: 0.6;
 }
 
 .shape-1 {
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     top: -100px;
     left: -100px;
-    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
 }
 
 .shape-2 {
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     bottom: -50px;
     right: -50px;
-    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
 }
 
-/* --- THEMES (DARK & PREMIUM) --- */
+/* --- THEMES (POSTER STYLES) --- */
 
-/* Style 1: Deep Corporate Blue (Professional) */
+/* Style 1: "The Event" (Blue/Purple Concert Style) */
 .ad-popup-style-1 {
-    background: radial-gradient(circle at top right, #1e3a8a, #0f172a);
+    background: radial-gradient(circle at bottom center, #2e1065, #000000);
+    border: 1px solid #4c1d95;
 }
 
+.ad-popup-title {
+    color: #f3e8ff;
+    text-shadow: 0 0 20px #a855f7;
+}
+
+.shape-1 {
+    background: #3b82f6;
+}
+
+/* Blue glow */
+.shape-2 {
+    background: #a855f7;
+}
+
+/* Purple glow */
+/* Custom Badge */
 .ad-popup-style-1 .ad-popup-badge {
     background: #3b82f6;
     color: white;
 }
 
-.ad-popup-style-1 .ad-popup-title {
-    color: #ffffff;
-}
-
-.ad-popup-style-1 .ad-popup-btn {
-    background: #ffffff;
-    color: #1e3a8a;
-}
-
-/* Style 2: Luxury Dark Gold (Premium) */
+/* Style 2: "The Sale" (Bold Red/Black Typography) */
 .ad-popup-style-2 {
-    background: radial-gradient(circle at center, #27272a, #000000);
-    border: 1px solid #d4af37;
-}
-
-.ad-popup-style-2 .ad-popup-badge {
-    background: linear-gradient(135deg, #d4af37, #fcd34d);
-    color: #000;
+    background: #101010;
+    border: 4px solid white;
 }
 
 .ad-popup-style-2 .ad-popup-title {
-    background: linear-gradient(135deg, #d4af37, #fff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.ad-popup-style-2 .ad-popup-price {
-    color: #d4af37;
-}
-
-.ad-popup-style-2 .ad-popup-btn {
-    background: linear-gradient(135deg, #d4af37, #cea935);
-    color: #000;
-}
-
-/* Style 3: Cyberpunk Neon (Modern) */
-.ad-popup-style-3 {
-    background: linear-gradient(135deg, #2e022f 0%, #1a0b2e 100%);
-    border: 1px solid #d946ef;
-}
-
-.ad-popup-style-3 .ad-popup-badge {
-    background: #d946ef;
     color: white;
-    box-shadow: 0 0 15px #d946ef;
+    transform: skew(-5deg);
+    background: #dc2626;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.ad-popup-style-2 .ad-popup-badge {
+    background: white;
+    color: black;
+    clip-path: none;
+    border-radius: 0;
+    top: 20px;
+    right: -30px;
+    left: auto;
+    transform: rotate(45deg);
+    width: 150px;
+    text-align: center;
+}
+
+/* Corner Banner */
+.ad-popup-style-2 .ad-popup-price {
+    color: #dc2626;
+}
+
+.shape-1 {
+    background: transparent;
+}
+
+.shape-2 {
+    background: transparent;
+}
+
+/* Style 3: "The Future" (Cyberpunk Neon) */
+.ad-popup-style-3 {
+    background: black;
+    border: 2px solid #0ff;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
 }
 
 .ad-popup-style-3 .ad-popup-title {
-    color: #f0abfc;
-    text-shadow: 0 0 10px rgba(240, 171, 252, 0.5);
+    color: transparent;
+    -webkit-text-stroke: 2px #0ff;
 }
 
-.ad-popup-style-3 .ad-popup-price {
-    color: #e879f9;
+.ad-popup-style-3 .ad-popup-badge {
+    background: #0ff;
+    color: black;
+    box-shadow: 0 0 15px #0ff;
 }
 
 .ad-popup-style-3 .ad-popup-btn {
-    background: #d946ef;
-    color: white;
-    box-shadow: 0 0 20px rgba(217, 70, 239, 0.4);
+    background: black;
+    color: #0ff;
+    border-top: 2px solid #0ff;
 }
 
-/* Style 4: Sleek Dark Grey (Minimalist) */
+.ad-popup-style-3 .ad-popup-btn:hover {
+    background: #0ff;
+    color: black;
+}
+
+.shape-1 {
+    background: #f0f;
+    opacity: 0.3;
+}
+
+.shape-2 {
+    background: #0ff;
+    opacity: 0.3;
+}
+
+/* Style 4: "The Minimalist" (Black & White Fashion) */
 .ad-popup-style-4 {
-    background: #18181b;
-}
-
-.ad-popup-style-4 .ad-popup-badge {
-    background: #3f3f46;
-    color: #a1a1aa;
-    border: 1px solid #52525b;
+    background: white;
+    color: black;
+    border: 10px solid black;
 }
 
 .ad-popup-style-4 .ad-popup-title {
+    color: black;
+    text-shadow: none;
+    letter-spacing: -3px;
+    font-size: 3.5rem;
+}
+
+.ad-popup-style-4 .ad-popup-description {
+    color: #333;
+    border-color: black;
+}
+
+.ad-popup-style-4 .ad-popup-price {
+    color: black;
+    text-decoration: underline;
+}
+
+.ad-popup-style-4 .ad-popup-badge {
+    background: black;
     color: white;
 }
 
 .ad-popup-style-4 .ad-popup-btn {
-    background: white;
+    background: black;
+    color: white;
+    bottom: 0;
+}
+
+.ad-popup-style-4 .ad-popup-close {
     color: black;
+    background: #eee;
+}
+
+.shape-1 {
+    display: none;
+}
+
+.shape-2 {
+    display: none;
 }
 
 
 /* =========================================
-   ADMIN CARD STYLES (Match Popups) 
+   ADMIN CARD STYLES (Keep them distinct) 
    ========================================= */
 
 .ad-container {
@@ -272,20 +363,20 @@
 
 .ad-card {
     position: relative;
-    border-radius: 16px;
+    border-radius: 12px;
     overflow: hidden;
     padding: 1.5rem;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-    background: #1e293b;
-    /* Default Dark */
-    color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
 }
 
 .ad-card:hover {
     transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .ad-badge {
@@ -293,105 +384,54 @@
     top: 1rem;
     right: 1rem;
     padding: 0.25rem 0.75rem;
-    border-radius: 20px;
+    border-radius: 4px;
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
+    background: #333;
+    color: white;
 }
 
 .ad-content h3 {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
-    color: white;
+    color: #111;
 }
 
 .ad-content p {
     font-size: 0.9rem;
-    opacity: 0.7;
+    color: #666;
     margin-bottom: 1rem;
-    color: #cbd5e1;
 }
 
 .ad-price {
     font-size: 1.5rem;
     font-weight: 700;
     margin: 0.5rem 0;
-    color: white;
+    color: #111;
 }
 
-.ad-btn {
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 0.85rem;
-    display: inline-block;
-}
-
-/* Matching Admin Card Styles */
+/* Admin Preview Colors */
 .ad-style-1 {
-    background: linear-gradient(to right, #1e3a8a, #0f172a);
-}
-
-.ad-style-1 .ad-badge {
-    background: #3b82f6;
-    color: white;
-}
-
-.ad-style-1 .ad-btn {
-    background: white;
-    color: #1e3a8a;
+    border-left: 5px solid #3b82f6;
 }
 
 .ad-style-2 {
-    background: #18181b;
-    border: 1px solid #d4af37;
-}
-
-.ad-style-2 .ad-badge {
-    background: #d4af37;
-    color: black;
-}
-
-.ad-style-2 .ad-price {
-    color: #d4af37;
-}
-
-.ad-style-2 .ad-btn {
-    background: #d4af37;
-    color: black;
+    border-left: 5px solid #dc2626;
 }
 
 .ad-style-3 {
-    background: linear-gradient(to right, #2e022f, #1a0b2e);
-    border: 1px solid #d946ef;
-}
-
-.ad-style-3 .ad-badge {
-    background: #d946ef;
+    border-left: 5px solid #0ff;
+    background: #111;
     color: white;
 }
 
+.ad-style-3 h3,
+.ad-style-3 p,
 .ad-style-3 .ad-price {
-    color: #f0abfc;
-}
-
-.ad-style-3 .ad-btn {
-    background: #d946ef;
     color: white;
 }
 
 .ad-style-4 {
-    background: #27272a;
-    border: 1px solid #3f3f46;
-}
-
-.ad-style-4 .ad-badge {
-    background: #3f3f46;
-    color: #e4e4e7;
-}
-
-.ad-style-4 .ad-btn {
-    background: white;
-    color: black;
+    border-left: 5px solid black;
 }
