@@ -138,12 +138,7 @@ const Footer = () => {
                                         <span className="contact-text" style={{ fontSize: '0.9rem', opacity: '0.9' }}>
                                             Telangana, India
                                         </span>
-                                        <span className="contact-text" style={{ fontWeight: '600', marginTop: '0.5rem' }}>
-                                            Bangalore Office
-                                        </span>
-                                        <span className="contact-text" style={{ fontSize: '0.9rem', opacity: '0.9' }}>
-                                            Karnataka, India
-                                        </span>
+
                                     </div>
                                 </div>
                             </div>

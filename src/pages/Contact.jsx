@@ -411,20 +411,7 @@ const Contact = () => {
                                                 Telangana, India
                                             </div>
                                         </div>
-                                        {/* Bangalore Office */}
-                                        <div style={{
-                                            background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-                                            padding: '1rem',
-                                            borderRadius: '12px',
-                                            color: 'white'
-                                        }}>
-                                            <div style={{ fontWeight: '700', fontSize: '1.1rem', marginBottom: '0.5rem' }}>
-                                                🏢 Bangalore Office
-                                            </div>
-                                            <div style={{ fontSize: '0.95rem', opacity: '0.95' }}>
-                                                Karnataka, India
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
 
