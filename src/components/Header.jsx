@@ -50,7 +50,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="header-actions">
-            <a href="https://tidycal.com/weblearnai/30-minute-meeting" data-tidy="popup" className="btn btn-primary">
+            <a href="https://tidycal.com/104reeq/30-minute-meeting" data-tidy="popup" className="btn btn-primary">
               Book Consultation
             </a>
 

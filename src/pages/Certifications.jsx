@@ -319,7 +319,7 @@ const Certifications = () => {
                             <Link to="/contact" className="btn btn-primary btn-large">
                                 Enroll Now
                             </Link>
-                            <a href="https://tidycal.com/weblearnai/30-minute-meeting" data-tidy="popup" className="btn btn-secondary" style={{ background: 'transparent', border: '2px solid white', color: 'white', padding: '1rem 3rem', fontWeight: 'bold' }}>
+                            <a href="https://tidycal.com/104reeq/30-minute-meeting" data-tidy="popup" className="btn btn-secondary" style={{ background: 'transparent', border: '2px solid white', color: 'white', padding: '1rem 3rem', fontWeight: 'bold' }}>
                                 Talk to Advisor
                             </a>
                         </div>

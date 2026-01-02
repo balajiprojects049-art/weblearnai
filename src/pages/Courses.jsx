@@ -468,7 +468,7 @@ const Courses = () => {
                                                 <Link to="/contact" className="btn btn-secondary" style={{ marginBottom: '0.5rem', width: '100%', background: 'white', color: course.color, border: 'none' }}>
                                                     Enroll Now
                                                 </Link>
-                                                <a href="https://tidycal.com/weblearnai/30-minute-meeting" data-tidy="popup" className="btn btn-secondary" style={{ width: '100%', background: 'rgba(255, 255, 255, 0.2)', color: 'white', border: '2px solid white', backdropFilter: 'blur(10px)' }}>
+                                                <a href="https://tidycal.com/104reeq/30-minute-meeting" data-tidy="popup" className="btn btn-secondary" style={{ width: '100%', background: 'rgba(255, 255, 255, 0.2)', color: 'white', border: '2px solid white', backdropFilter: 'blur(10px)' }}>
                                                     Talk to Advisor
                                                 </a>
                                             </div>
@@ -571,7 +571,7 @@ const Courses = () => {
                             Book a free career consultation with our experts to find the perfect learning path
                         </p>
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <a href="https://tidycal.com/weblearnai/30-minute-meeting" data-tidy="popup" className="btn btn-secondary btn-large">
+                            <a href="https://tidycal.com/104reeq/30-minute-meeting" data-tidy="popup" className="btn btn-secondary btn-large">
                                 Book Free Consultation
                             </a>
                         </div>
