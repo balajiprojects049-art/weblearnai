@@ -29,7 +29,7 @@ const AdminLogin = () => {
 
         await new Promise(resolve => setTimeout(resolve, 800));
 
-        if (credentials.username === 'admin' && credentials.password === 'weblearnai@2024') {
+        if (credentials.username === 'WeblearnAi' && credentials.password === 'weblearnai@2024') {
             localStorage.setItem('adminAuthenticated', 'true');
             navigate('/admin/dashboard');
         } else {
