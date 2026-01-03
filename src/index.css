@@ -177,6 +177,54 @@ footer {
   box-shadow: 0 8px 20px rgba(79, 70, 229, 0.15);
 }
 
+/* TidyCal Button Wave/Ripple Effect */
+@keyframes soft-wave {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.6);
+  }
+
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+    box-shadow: 0 0 0 20px rgba(37, 99, 235, 0);
+  }
+}
+
+a[data-tidy="popup"] {
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+  overflow: visible !important;
+  /* Allow wave to show outside */
+}
+
+/* Create the wave element */
+a[data-tidy="popup"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: inherit;
+  z-index: -1;
+  transition: all 0.3s;
+  pointer-events: none;
+}
+
+/* Animate continuously (Always Active) */
+a[data-tidy="popup"]::before {
+  animation: soft-wave 2s infinite cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+a[data-tidy="popup"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 /* --------------------------------------------------------------------------
    5. GLOBAL HERO SYSTEM (INTERNSHIP STYLE APPLIED TO ALL)
    -------------------------------------------------------------------------- */
