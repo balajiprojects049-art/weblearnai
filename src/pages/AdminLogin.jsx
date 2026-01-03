@@ -198,6 +198,7 @@ const AdminLogin = () => {
                                         type="text"
                                         id="username"
                                         name="username"
+                                        placeholder="Enter your username"
                                         value={credentials.username}
                                         onChange={handleChange}
                                         onFocus={() => setFocusedField('username')}
@@ -220,6 +221,7 @@ const AdminLogin = () => {
                                         type={showPassword ? "text" : "password"}
                                         id="password"
                                         name="password"
+                                        placeholder="Enter your password"
                                         value={credentials.password}
                                         onChange={handleChange}
                                         onFocus={() => setFocusedField('password')}
