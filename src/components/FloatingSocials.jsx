@@ -6,7 +6,7 @@ const FloatingSocials = () => {
         <div className="floating-socials-container">
             {/* Enquire Now Tab - Triggers Tidycal */}
             <a
-                href="https://tidycal.com/104reeq/30-minute-meeting"
+                href="https://tidycal.com/weblearnaisocialmedia/30-minute-meeting"
                 data-tidy="popup"
                 className="enquire-tab"
                 title="Book a Consultation"

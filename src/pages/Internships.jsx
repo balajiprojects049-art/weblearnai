@@ -224,7 +224,7 @@ const Internships = () => {
                             <div className="cta-box-sidebar">
                                 <h3>Ready to Start?</h3>
                                 <p>Join hundreds of students who have kickstarted their careers with our programs.</p>
-                                <a href="https://tidycal.com/104reeq/30-minute-meeting" data-tidy="popup" className="btn btn-primary" style={{ width: '100%' }}>
+                                <a href="https://tidycal.com/weblearnaisocialmedia/30-minute-meeting" data-tidy="popup" className="btn btn-secondary btn-large" style={{ background: 'transparent', border: '2px solid white', color: 'white' }}>
                                     Book Free Consultation
                                 </a>
                             </div>

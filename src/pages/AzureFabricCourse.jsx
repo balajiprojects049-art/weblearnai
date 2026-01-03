@@ -682,8 +682,7 @@ const AzureFabricCourse = () => {
                             <Link to="/contact" className="btn btn-primary btn-large">
                                 Enroll Now
                             </Link>
-                            <a href="https://tidycal.com/104reeq/30-minute-meeting" data-tidy="popup" className="btn btn-secondary btn-large">
-                                Talk to Advisor
+                            <a href="https://tidycal.com/weblearnaisocialmedia/30-minute-meeting" data-tidy="popup" className="btn btn-secondary btn-large" style={{ background: 'transparent', border: '2px solid white', color: 'white' }}>Advisor
                             </a>
                         </div>
                     </div>

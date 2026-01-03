@@ -342,7 +342,7 @@ const About = () => {
                             <a href="/contact" className="btn btn-primary" style={{ background: 'white', color: '#059669', padding: '1rem 3rem', fontWeight: 'bold' }}>
                                 Enroll Now
                             </a>
-                            <a href="https://tidycal.com/104reeq/30-minute-meeting" data-tidy="popup" className="btn btn-secondary" style={{ background: 'transparent', border: '2px solid white', color: 'white', padding: '1rem 3rem', fontWeight: 'bold' }}>
+                            <a href="https://tidycal.com/weblearnaisocialmedia/30-minute-meeting" data-tidy="popup" className="btn btn-secondary" style={{ background: 'transparent', border: '2px solid white', color: 'white', padding: '1rem 3rem', fontWeight: 'bold' }}>
                                 Talk to Expert
                             </a>
                         </div>
