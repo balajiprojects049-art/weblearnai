@@ -187,7 +187,7 @@ const Internships = () => {
                             <a href="/contact" className="btn btn-primary" style={{ background: 'white', color: '#059669', padding: '1.25rem 3.5rem', fontWeight: 'bold', fontSize: '1.1rem' }}>
                                 Start Your Internship
                             </a>
-                            <a href="/contact" className="btn btn-secondary" style={{ border: '2px solid white', color: 'white', padding: '1.25rem 3.5rem', fontWeight: 'bold', fontSize: '1.1rem' }}>
+                            <a href="/contact" className="btn btn-secondary" style={{ background: 'white', border: 'none', color: '#059669', padding: '1.25rem 3.5rem', fontWeight: 'bold', fontSize: '1.1rem' }}>
                                 Request Curriculum PDF
                             </a>
                         </div>
