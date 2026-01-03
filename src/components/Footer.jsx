@@ -74,9 +74,9 @@ const Footer = () => {
                             <ul className="footer-links">
                                 {footerLinks.courses.map((link) => (
                                     <li key={link.path}>
-                                        <Link to={link.path} className="footer-link">
+                                        <span className="footer-link" style={{ cursor: 'default', pointerEvents: 'none', opacity: 0.8 }}>
                                             {link.name}
-                                        </Link>
+                                        </span>
                                     </li>
                                 ))}
                             </ul>

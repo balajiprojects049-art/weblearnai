@@ -17,10 +17,12 @@ import './index.css';
 import './mobile-responsive.css';
 
 import FloatingSocials from './components/FloatingSocials';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         <FloatingSocials />
         <Routes>

@@ -571,7 +571,7 @@ const Courses = () => {
                             Book a free career consultation with our experts to find the perfect learning path
                         </p>
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <a href="https://tidycal.com/weblearnaisocialmedia/30-minute-meeting" data-tidy="popup" className="btn btn-secondary btn-large" style={{ background: 'transparent', border: '2px solid white', color: 'white' }}>Consultation
+                            <a href="https://tidycal.com/weblearnaisocialmedia/30-minute-meeting" data-tidy="popup" className="btn btn-secondary btn-large" style={{ background: '#2563eb', border: 'none', color: 'white', padding: '1rem 3rem', fontSize: '1.1rem', fontWeight: '600' }}>Book Free Consultation
                             </a>
                         </div>
                     </div>
