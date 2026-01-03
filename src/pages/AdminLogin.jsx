@@ -108,9 +108,6 @@ const AdminLogin = () => {
                     variants={containerVariants}
                 >
                     <div className="branding-content">
-                        <motion.div variants={itemVariants} className="logo-container">
-                            <img src={logo} alt="WebLearnAI Academy" className="brand-logo" />
-                        </motion.div>
 
                         <motion.h1 variants={itemVariants} className="brand-headline">
                             Welcome to WebLearnAI Academy
