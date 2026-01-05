@@ -90,12 +90,16 @@ const Contact = () => {
             {/* Hero */}
             <section
                 className="contact-hero"
-                style={{ backgroundImage: `url(${contactHero})` }}
+                style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${contactHero})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                }}
             >
                 <div className="container">
                     <div className="text-center">
-                        <h1 style={{ color: 'white' }}>Get In Touch</h1>
-                        <p className="lead" style={{ color: 'rgba(255, 255, 255, 0.95)' }}>
+                        <h1 style={{ color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>Get In Touch</h1>
+                        <p className="lead" style={{ color: 'rgba(255, 255, 255, 0.95)', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>
                             Have questions? We're here to help you choose the right career path
                         </p>
                     </div>

@@ -122,13 +122,15 @@ const About = () => {
     return (
         <div className="about-page">
             <section className="about-hero" style={{
-                backgroundImage: `url(${aboutHero})`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${aboutHero})`,
                 backgroundPosition: 'center 45%',
-                backgroundSize: 'cover'
+                backgroundSize: 'cover',
+                color: 'white',
+                padding: '4rem 0'
             }}>
                 <div className="container">
-                    <h1>About Weblearnai Academy</h1>
-                    <p className="lead">
+                    <h1 style={{ color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>About Weblearnai Academy</h1>
+                    <p className="lead" style={{ color: 'rgba(255, 255, 255, 0.95)', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>
                         Empowering careers through world-class IT training and expert mentorship.
                     </p>
                 </div>
