@@ -15,7 +15,7 @@ const About = () => {
 
     const mentors = [
         {
-            name: 'Munavath Venu',
+            name: 'Munavath',
             image: aboutPortrait,
             role: 'Co-founder of weblearnai / Certified Professional Coach',
             description: "Hi, I'm Munavath, a Senior Data Engineer skilled in designing and building data pipelines, integrating complex data systems, and delivering real-world analytics solutions across multiple domains. I'm passionate about helping aspiring professionals kickstart their Data Engineering journey by turning complex topics simple and hands-on by practical approach.",

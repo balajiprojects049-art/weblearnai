@@ -7,7 +7,7 @@ import shivaPortrait from '../assets/shiva-portrait.jpg';
 const Mentors = () => {
     const mentors = [
         {
-            name: 'Munavath Venu',
+            name: 'Munavath',
             image: munavathPortrait,
             role: 'Co-founder of weblearnai / Certified Professional Coach',
             experience: '10+ years',
