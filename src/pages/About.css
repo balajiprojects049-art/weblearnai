@@ -1,88 +1,146 @@
-/* About Page Mobile Responsive Styles */
+/* Modern Portrait Card Style */
+.mentor-profile-layout {
+    display: flex;
+    gap: 4rem;
+    align-items: flex-start;
+    padding: 2rem;
+    margin-bottom: 4rem;
+}
 
-/* Desktop and tablet */
+.mentor-portrait-card {
+    flex: 0 0 350px;
+    height: 450px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    background: #e2e8f0;
+}
+
+.mentor-portrait-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.5s ease;
+}
+
+.mentor-portrait-card:hover .mentor-portrait-image {
+    transform: scale(1.03);
+}
+
+.mentor-portrait-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%);
+    color: white;
+    z-index: 2;
+}
+
+.mentor-portrait-name {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+    color: white;
+    line-height: 1.1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.mentor-portrait-role {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.mentor-details-col {
+    flex: 1;
+    padding-top: 1rem;
+}
+
+.mentor-bio {
+    font-size: 1.15rem;
+    color: #4b5563;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+.mentor-credentials-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.mentor-credentials-title::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 20px;
+    background: #3b82f6;
+    border-radius: 4px;
+}
+
+/* Fallback for Avatar */
+.mentor-portrait-avatar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8rem;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+}
+
+
+/* Desktop and tablet responsive updates */
 @media (max-width: 1024px) {
-    .mentor-spotlight-card {
-        gap: 2rem !important;
-        padding: 2.5rem !important;
+    .mentor-profile-layout {
+        gap: 2.5rem;
+        padding: 0;
     }
 
-    .mentor-image-col {
-        flex: 0 0 180px !important;
-    }
-
-    .mentor-image-col>div {
-        width: 180px !important;
-        height: 180px !important;
-        font-size: 6rem !important;
-    }
-
-    .mentor-info-col h3 {
-        font-size: 2rem !important;
+    .mentor-portrait-card {
+        flex: 0 0 300px;
+        height: 400px;
     }
 }
 
-/* Tablet */
 @media (max-width: 768px) {
-    .mentor-spotlight-card {
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 2rem !important;
-        padding: 2rem !important;
+    .mentor-profile-layout {
+        flex-direction: column;
+        align-items: center;
         text-align: center;
+        gap: 2rem;
     }
 
-    .mentor-image-col {
-        flex: none !important;
-    }
-
-    .mentor-info-col {
-        min-width: auto !important;
+    .mentor-portrait-card {
+        flex: 0 0 auto;
         width: 100%;
+        max-width: 350px;
+        height: 450px;
     }
 
-    .mentor-info-col h3 {
-        font-size: 1.75rem !important;
+    .mentor-portrait-overlay {
+        text-align: left;
+        /* Keep text left aligned on card even if container is centered */
     }
 
-    .mentor-info-col p {
-        font-size: 1.1rem !important;
+    .mentor-credentials-title {
+        justify-content: center;
     }
 
-    /* FAQ Section */
-    .faq-grid {
-        grid-template-columns: 1fr !important;
-    }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-    .mentor-spotlight-card {
-        padding: 1.5rem !important;
-        gap: 1.5rem !important;
-        border-radius: 20px !important;
+    .mentor-credentials-title::before {
+        display: none;
     }
 
-    .mentor-image-col>div {
-        width: 150px !important;
-        height: 150px !important;
-        font-size: 5rem !important;
-    }
-
-    .mentor-info-col h3 {
-        font-size: 1.5rem !important;
-        margin-bottom: 0.5rem !important;
-    }
-
-    .mentor-info-col p {
-        font-size: 1rem !important;
-    }
-
-    .mentor-info-col p[style*="fontSize: '1.1rem'"] {
-        font-size: 0.95rem !important;
-    }
-
-    .mentor-info-col ul {
-        font-size: 0.9rem !important;
+    .mentor-badges {
+        justify-content: center;
     }
 }

@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import certBadges from '../assets/cert-badges.png';
 import aboutHero from '../assets/about-hero.jpg';
+import aboutPortrait from '../assets/about-portrait.jpg';
+import pranayPortrait from '../assets/pranay-portrait.jpg';
+import geethaPortrait from '../assets/geetha-portrait.png';
 import './About.css';
 
 const About = () => {
@@ -12,8 +15,8 @@ const About = () => {
 
     const mentors = [
         {
-            name: 'Munavath',
-            avatar: '👨‍💼',
+            name: 'Munavath Venu',
+            image: aboutPortrait,
             role: 'Co-founder of weblearnai / Certified Professional Coach',
             description: "Hi, I'm Munavath, a Senior Data Engineer skilled in designing and building data pipelines, integrating complex data systems, and delivering real-world analytics solutions across multiple domains. I'm passionate about helping aspiring professionals kickstart their Data Engineering journey by turning complex topics simple and hands-on by practical approach.",
             expertise: "Microsoft and Databricks certified professional with credentials in:",
@@ -26,9 +29,9 @@ const About = () => {
         },
         {
             name: 'Pranay Kumar Sikilambatla',
-            avatar: '👨‍💻',
+            image: pranayPortrait,
             role: 'Data Engineer / Ex. Microsoft',
-            description: "Pranay is an experienced Data Engineer with 9+ years of expertise in data pipelines, ETL workflows, and large-scale systems. He has delivered scalable data architectures across finance, healthcare, and analytics domains, focusing on automation, reliability, and efficiency to build impactful data solutions.",
+            description: "Hi, I'm Pranay,Senior Data Engineer with 9+ years of extensive experience in architecting robust data pipelines and enterprise-scale ETL workflows. Pranay has successfully delivered high-performance data solutions across Finance, Healthcare, and Analytics domains, emphasizing automation, system reliability, and operational efficiency to drive business value.",
             expertise: "Skilled in advanced data infrastructure including:",
             certs: [
                 'Python & SQL Expert',
@@ -41,9 +44,9 @@ const About = () => {
         },
         {
             name: 'Geetha',
-            avatar: '👩‍💻',
+            image: geethaPortrait,
             role: 'Senior Data Engineer / Azure Expert',
-            description: "Geetha is a skilled Data Engineer specializing in designing and implementing scalable data pipelines. She has extensive expertise in data ingestion, transformation, and orchestration across multiple cloud-based data platforms, handling both batch and incremental data loads with high efficiency.",
+            description: "Hi, I'm Geetha, a Senior Data Engineer dedicated to designing and implementing enterprise-grade data architectures. My expertise lies in orchestrating complex cloud data pipelines, optimizing ingestion workflows, and delivering scalable ETL/ELT solutions that transform raw data into critical business assets with high efficiency and reliability.",
             expertise: "Core specialization in Azure data stack:",
             certs: [
                 'Azure Data Factory',
@@ -162,72 +165,46 @@ const About = () => {
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
                             {mentors.map((mentor, index) => (
-                                <div key={index} className="mentor-spotlight-card" style={{
-                                    display: 'flex',
-                                    gap: '3rem',
-                                    background: mentor.theme,
-                                    padding: '3rem',
-                                    borderRadius: '32px',
-                                    alignItems: 'center',
-                                    boxShadow: '0 10px 30px rgba(0,0,0,0.03)',
-                                    border: '1px solid rgba(0,0,0,0.05)',
-                                    flexWrap: 'wrap'
-                                }}>
-                                    <div className="mentor-image-col" style={{ flex: '0 0 240px', textAlign: 'center' }}>
-                                        <div style={{
-                                            fontSize: '8rem',
-                                            background: 'white',
-                                            borderRadius: '24px',
-                                            width: '240px',
-                                            height: '240px',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            boxShadow: '0 10px 25px rgba(0,0,0,0.05)'
-                                        }}>
-                                            {mentor.avatar}
+                                <div key={index} className="mentor-profile-layout">
+                                    {/* Left: Portrait Card with Overlay */}
+                                    <div className="mentor-portrait-card">
+                                        {mentor.image ? (
+                                            <img
+                                                src={mentor.image}
+                                                alt={mentor.name}
+                                                className="mentor-portrait-image"
+                                            />
+                                        ) : (
+                                            <div className="mentor-portrait-avatar">
+                                                {mentor.avatar}
+                                            </div>
+                                        )}
+                                        <div className="mentor-portrait-overlay">
+                                            <h3 className="mentor-portrait-name">{mentor.name}</h3>
+                                            <div className="mentor-portrait-role">{mentor.role}</div>
                                         </div>
                                     </div>
 
-                                    <div className="mentor-info-col" style={{ flex: '1', minWidth: '300px' }}>
-                                        <h3 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: '#111827' }}>{mentor.name}</h3>
-                                        <p style={{
-                                            fontSize: '1.25rem',
-                                            color: '#374151',
-                                            fontStyle: 'italic',
-                                            marginBottom: '1.5rem',
-                                            fontWeight: '500'
-                                        }}>
-                                            {mentor.role}
-                                        </p>
-
-                                        <div style={{ width: '100%', height: '1px', background: 'rgba(0,0,0,0.08)', marginBottom: '1.5rem' }}></div>
-
-                                        <p style={{ fontSize: '1.1rem', color: '#4b5563', lineHeight: '1.7', marginBottom: '2rem' }}>
+                                    {/* Right: Content & Bio */}
+                                    <div className="mentor-details-col">
+                                        <p className="mentor-bio">
                                             {mentor.description}
                                         </p>
 
                                         <div className="mentor-credentials">
-                                            <p style={{ fontWeight: '700', color: '#111827', marginBottom: '1rem' }}>{mentor.expertise}</p>
+                                            <p className="mentor-credentials-title">
+                                                {mentor.expertise}
+                                            </p>
 
                                             {mentor.credentialImage && (
                                                 <div style={{ marginBottom: '1.5rem' }}>
-                                                    <img src={mentor.credentialImage} alt="Credentials" style={{ maxWidth: '100%', borderRadius: '12px', height: 'auto' }} />
+                                                    <img src={mentor.credentialImage} alt="Credentials" style={{ maxWidth: '100%', borderRadius: '12px', height: 'auto', border: '1px solid #e5e7eb' }} />
                                                 </div>
                                             )}
 
-                                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
+                                            <div className="mentor-badges">
                                                 {mentor.certs.map((cert, cIdx) => (
-                                                    <span key={cIdx} style={{
-                                                        background: 'white',
-                                                        padding: '0.6rem 1rem',
-                                                        borderRadius: '12px',
-                                                        fontSize: '0.9rem',
-                                                        fontWeight: '600',
-                                                        color: '#1f2937',
-                                                        boxShadow: '0 2px 4px rgba(0,0,0,0.04)',
-                                                        border: '1px solid rgba(0,0,0,0.05)'
-                                                    }}>
+                                                    <span key={cIdx} className="mentor-badge">
                                                         🏆 {cert}
                                                     </span>
                                                 ))}

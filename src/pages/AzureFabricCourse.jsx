@@ -267,83 +267,9 @@ const AzureFabricCourse = () => {
                 </div>
             </section>
 
-            {/* Training Technologies Overview */}
-            <section className="section bg-light">
-                <div className="container">
-                    <div className="section-header text-center" style={{ marginBottom: '3rem' }}>
-                        <div className="badge">Complete Technology Stack</div>
-                        <h2 style={{ fontSize: '2.5rem' }}>Specialized Training on Modern Data Engineering</h2>
-                        <p className="lead" style={{ maxWidth: '800px', margin: '0 auto' }}>
-                            We provide comprehensive hands-on training on Power BI and cloud technologies
-                        </p>
-                    </div>
 
-                    <div style={{ maxWidth: '900px', margin: '0 auto', lineHeight: '1.8', fontSize: '1.05rem' }}>
-                        <p style={{ marginBottom: '2rem', fontSize: '1.1rem', textAlign: 'center', color: '#4a5568' }}>
-                            Our Azure Data Engineering program covers the complete technology ecosystem:
-                        </p>
 
-                        <div style={{ display: 'grid', gap: '1rem' }}>
-                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #0078D4 0%, #0063B1 100%)', borderRadius: '12px', borderLeft: '4px solid #005A9E', boxShadow: '0 4px 12px rgba(0, 120, 212, 0.3)' }}>
-                                <strong>Azure Data Factory (ADF):</strong> Build, orchestrate, and automate scalable data pipelines with real-time and batch processing.
-                            </p>
-                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #FF3621 0%, #E02F1C 100%)', borderRadius: '12px', borderLeft: '4px solid #C42818', boxShadow: '0 4px 12px rgba(255, 54, 33, 0.3)' }}>
-                                <strong>Azure Databricks (ADB):</strong> Hands-on expertise in PySpark, advanced transformations, and machine learning on a collaborative big data platform.
-                            </p>
-                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #7C3283 0%, #662970 100%)', borderRadius: '12px', borderLeft: '4px solid #52215D', boxShadow: '0 4px 12px rgba(124, 50, 131, 0.3)' }}>
-                                <strong>Microsoft Fabric:</strong> End-to-end data analytics platform unifying data movement, data engineering, real-time analytics, data science, and Power BI for actionable insights.
-                            </p>
-                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #00A87E 0%, #008C69 100%)', borderRadius: '12px', borderLeft: '4px solid #007055', boxShadow: '0 4px 12px rgba(0, 168, 126, 0.3)' }}>
-                                <strong>Unity Catalog:</strong> Implement centralized governance, fine-grained access control, and metadata management across data workspaces.
-                            </p>
-                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #00ADD8 0%, #0091B8 100%)', borderRadius: '12px', borderLeft: '4px solid #007699', boxShadow: '0 4px 12px rgba(0, 173, 216, 0.3)' }}>
-                                <strong>Delta Lake:</strong> Build reliable, performant, and ACID-compliant data lakes with schema evolution and time travel support.
-                            </p>
-                            <p style={{ marginBottom: '0.5rem', color: '#1a1a1a', padding: '1rem', background: 'linear-gradient(135deg, #F2C811 0%, #D9B20F 100%)', borderRadius: '12px', borderLeft: '4px solid #BF9D0D', boxShadow: '0 4px 12px rgba(242, 200, 17, 0.3)' }}>
-                                <strong>Power BI:</strong> End-to-end business intelligence and data visualization tool that connects to multiple data sources, transforms data, and provides interactive dashboards and reports for actionable insights.
-                            </p>
-                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #742774 0%, #5E1F5E 100%)', borderRadius: '12px', borderLeft: '4px solid #4A184A', boxShadow: '0 4px 12px rgba(116, 39, 116, 0.3)' }}>
-                                <strong>Power Apps:</strong> Low-code application development platform that enables users to quickly build custom business apps, automate workflows, and connect to various data sources with ease.
-                            </p>
-                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #24292E 0%, #1B1F23 100%)', borderRadius: '12px', borderLeft: '4px solid #0D1117', boxShadow: '0 4px 12px rgba(36, 41, 46, 0.4)' }}>
-                                <strong>GitHub:</strong> Learn modern version control, branching strategies, pull requests, and CI/CD integration for collaborative development.
-                            </p>
-                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #017CEE 0%, #0167CE 100%)', borderRadius: '12px', borderLeft: '4px solid #0153AE', boxShadow: '0 4px 12px rgba(1, 124, 238, 0.3)' }}>
-                                <strong>Apache Airflow:</strong> Orchestrate and monitor complex workflows with DAGs, scheduling, and end-to-end pipeline automation.
-                            </p>
-                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #336791 0%, #2A5477 100%)', borderRadius: '12px', borderLeft: '4px solid #21425D', boxShadow: '0 4px 12px rgba(51, 103, 145, 0.3)' }}>
-                                <strong>SQL:</strong> Write optimized queries, design schemas, implement joins, aggregations, and stored procedures for efficient data management.
-                            </p>
-                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #3776AB 0%, #2D5F8D 100%)', borderRadius: '12px', borderLeft: '4px solid #23496F', boxShadow: '0 4px 12px rgba(55, 118, 171, 0.3)' }}>
-                                <strong>Python:</strong> Develop robust data processing scripts, automation solutions, and machine learning models using libraries such as Pandas, NumPy, and Scikit-learn.
-                            </p>
-                            <p style={{ marginBottom: '0.5rem', color: 'white', padding: '1rem', background: 'linear-gradient(135deg, #E91E63 0%, #C2185B 100%)', borderRadius: '12px', borderLeft: '4px solid #A31545', boxShadow: '0 4px 12px rgba(233, 30, 99, 0.3)' }}>
-                                <strong>Python with Generative AI:</strong> Build intelligent solutions leveraging LLMs and frameworks such as LangChain, OpenAI, and Hugging Face for tasks like text summarization, chatbots, embeddings, and AI-powered automation.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            {/* Core Technologies Visualization */}
-            <section className="section bg-light">
-                <div className="container">
-                    <div className="core-tech-visualization text-center">
-                        <div className="badge">Ecosystem</div>
-                        <h2>Azure Data Engineer Core Technologies</h2>
-                        <p className="lead" style={{ marginBottom: '3rem' }}>
-                            Master the complete Azure data ecosystem through hands-on practical implementation
-                        </p>
-                        <div className="wheel-image-container card">
-                            <img
-                                src={azureDataEngineerWheel}
-                                alt="Azure Data Engineer Core Technologies"
-                                className="core-tech-wheel"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             {/* Technologies Grid */}
             <section className="section">
@@ -406,6 +332,26 @@ const AzureFabricCourse = () => {
                                 )}
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Core Technologies Visualization */}
+            <section className="section bg-light">
+                <div className="container">
+                    <div className="core-tech-visualization text-center">
+                        <div className="badge">Ecosystem</div>
+                        <h2>Azure Data Engineer Core Technologies</h2>
+                        <p className="lead" style={{ marginBottom: '3rem' }}>
+                            Master the complete Azure data ecosystem through hands-on practical implementation
+                        </p>
+                        <div className="wheel-image-container card">
+                            <img
+                                src={azureDataEngineerWheel}
+                                alt="Azure Data Engineer Core Technologies"
+                                className="core-tech-wheel"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -682,7 +628,7 @@ const AzureFabricCourse = () => {
                             <Link to="/contact" className="btn btn-primary btn-large">
                                 Enroll Now
                             </Link>
-                            <a href="https://tidycal.com/weblearnaisocialmedia/30-minute-meeting" data-tidy="popup" className="btn btn-secondary btn-large" style={{ background: 'transparent', border: '2px solid white', color: 'white' }}>Advisor
+                            <a href="https://tidycal.com/weblearnaisocialmedia/30-minute-meeting" data-tidy="popup" className="btn btn-secondary btn-large" style={{ background: 'transparent', border: '2px solid #000', color: '#000' }}>Talk with Expert
                             </a>
                         </div>
                     </div>

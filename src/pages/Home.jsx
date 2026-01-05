@@ -47,16 +47,7 @@ const Home = () => {
             clearInterval(heroInterval);
         };
     }, []);
-    const whyChooseUs = [
-        { icon: '👨‍🏫', title: 'Industry-Expert Instructors', description: 'Learn from professionals with 10+ years of real-world experience' },
-        { icon: '💼', title: 'Real-World Projects', description: 'Build production-ready projects that boost your portfolio' },
-        { icon: '🎓', title: 'Internships + Certifications', description: 'Get hands-on experience and industry-recognized credentials' },
-        { icon: '📹', title: 'Lifetime Access', description: 'Access all course recordings and materials forever' },
-        { icon: '⏰', title: 'Flexible Schedules', description: 'Weekend and weekday batches to fit your lifestyle' },
-        { icon: '💬', title: '100+ Teaching Assistants', description: '24/7 doubt resolution and learning support' },
-        { icon: '🚀', title: 'Career Support', description: 'Resume reviews, mock interviews, and job assistance' },
-        { icon: '🤝', title: 'Peer Community', description: 'Join a network of 10,000+ learners and alumni' },
-    ];
+
 
     const popularPrograms = [
         {
@@ -208,7 +199,7 @@ const Home = () => {
                                     Explore Courses
                                 </Link>
                                 <a href="https://tidycal.com/weblearnaisocialmedia/30-minute-meeting" data-tidy="popup" className="btn btn-secondary btn-large">
-                                    Book Free Consultation
+                                    Book your 1:1 clarity call
                                 </a>
                             </div>
                         </div>
@@ -219,27 +210,7 @@ const Home = () => {
             {/* Advertisements / News Section */}
             <AdvertisementDisplay />
 
-            {/* Why Choose Weblearnai */}
-            <section className="section why-section">
-                <div className="container">
-                    <div className="section-header text-center">
-                        <div className="badge">Why Choose Us</div>
-                        <h2>Your Success is Our Mission</h2>
-                        <p className="lead">
-                            We provide everything you need to launch and accelerate your tech career
-                        </p>
-                    </div>
-                    <div className="grid grid-4">
-                        {whyChooseUs.map((item, index) => (
-                            <div key={index} className="feature-card">
-                                <div className="feature-icon">{item.icon}</div>
-                                <h4>{item.title}</h4>
-                                <p>{item.description}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+
 
 
             {/* Popular Programs */}

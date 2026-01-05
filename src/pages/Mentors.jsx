@@ -1,11 +1,14 @@
 import { motion } from 'framer-motion';
 import mentorsHero from '../assets/mentors-hero.jpg';
+import munavathPortrait from '../assets/munavath-portrait.jpg';
+import pranayPortrait from '../assets/pranay-portrait-updated.jpg';
+import shivaPortrait from '../assets/shiva-portrait.jpg';
 
 const Mentors = () => {
     const mentors = [
         {
-            name: 'Munavath',
-            avatar: '👨‍💼',
+            name: 'Munavath Venu',
+            image: munavathPortrait,
             role: 'Co-founder of weblearnai / Certified Professional Coach',
             experience: '10+ years',
             companies: 'Multiple Product Companies',
@@ -16,7 +19,7 @@ const Mentors = () => {
         },
         {
             name: 'Pranay Kumar Sikilambatla',
-            avatar: '👨‍💻',
+            image: pranayPortrait,
             role: 'Data Engineer / Ex. Microsoft',
             experience: '9+ years',
             companies: 'Microsoft, Fortune 500 Companies',
@@ -26,15 +29,15 @@ const Mentors = () => {
             achievements: ['Built systems handling TB-scale data', 'Expert in Hadoop, Kafka & Airflow']
         },
         {
-            name: 'Geetha',
-            avatar: '👩‍💻',
-            role: 'Senior Data Engineer / Azure Expert',
+            name: 'Shiva',
+            image: shivaPortrait,
+            role: 'Data Engineer & Web Developer',
             experience: '8+ years',
             companies: 'Leading Tech Firms',
-            specialization: 'Azure Data Factory, Databricks, ETL/ELT',
-            certifications: ['Azure Data Factory Expert', 'Azure Databricks', 'Cloud Orchestration'],
-            description: "Geetha is a skilled Data Engineer specializing in designing and implementing scalable data pipelines with extensive expertise in data ingestion, transformation, and orchestration across cloud platforms.",
-            achievements: ['Built end-to-end Azure data solutions', 'Specialist in batch & incremental data loads']
+            specialization: 'Full Stack Development, Azure Data Engineering',
+            certifications: ['Full Stack Developer', 'Azure Data Engineer', 'React & Node.js'],
+            description: "Shiva is a versatile professional with expertise in both Data Engineering and Web Development. He specializes in building scalable data solutions and robust web applications, bridging the gap between data and application layers.",
+            achievements: ['Delivered end-to-end web & data solutions', 'Expert in React, Node.js & Azure']
         },
     ];
 
@@ -96,15 +99,25 @@ const Mentors = () => {
                                     fontSize: '5rem',
                                     marginBottom: '1rem',
                                     background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                                    width: '100px',
-                                    height: '100px',
+                                    width: '120px',
+                                    height: '120px',
                                     borderRadius: '50%',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    margin: '0 auto 1rem'
+                                    margin: '0 auto 1rem',
+                                    overflow: 'hidden',
+                                    border: '4px solid #f3e8ff'
                                 }}>
-                                    {mentor.avatar}
+                                    {mentor.image ? (
+                                        <img
+                                            src={mentor.image}
+                                            alt={mentor.name}
+                                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                        />
+                                    ) : (
+                                        mentor.avatar
+                                    )}
                                 </div>
 
                                 {/* Name & Role */}
