@@ -1,0 +1,589 @@
+/* Real Time Program Page Styles */
+.realtime-program-page {
+    padding-top: 80px;
+    background-color: #f8fafc;
+    min-height: 100vh;
+}
+
+/* Hero Section */
+.realtime-hero {
+    background: #f8fafc;
+    padding: 5rem 1rem;
+    color: #0f172a;
+    text-align: center;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #dbeafe;
+    color: #1e40af;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+    color: #64748b;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.hero-stats .stat-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #0f172a;
+}
+
+.hero-stats .stat-label {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* Global Section Styles */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero-buttons .btn-secondary {
+    border: 2px solid #0f172a;
+    color: #0f172a;
+    background: transparent;
+}
+
+.hero-buttons .btn-secondary:hover {
+    background: #0f172a;
+    color: white;
+}
+
+/* Program Overview Section */
+.program-overview-section {
+    padding: 5rem 1rem;
+    background: white;
+}
+
+.overview-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.overview-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #64748b;
+    margin-bottom: 1.5rem;
+}
+
+.overview-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.stat-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    color: white;
+}
+
+.stat-box h3 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.stat-box p {
+    font-size: 1rem;
+    margin: 0;
+    color: #e0f2fe;
+}
+
+/* Who Should Join Section */
+.who-should-join-section {
+    padding: 5rem 1rem;
+    background: #f8fafc;
+}
+
+.who-should-join-section .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.join-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.join-column h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+}
+
+.check-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.check-list li {
+    padding: 0.75rem 0;
+    color: #64748b;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.check-list li::before {
+    content: '✓';
+    color: #10b981;
+    font-weight: 700;
+    background: #d1fae5;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Topics Section */
+.topics-section {
+    padding: 5rem 1rem;
+    background: white;
+}
+
+.topics-section .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.topics-list {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.topic-category {
+    background: #f8fafc;
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid #667eea;
+}
+
+.topic-category h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.75rem;
+}
+
+.topic-category p {
+    color: #64748b;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Benefits Section */
+.benefits-section {
+    padding: 5rem 1rem;
+    background: #f8fafc;
+}
+
+.benefits-section .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.benefits-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.benefit-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.benefit-text h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+}
+
+.benefit-text p {
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Curriculum Timeline */
+.curriculum-overview-section {
+    padding: 5rem 1rem;
+    background: #f8fafc;
+}
+
+.curriculum-timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.curriculum-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 120px;
+    margin-bottom: 3rem;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 0;
+    background: #2563eb;
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.timeline-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.timeline-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+
+.timeline-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.timeline-content li {
+    padding: 0.5rem 0;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.timeline-content li::before {
+    content: '✓';
+    color: #10b981;
+    font-weight: 700;
+    background: #d1fae5;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+/* Outcomes Section */
+.outcomes-section {
+    padding: 5rem 1rem;
+    background: white;
+}
+
+.outcomes-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.outcome-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.outcome-number {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #e0f2fe;
+    position: absolute;
+    top: -10px;
+    right: 10px;
+}
+
+.outcome-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.75rem;
+    position: relative;
+    z-index: 1;
+}
+
+.outcome-card p {
+    color: #64748b;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+
+/* Batch Schedule */
+.batch-schedule-section {
+    padding: 5rem 1rem;
+    background: #f8fafc;
+}
+
+.batch-cards {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.batch-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 2px solid #e2e8f0;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.batch-card.featured {
+    border-color: #3b82f6;
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+}
+
+.batch-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.batch-tag {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.batch-tag.popular {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.batch-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+
+.batch-time {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 0.75rem;
+}
+
+.batch-start {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+}
+
+.batch-seats {
+    margin-bottom: 1.5rem;
+}
+
+.seats-left {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Final CTA */
+.realtime-cta-section {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    padding: 5rem 1rem;
+    text-align: center;
+    color: white;
+}
+
+.realtime-cta-section .cta-content h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.realtime-cta-section .cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    color: #e0f2fe;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn {
+    padding: 1rem 2.5rem;
+}
+
+.cta-buttons .btn-secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.cta-buttons .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cta-features {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-features span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #e0f2fe;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .hero-stats {
+        gap: 1.5rem;
+    }
+
+    .overview-content {
+        grid-template-columns: 1fr;
+    }
+
+    .join-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .curriculum-timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        padding-left: 80px;
+    }
+
+    .batch-card.featured {
+        transform: scale(1);
+    }
+
+    .benefit-item {
+        flex-direction: column;
+        text-align: center;
+    }
+}

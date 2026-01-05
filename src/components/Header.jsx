@@ -19,7 +19,14 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Courses', path: '/courses' },
+    {
+      name: 'Courses',
+      path: '/courses',
+      subLinks: [
+        { name: 'Recorded Course', path: '/courses/recorded' },
+        { name: 'Real Time Program', path: '/courses/real-time' }
+      ]
+    },
     { name: 'Internships', path: '/internships' },
     { name: 'Certifications', path: '/certifications' },
     { name: 'About', path: '/about' },
@@ -38,13 +45,35 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="nav-desktop">
             {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
-              >
-                {link.name}
-              </Link>
+              link.subLinks ? (
+                <div key={link.name} className="nav-item-dropdown">
+                  <Link
+                    to={link.path}
+                    className={`nav-link ${location.pathname.startsWith(link.path) ? 'active' : ''}`}
+                  >
+                    {link.name} <span style={{ fontSize: '0.8em', marginLeft: '4px' }}>▼</span>
+                  </Link>
+                  <div className="dropdown-menu">
+                    {link.subLinks.map((subLink) => (
+                      <Link
+                        key={subLink.name}
+                        to={subLink.path}
+                        className="dropdown-item"
+                      >
+                        {subLink.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+                >
+                  {link.name}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -69,14 +98,25 @@ const Header = () => {
         {isMobileMenuOpen && (
           <nav className="nav-mobile">
             {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`nav-link-mobile ${location.pathname === link.path ? 'active' : ''}`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
+              <div key={link.name} style={{ display: 'flex', flexDirection: 'column' }}>
+                <Link
+                  to={link.path}
+                  className={`nav-link-mobile ${location.pathname === link.path ? 'active' : ''}`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+                {link.subLinks && link.subLinks.map((subLink) => (
+                  <Link
+                    key={subLink.name}
+                    to={subLink.path}
+                    className="dropdown-item"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {subLink.name}
+                  </Link>
+                ))}
+              </div>
             ))}
           </nav>
         )}

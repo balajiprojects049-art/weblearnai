@@ -5,3 +5,5 @@ export { default as Roadmap } from './Roadmap';
 export { default as About } from './About';
 export { default as Placements } from './Placements';
 export { default as FAQs } from './FAQs';
+export { default as RecordedCourses } from './RecordedCourses';
+

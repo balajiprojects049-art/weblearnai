@@ -12,7 +12,8 @@ import TechnologyDetail from './pages/TechnologyDetail';
 import TechDetailPage from './pages/TechDetailPage';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
-import { Certifications, Mentors, Roadmap, About, Placements, FAQs } from './pages';
+import { Certifications, Mentors, Roadmap, About, Placements, FAQs, RecordedCourses } from './pages';
+import RealTimeProgram from './pages/RealTimeProgram';
 import './index.css';
 import './mobile-responsive.css';
 
@@ -41,6 +42,8 @@ function App() {
                   <Route path="/courses/azure-fabric" element={<AzureFabricCourse />} />
                   <Route path="/courses/aws-data-engineer" element={<AWSDataEngineerCourse />} />
                   <Route path="/courses/web-development" element={<WebDevelopmentCourse />} />
+                  <Route path="/courses/recorded" element={<RecordedCourses />} />
+                  <Route path="/courses/real-time" element={<RealTimeProgram />} />
                   <Route path="/technology/:slug" element={<TechnologyDetail />} />
                   <Route path="/tech/:techName" element={<TechDetailPage />} />
                   <Route path="/internships" element={<Internships />} />
