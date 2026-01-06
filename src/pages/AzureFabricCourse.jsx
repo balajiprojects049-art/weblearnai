@@ -17,7 +17,7 @@ import sqlLogo from '../assets/SQL.png';
 import pythonLogo from '../assets/Python.png';
 import genAiLogo from '../assets/Gen ai.png';
 import azureDataEngineerWheel from '../assets/azure-data-engineer-wheel.png';
-import roadmapImg from '../assets/data-engineer-roadmap.jpg';
+import roadmapImg from '../assets/learning-journey-path.png';
 import techMapImg from '../assets/technology-stack-map.png';
 
 const AzureFabricCourse = () => {
@@ -370,13 +370,13 @@ const AzureFabricCourse = () => {
                     {/* Visual Roadmap */}
                     <div className="visual-roadmap-section" style={{ marginBottom: '6rem' }}>
                         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                            <div className="badge" style={{ background: '#eff6ff', color: '#3b82f6' }}>Visual Guide</div>
+                            <div className="badge" style={{ background: '#eff6ff', color: '#3b82f6' }}>Learning Journey</div>
                             <h2 style={{ fontSize: '2.5rem', marginTop: '1rem' }}>The Path to Mastery</h2>
                             <p style={{ color: '#6b7280' }}>Follow this proven track to transition from beginner to expert</p>
                         </div>
 
-                        <div className="card" style={{ padding: '1rem', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '32px', overflow: 'hidden', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)' }}>
-                            <img src={roadmapImg} alt="Data Engineer Career Roadmap" style={{ width: '100%', borderRadius: '24px', display: 'block' }} />
+                        <div className="card" style={{ padding: '1rem', background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '32px', overflow: 'hidden', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)' }}>
+                            <img src={roadmapImg} alt="Learning Journey Path" style={{ width: '100%', borderRadius: '24px', display: 'block' }} />
                         </div>
 
                         <div style={{ marginTop: '4rem' }}>
