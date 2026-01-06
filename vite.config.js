@@ -5,12 +5,32 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
 
-  // NOTE: /api routes only work on Vercel deployment
-  // For local testing, either:
-  // 1. Test on your deployed Vercel site
-  // 2. Use a local database connection string in .env.local
-  // 3. Mock the API responses for development
+  // Development server configuration
+  server: {
+    proxy: {
+      // Proxy API requests to a mock handler during development
+      '/api': {
+        target: 'http://localhost:5173',
+        configure: (proxy, options) => {
+          // Mock API response for local development
+          proxy.on('proxyReq', (proxyReq, req, res) => {
+            if (req.url === '/api/submit-contact') {
+              // Intercept and return mock success response
+              res.writeHead(200, { 'Content-Type': 'application/json' });
+              res.end(JSON.stringify({
+                success: true,
+                message: 'Submission saved successfully! (Local Dev Mode)',
+                id: Math.floor(Math.random() * 1000),
+                whatsappSent: false
+              }));
+            }
+          });
+        }
+      }
+    }
+  }
 
-  // The /api folder contains Vercel Edge Functions
-  // which are NOT executed by Vite dev server
+  // NOTE: /api routes only work on Vercel deployment
+  // For local testing, we're using a mock proxy above
+  // For production, the /api folder contains Vercel Edge Functions
 })

@@ -235,13 +235,12 @@ const AWSDataEngineerCourse = () => {
                             <Link to="/contact" className="btn btn-primary btn-large">
                                 Enroll Now
                             </Link>
-                            <a
-                                href="/AWS Syllabus.pdf"
-                                download="AWS_Data_Engineer_Syllabus.pdf"
+                            <Link
+                                to="/contact?syllabus=aws&name=AWS Data Engineer"
                                 className="btn btn-secondary btn-large"
                             >
                                 Download Syllabus
-                            </a>
+                            </Link>
                         </div>
                         {/* Back to Home Button */}
                         <div style={{ marginTop: '2rem', textAlign: 'center' }}>
@@ -464,9 +463,8 @@ const AWSDataEngineerCourse = () => {
                             </p>
 
                             {/* Download Button */}
-                            <a
-                                href="/AWS Syllabus.pdf"
-                                download="AWS_Data_Engineer_Syllabus.pdf"
+                            <Link
+                                to="/contact?syllabus=aws&name=AWS Data Engineer"
                                 style={{
                                     display: 'inline-flex',
                                     alignItems: 'center',
@@ -496,7 +494,7 @@ const AWSDataEngineerCourse = () => {
                             >
                                 <span style={{ fontSize: '1.5rem' }}>⬇</span>
                                 Download Syllabus PDF
-                            </a>
+                            </Link>
 
                             {/* File info */}
                             <p style={{

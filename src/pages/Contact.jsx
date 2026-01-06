@@ -1,8 +1,14 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Contact.css';
 import contactHero from '../assets/contact-hero.jpg';
 
 const Contact = () => {
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const syllabusType = queryParams.get('syllabus'); // 'azure' or 'aws'
+    const syllabusName = queryParams.get('name'); // Display name
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -17,9 +23,18 @@ const Contact = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+
+        // Pre-fill course selection if coming from syllabus download
+        if (syllabusType === 'azure') {
+            setFormData(prev => ({ ...prev, topicInterest: 'Microsoft Fabric Data Engineer' }));
+        } else if (syllabusType === 'aws') {
+            setFormData(prev => ({ ...prev, topicInterest: 'AWS Data Engineer' }));
+        }
+    }, [syllabusType]);
 
     const [status, setStatus] = useState('');
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
+    const [downloadedCourseName, setDownloadedCourseName] = useState('');
 
     const handleChange = (e) => {
         setFormData({
@@ -52,6 +67,52 @@ const Contact = () => {
             if (result.success) {
                 setStatus('Message sent successfully! We\'ll get back to you soon. ✅');
                 console.log('✅ Form submitted successfully:', result);
+
+                // Save to localStorage for admin dashboard (local dev only)
+                const existingSubmissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
+                const newSubmission = {
+                    id: result.id || Date.now(),
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    topicInterest: formData.topicInterest,
+                    studentStatus: formData.studentStatus,
+                    studentDetails: formData.studentDetails,
+                    experienceYears: formData.experienceYears,
+                    graduatedDetails: formData.graduatedDetails,
+                    message: formData.message,
+                    timestamp: new Date().toLocaleString()
+                };
+                existingSubmissions.unshift(newSubmission); // Add to beginning
+                localStorage.setItem('contactSubmissions', JSON.stringify(existingSubmissions));
+
+                // Trigger syllabus download if requested
+                if (syllabusType) {
+                    const syllabusUrl = syllabusType === 'azure'
+                        ? '/syllabus/Azure Fabric Data Engineer (1).pdf'
+                        : '/syllabus/AWS (1).pdf';
+
+                    const fileName = syllabusType === 'azure'
+                        ? 'Azure_Fabric_Data_Engineer_Syllabus.pdf'
+                        : 'AWS_Data_Engineer_Syllabus.pdf';
+
+                    const courseName = syllabusType === 'azure'
+                        ? 'Azure Fabric Data Engineer'
+                        : 'AWS Data Engineer';
+
+                    // Trigger download
+                    const link = document.createElement('a');
+                    link.href = syllabusUrl;
+                    link.download = fileName;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+
+                    // Show success modal
+                    setDownloadedCourseName(courseName);
+                    setShowSuccessModal(true);
+                    setStatus('Message sent successfully! Your syllabus is downloading now... 📥✅');
+                }
 
                 // Reset form after success
                 setTimeout(() => {
@@ -98,9 +159,12 @@ const Contact = () => {
             >
                 <div className="container">
                     <div className="text-center">
-                        <h1 style={{ color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>Get In Touch</h1>
+                        <h1 style={{ color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>{syllabusType ? `Download ${syllabusName || 'Course'} Syllabus` : 'Get In Touch'}</h1>
                         <p className="lead" style={{ color: 'rgba(255, 255, 255, 0.95)', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>
-                            Have questions? We're here to help you choose the right career path
+                            {syllabusType
+                                ? 'Fill out the form below to download the complete course syllabus'
+                                : "Have questions? We're here to help you choose the right career path"
+                            }
                         </p>
                     </div>
                 </div>
@@ -460,6 +524,181 @@ const Contact = () => {
                     />
                 </div>
             </section>
+
+            {/* Success Modal */}
+            {showSuccessModal && (
+                <div style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: 'rgba(0, 0, 0, 0.7)',
+                    backdropFilter: 'blur(5px)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    zIndex: 9999,
+                    animation: 'fadeIn 0.3s ease-in-out'
+                }}>
+                    <div style={{
+                        background: 'linear-gradient(yellow,red)',
+                        borderRadius: '24px',
+                        padding: '3rem',
+                        maxWidth: '500px',
+                        width: '90%',
+                        textAlign: 'center',
+                        position: 'relative',
+                        boxShadow: '0 25px 50px rgba(0, 0, 0, 0.5)',
+                        animation: 'slideUp 0.4s ease-out'
+                    }}>
+                        {/* Close Button */}
+                        <button
+                            onClick={() => setShowSuccessModal(false)}
+                            style={{
+                                position: 'absolute',
+                                top: '1rem',
+                                right: '1rem',
+                                background: 'rgba(255, 255, 255, 0.2)',
+                                border: 'none',
+                                borderRadius: '50%',
+                                width: '40px',
+                                height: '40px',
+                                fontSize: '1.5rem',
+                                color: 'white',
+                                cursor: 'pointer',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                transition: 'all 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.3)';
+                                e.currentTarget.style.transform = 'rotate(90deg)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)';
+                                e.currentTarget.style.transform = 'rotate(0deg)';
+                            }}
+                        >
+                            ✕
+                        </button>
+
+                        {/* Success Icon */}
+                        <div style={{
+                            fontSize: '5rem',
+                            marginBottom: '1.5rem',
+                            animation: 'bounce 1s infinite'
+                        }}>
+                            🎉
+                        </div>
+
+                        {/* Success Message */}
+                        <h2 style={{
+                            color: 'white',
+                            fontSize: '2rem',
+                            fontWeight: '700',
+                            marginBottom: '1rem',
+                            textShadow: '0 2px 10px rgba(0, 0, 0, 0.2)'
+                        }}>
+                            Download Successful!
+                        </h2>
+
+                        <p style={{
+                            color: 'rgba(255, 255, 255, 0.95)',
+                            fontSize: '1.1rem',
+                            marginBottom: '0.5rem',
+                            lineHeight: '1.6'
+                        }}>
+                            You have successfully downloaded:
+                        </p>
+
+                        <div style={{
+                            background: 'rgba(255, 255, 255, 0.15)',
+                            borderRadius: '12px',
+                            padding: '1rem 1.5rem',
+                            marginBottom: '2rem',
+                            border: '1px solid rgba(255, 255, 255, 0.2)'
+                        }}>
+                            <p style={{
+                                color: 'white',
+                                fontSize: '1.2rem',
+                                fontWeight: '600',
+                                margin: 0
+                            }}>
+                                📄 {downloadedCourseName} Syllabus
+                            </p>
+                        </div>
+
+                        <p style={{
+                            color: 'rgba(255, 255, 255, 0.9)',
+                            fontSize: '0.95rem',
+                            marginBottom: '2rem'
+                        }}>
+                            Our team will contact you shortly to discuss the course details and answer any questions you may have.
+                        </p>
+
+                        {/* Close Button */}
+                        <button
+                            onClick={() => setShowSuccessModal(false)}
+                            style={{
+                                background: 'white',
+                                color: '#667eea',
+                                border: 'none',
+                                padding: '1rem 3rem',
+                                fontSize: '1.1rem',
+                                fontWeight: '600',
+                                borderRadius: '12px',
+                                cursor: 'pointer',
+                                boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
+                                transition: 'all 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.transform = 'translateY(-3px)';
+                                e.currentTarget.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.3)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.transform = 'translateY(0)';
+                                e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.2)';
+                            }}
+                        >
+                            Got it, Thanks! 👍
+                        </button>
+                    </div>
+
+                    {/* Add keyframe animations */}
+                    <style>{`
+                        @keyframes fadeIn {
+                            from {
+                                opacity: 0;
+                            }
+                            to {
+                                opacity: 1;
+                            }
+                        }
+
+                        @keyframes slideUp {
+                            from {
+                                transform: translateY(50px);
+                                opacity: 0;
+                            }
+                            to {
+                                transform: translateY(0);
+                                opacity: 1;
+                            }
+                        }
+
+                        @keyframes bounce {
+                            0%, 100% {
+                                transform: scale(1);
+                            }
+                            50% {
+                                transform: scale(1.1);
+                            }
+                        }
+                    `}</style>
+                </div>
+            )}
         </div>
     );
 };

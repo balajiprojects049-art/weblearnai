@@ -232,7 +232,7 @@ const AzureFabricCourse = () => {
                             <Link to="/contact" className="btn btn-primary btn-large">
                                 Enroll Now
                             </Link>
-                            <Link to="/contact" className="btn btn-secondary btn-large">
+                            <Link to="/contact?syllabus=azure&name=Azure Fabric Data Engineer" className="btn btn-secondary btn-large">
                                 Download Syllabus
                             </Link>
                         </div>
@@ -568,9 +568,8 @@ const AzureFabricCourse = () => {
                             </p>
 
                             {/* Download Button */}
-                            <a
-                                href="/Azure Fabric Data Engineer.pdf"
-                                download="Azure_Fabric_Data_Engineer_Syllabus.pdf"
+                            <Link
+                                to="/contact?syllabus=azure&name=Azure Fabric Data Engineer"
                                 style={{
                                     display: 'inline-flex',
                                     alignItems: 'center',
@@ -600,7 +599,7 @@ const AzureFabricCourse = () => {
                             >
                                 <span style={{ fontSize: '1.5rem' }}>⬇</span>
                                 Download Syllabus PDF
-                            </a>
+                            </Link>
 
                             {/* File info */}
                             <p style={{
