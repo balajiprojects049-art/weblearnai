@@ -33,8 +33,10 @@ const Header = () => {
     { name: 'Contact', path: '/contact' },
   ];
 
+  const isHomePage = location.pathname === '/';
+
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+    <header className={`header ${isScrolled ? 'scrolled' : ''} ${isHomePage ? 'home-header' : ''}`}>
       <div className="container">
         <div className="header-content">
           {/* Logo */}

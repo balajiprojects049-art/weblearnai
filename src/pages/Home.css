@@ -1,3 +1,22 @@
+/* Standard Home page padding (Header only) */
+.home {
+    padding-top: 80px;
+    /* Header Height */
+}
+
+/* Home page with TopBanner - add extra padding */
+body.has-top-banner .home {
+    padding-top: 132px;
+    /* 52px banner + 80px header */
+}
+
+@media (max-width: 768px) {
+    body.has-top-banner .home {
+        padding-top: 232px;
+        /* 152px banner + 80px header */
+    }
+}
+
 /* Full-Screen Hero Section with Background Slideshow */
 .hero-fullscreen {
     position: relative;

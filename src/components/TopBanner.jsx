@@ -53,6 +53,18 @@ const TopBanner = () => {
         }
     }, []);
 
+    useEffect(() => {
+        if (isVisible && bannerData && bannerData.isActive) {
+            document.body.classList.add('has-top-banner');
+        } else {
+            document.body.classList.remove('has-top-banner');
+        }
+
+        return () => {
+            document.body.classList.remove('has-top-banner');
+        };
+    }, [isVisible, bannerData]);
+
     const handleClose = () => {
         setIsVisible(false);
         // Removed sessionStorage - banner will show again on next page load

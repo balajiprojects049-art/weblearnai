@@ -1,6 +1,6 @@
 .header {
     --header-height: 80px;
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -14,6 +14,18 @@
     max-width: 100vw !important;
     /* overflow-x: hidden;  <-- REMOVED to allow mobile menu dropdown */
     box-sizing: border-box !important;
+}
+
+/* On Home Page with Active Banner, push header down below 52px Banner */
+body.has-top-banner .header.home-header {
+    top: 52px;
+}
+
+@media (max-width: 768px) {
+    body.has-top-banner .header.home-header {
+        top: 152px;
+        /* Approx height of stacked banner on mobile */
+    }
 }
 
 .header.scrolled {
