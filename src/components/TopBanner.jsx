@@ -3,31 +3,42 @@ import './TopBanner.css';
 
 const TopBanner = () => {
     const [isVisible, setIsVisible] = useState(true);
-    const [bannerData, setBannerData] = useState(null);
+    const [bannerData, setBannerData] = useState({
+        isActive: true,
+        backgroundColor: '#1e40af',
+        textColor: '#ffffff',
+        items: [
+            { icon: '📅', text: 'New batch starts 15 Jan' },
+            { icon: '▶', text: 'FREE demo on 11 Jan' },
+            { icon: '📱', text: 'Join WhatsApp', link: 'https://wa.me/919154255508' }
+        ]
+    });
 
     useEffect(() => {
-        // Check if banner was previously closed
-        const bannerClosed = sessionStorage.getItem('bannerClosed');
-        if (bannerClosed === 'true') {
-            setIsVisible(false);
-            return;
-        }
+        console.log('🎯 TopBanner component loaded');
 
         // Load banner data from localStorage (managed by admin)
         const storedBanner = localStorage.getItem('topBannerData');
+        console.log('💾 Stored banner data:', storedBanner);
+
         if (storedBanner) {
             try {
                 const data = JSON.parse(storedBanner);
+                console.log('✅ Parsed banner data:', data);
+
                 if (data.isActive) {
+                    console.log('🟢 Banner is active, showing it');
                     setBannerData(data);
                 } else {
+                    console.log('🔴 Banner is inactive, not showing');
                     setIsVisible(false);
                 }
             } catch (error) {
-                console.error('Error loading banner:', error);
+                console.error('❌ Error loading banner:', error);
                 setIsVisible(false);
             }
         } else {
+            console.log('🆕 No stored banner, using default');
             // Default banner if none configured
             setBannerData({
                 isActive: true,
@@ -44,7 +55,7 @@ const TopBanner = () => {
 
     const handleClose = () => {
         setIsVisible(false);
-        sessionStorage.setItem('bannerClosed', 'true');
+        // Removed sessionStorage - banner will show again on next page load
     };
 
     if (!isVisible || !bannerData) return null;
@@ -65,7 +76,8 @@ const TopBanner = () => {
                                 href={item.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                style={{ color: bannerData.textColor }}
+                                className={item.text.toLowerCase().includes('whatsapp') ? 'whatsapp-button' : ''}
+                                style={{ color: item.text.toLowerCase().includes('whatsapp') ? '#fff' : bannerData.textColor }}
                             >
                                 <span className="banner-icon">{item.icon}</span> {item.text}
                             </a>
@@ -74,7 +86,7 @@ const TopBanner = () => {
                                 <span className="banner-icon">{item.icon}</span> {item.text}
                             </>
                         )}
-                        {index < bannerData.items.length - 1 && <span className="banner-divider">|</span>}
+                        {index < bannerData.items.length - 1 && !item.text.toLowerCase().includes('whatsapp') && <span className="banner-divider">|</span>}
                     </span>
                 ))}
             </div>

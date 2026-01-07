@@ -1,5 +1,5 @@
 .top-banner {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10000;
+    z-index: 1001;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     animation: slideDown 0.4s ease-out;
 }
@@ -54,6 +54,25 @@
     text-decoration: underline;
 }
 
+.whatsapp-button {
+    background: #25D366 !important;
+    color: white !important;
+    padding: 0.5rem 1.2rem !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-button:hover {
+    background: #20BA5A !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    opacity: 1 !important;
+    text-decoration: none !important;
+}
+
 .banner-icon {
     font-size: 1.1rem;
 }
@@ -89,10 +108,6 @@
     transform: translateY(-50%) rotate(90deg);
 }
 
-/* Adjust body padding when banner is visible */
-body.has-top-banner {
-    padding-top: 50px;
-}
 
 /* Mobile responsive */
 @media (max-width: 768px) {
