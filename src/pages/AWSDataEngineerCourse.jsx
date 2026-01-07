@@ -503,7 +503,7 @@ const AWSDataEngineerCourse = () => {
                                 marginTop: '1.5rem',
                                 fontStyle: 'italic'
                             }}>
-                                📊 PDF Format • Free Download • No Registration Required
+                                📊 PDF Format • Fill the form → Submit → Auto-download
                             </p>
                         </div>
                     </div>
@@ -522,7 +522,13 @@ const AWSDataEngineerCourse = () => {
                             <Link to="/contact" className="btn btn-primary btn-large">
                                 Enroll Now
                             </Link>
-                            <a href="https://tidycal.com/weblearnaisocialmedia/30-minute-meeting" data-tidy="popup" className="btn btn-secondary btn-large" style={{ background: 'transparent', border: '2px solid white', color: 'white' }}>Advisor
+                            <a
+                                href="https://tidycal.com/weblearnaisocialmedia/30-minute-meeting"
+                                data-tidy="popup"
+                                className="btn btn-secondary btn-large"
+                                style={{ background: 'transparent', border: '2px solid #000', color: '#000' }}
+                            >
+                                Talk with Expert
                             </a>
                         </div>
                     </div>

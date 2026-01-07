@@ -608,7 +608,7 @@ const AzureFabricCourse = () => {
                                 marginTop: '1.5rem',
                                 fontStyle: 'italic'
                             }}>
-                                📊 PDF Format • Free Download • No Registration Required
+                                📊 PDF Format • Fill the form → Submit → Auto-download
                             </p>
                         </div>
                     </div>
