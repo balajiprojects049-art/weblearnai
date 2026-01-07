@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../assets/weblearnai-logo.png';
-import AdManager from '../components/admin/AdManager';
+import BannerManager from '../components/admin/BannerManager';
 import './AdminDashboard.css';
 
 const AdminDashboard = () => {
@@ -256,7 +256,7 @@ const AdminDashboard = () => {
                                     transition: 'all 0.2s'
                                 }}
                             >
-                                📢 Advertisements
+                                📢 Top Banner
                             </button>
                         </div>
                     </div>
@@ -311,7 +311,7 @@ const AdminDashboard = () => {
                 <div className="dashboard-container">
 
                     {activeTab === 'ads' ? (
-                        <AdManager />
+                        <BannerManager />
                     ) : (
                         /* SUBMISSIONS DASHBOARD */
                         <>
