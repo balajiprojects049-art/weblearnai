@@ -526,6 +526,38 @@ body.has-top-banner .home {
 /* Learning Section */
 .learning-card {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 280px;
+}
+
+.learning-card .feature-icon {
+    margin-bottom: 1.5rem;
+}
+
+.learning-card h4 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    hyphens: none;
+    word-break: keep-all;
+}
+
+.learning-card p {
+    font-size: 0.938rem;
+    color: #6b7280;
+    line-height: 1.65;
+    margin: 0;
+    text-align: center;
+    max-width: 100%;
 }
 
 /* Books Section */
