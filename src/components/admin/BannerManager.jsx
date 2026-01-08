@@ -14,21 +14,50 @@ const BannerManager = () => {
     });
 
     const [previewKey, setPreviewKey] = useState(0);
+    const [saving, setSaving] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const storedBanner = localStorage.getItem('topBannerData');
-        if (storedBanner) {
+        // Fetch banner data from API
+        const fetchBannerData = async () => {
             try {
-                setBannerData(JSON.parse(storedBanner));
+                const response = await fetch('/api/banner');
+                if (response.ok) {
+                    const data = await response.json();
+                    setBannerData(data);
+                }
             } catch (error) {
                 console.error('Error loading banner:', error);
+            } finally {
+                setLoading(false);
             }
-        }
+        };
+
+        fetchBannerData();
     }, []);
 
-    const handleSave = () => {
-        localStorage.setItem('topBannerData', JSON.stringify(bannerData));
-        alert('✅ Banner saved successfully! Refresh the site to see changes.');
+    const handleSave = async () => {
+        setSaving(true);
+        try {
+            const response = await fetch('/api/banner', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(bannerData),
+            });
+
+            if (response.ok) {
+                alert('✅ Banner saved successfully! Refresh the site to see changes.');
+            } else {
+                alert('❌ Failed to save banner. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error saving banner:', error);
+            alert('❌ Error saving banner. Please try again.');
+        } finally {
+            setSaving(false);
+        }
     };
 
     const handleItemChange = (index, field, value) => {
@@ -164,8 +193,8 @@ const BannerManager = () => {
 
                 {/* Actions */}
                 <div className="actions">
-                    <button className="save-btn" onClick={handleSave}>
-                        💾 Save Banner
+                    <button className="save-btn" onClick={handleSave} disabled={saving || loading}>
+                        {saving ? '⏳ Saving...' : '💾 Save Banner'}
                     </button>
                     <button className="refresh-btn" onClick={refreshPreview}>
                         🔄 Refresh Preview

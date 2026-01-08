@@ -3,29 +3,51 @@ import './TopBanner.css';
 
 const TopBanner = () => {
     const [isVisible, setIsVisible] = useState(true);
-
-    // CENTRALIZED BANNER CONFIGURATION
-    // Edit these values to update the banner for ALL users
-    // After editing, commit and push to update production
-    const bannerData = {
-        isActive: true, // Set to false to hide banner for everyone
-        backgroundColor: '#1e40af',
-        textColor: '#ffffff',
-        items: [
-            { icon: '📅', text: 'New batch starts 15 Jan' },
-            { icon: '▶', text: 'FREE demo on 11 Jan' },
-            { icon: '📱', text: 'Join WhatsApp', link: 'https://wa.me/919154255508' }
-        ]
-    };
+    const [bannerData, setBannerData] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        console.log('🎯 TopBanner component loaded');
-        console.log('✅ Banner data:', bannerData);
+        const fetchBannerData = async () => {
+            try {
+                const response = await fetch('/api/banner');
+                if (response.ok) {
+                    const data = await response.json();
+                    setBannerData(data);
+                    if (!data.isActive) {
+                        setIsVisible(false);
+                    }
+                } else {
+                    // Fallback to default banner
+                    setBannerData({
+                        isActive: true,
+                        backgroundColor: '#1e40af',
+                        textColor: '#ffffff',
+                        items: [
+                            { icon: '📅', text: 'New batch starts 15 Jan' },
+                            { icon: '▶', text: 'FREE demo on 11 Jan' },
+                            { icon: '📱', text: 'Join WhatsApp', link: 'https://wa.me/919154255508' }
+                        ]
+                    });
+                }
+            } catch (error) {
+                console.error('Error fetching banner:', error);
+                // Use default banner on error
+                setBannerData({
+                    isActive: true,
+                    backgroundColor: '#1e40af',
+                    textColor: '#ffffff',
+                    items: [
+                        { icon: '📅', text: 'New batch starts 15 Jan' },
+                        { icon: '▶', text: 'FREE demo on 11 Jan' },
+                        { icon: '📱', text: 'Join WhatsApp', link: 'https://wa.me/919154255508' }
+                    ]
+                });
+            } finally {
+                setLoading(false);
+            }
+        };
 
-        if (!bannerData.isActive) {
-            console.log('🔴 Banner is inactive, not showing');
-            setIsVisible(false);
-        }
+        fetchBannerData();
     }, []);
 
     useEffect(() => {
