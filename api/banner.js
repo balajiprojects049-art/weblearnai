@@ -1,4 +1,15 @@
-import { neon } from '@neondatabase/serverless';
+import { kv } from '@vercel/kv';
+
+const DEFAULT_BANNER = {
+    isActive: true,
+    backgroundColor: '#10b981',
+    textColor: '#ffffff',
+    items: [
+        { icon: '📅', text: 'New batch starts 1 Feb', link: '' },
+        { icon: '▶', text: 'FREE demo on 27 Jan', link: '' },
+        { icon: '📱', text: 'Join WhatsApp', link: 'https://wa.me/919154255508' }
+    ]
+};
 
 export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -9,35 +20,20 @@ export default async function handler(req, res) {
         return res.status(200).end();
     }
 
-    const sql = neon(process.env.DATABASE_URL);
-
-    const defaultBanner = {
-        isActive: true,
-        backgroundColor: '#10b981',
-        textColor: '#ffffff',
-        items: [
-            { icon: '📅', text: 'New batch starts 1 Feb', link: '' },
-            { icon: '▶', text: 'FREE demo on 27 Jan', link: '' },
-            { icon: '📱', text: 'Join WhatsApp', link: 'https://wa.me/919154255508' }
-        ]
-    };
-
     try {
         if (req.method === 'GET') {
-            const result = await sql`SELECT data FROM banner_config WHERE id = 1`;
-            return res.status(200).json(result[0]?.data || defaultBanner);
+            const banner = await kv.get('banner_config');
+            return res.status(200).json(banner || DEFAULT_BANNER);
         }
 
         if (req.method === 'POST') {
-            await sql`
-                INSERT INTO banner_config (id, data) 
-                VALUES (1, ${JSON.stringify(req.body)})
-                ON CONFLICT (id) DO UPDATE SET data = ${JSON.stringify(req.body)}
-            `;
-            return res.status(200).json({ success: true });
+            await kv.set('banner_config', req.body);
+            return res.status(200).json({ success: true, message: 'Banner updated successfully' });
         }
+
+        return res.status(405).json({ error: 'Method not allowed' });
     } catch (error) {
-        console.error(error);
-        return res.status(200).json(defaultBanner); // Return default on error
+        console.error('KV Error:', error);
+        return res.status(200).json(DEFAULT_BANNER);
     }
 }
