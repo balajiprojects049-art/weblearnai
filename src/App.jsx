@@ -23,8 +23,8 @@ import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   // Check if maintenance mode is enabled
-  // FORCED ON by user request - Change back to env variable to disable
-  const isMaintenanceMode = true; // import.meta.env.VITE_MAINTENANCE_MODE === 'true';
+  // FORCED OFF by user request - Site is now LIVE
+  const isMaintenanceMode = false; // import.meta.env.VITE_MAINTENANCE_MODE === 'true';
 
   // If maintenance mode is enabled, show only the maintenance page
   if (isMaintenanceMode) {
