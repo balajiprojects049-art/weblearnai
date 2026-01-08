@@ -164,17 +164,17 @@ footer {
 }
 
 .btn-secondary {
-  background: white;
+  background: transparent;
   color: var(--primary-blue);
   border: 2px solid var(--primary-blue);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .btn-secondary:hover {
-  background: #f8fafc;
-  border-color: var(--primary-indigo);
-  color: var(--primary-indigo);
-  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.15);
+  background: var(--primary-blue);
+  border-color: var(--primary-blue);
+  color: white;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
 
 /* TidyCal Button Wave/Ripple Effect */
