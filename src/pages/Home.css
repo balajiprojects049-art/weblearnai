@@ -838,6 +838,19 @@ body.has-top-banner .home {
     flex-wrap: wrap;
 }
 
+.cta-section .cta-buttons .btn-secondary {
+    background: white;
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.cta-section .cta-buttons .btn-secondary:hover {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+    color: white;
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-fullscreen {
