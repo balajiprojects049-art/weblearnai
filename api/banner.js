@@ -1,18 +1,16 @@
-// SIMPLIFIED BANNER API - Works immediately without database setup
-// Banner data is stored in Vercel environment variable BANNER_DATA
+import { neon } from '@neondatabase/serverless';
 
 export default async function handler(req, res) {
-    // Enable CORS
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
     if (req.method === 'OPTIONS') {
-        res.status(200).end();
-        return;
+        return res.status(200).end();
     }
 
-    // Default banner data
+    const sql = neon(process.env.DATABASE_URL);
+
     const defaultBanner = {
         isActive: true,
         backgroundColor: '#10b981',
@@ -24,14 +22,22 @@ export default async function handler(req, res) {
         ]
     };
 
-    if (req.method === 'GET') {
-        // Return the banner data
-        res.status(200).json(defaultBanner);
-    } else if (req.method === 'POST') {
-        // For now, just return success but don't actually save
-        // To update banner, edit the defaultBanner object above and redeploy
-        res.status(200).json({ success: true, message: 'To update banner, edit banner.js file and commit/push to GitHub' });
-    } else {
-        res.status(405).json({ error: 'Method not allowed' });
+    try {
+        if (req.method === 'GET') {
+            const result = await sql`SELECT data FROM banner_config WHERE id = 1`;
+            return res.status(200).json(result[0]?.data || defaultBanner);
+        }
+
+        if (req.method === 'POST') {
+            await sql`
+                INSERT INTO banner_config (id, data) 
+                VALUES (1, ${JSON.stringify(req.body)})
+                ON CONFLICT (id) DO UPDATE SET data = ${JSON.stringify(req.body)}
+            `;
+            return res.status(200).json({ success: true });
+        }
+    } catch (error) {
+        console.error(error);
+        return res.status(200).json(defaultBanner); // Return default on error
     }
 }
