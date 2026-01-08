@@ -14,6 +14,7 @@ import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import { Certifications, Mentors, Roadmap, About, Placements, FAQs, RecordedCourses } from './pages';
 import RealTimeProgram from './pages/RealTimeProgram';
+import Maintenance from './pages/Maintenance';
 import './index.css';
 import './mobile-responsive.css';
 
@@ -21,6 +22,14 @@ import FloatingSocials from './components/FloatingSocials';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
+  // Check if maintenance mode is enabled
+  const isMaintenanceMode = import.meta.env.VITE_MAINTENANCE_MODE === 'true';
+
+  // If maintenance mode is enabled, show only the maintenance page
+  if (isMaintenanceMode) {
+    return <Maintenance />;
+  }
+
   return (
     <Router>
       <ScrollToTop />
