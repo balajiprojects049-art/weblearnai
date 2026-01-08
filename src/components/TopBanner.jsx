@@ -3,8 +3,12 @@ import './TopBanner.css';
 
 const TopBanner = () => {
     const [isVisible, setIsVisible] = useState(true);
-    const [bannerData, setBannerData] = useState({
-        isActive: true,
+
+    // CENTRALIZED BANNER CONFIGURATION
+    // Edit these values to update the banner for ALL users
+    // After editing, commit and push to update production
+    const bannerData = {
+        isActive: true, // Set to false to hide banner for everyone
         backgroundColor: '#1e40af',
         textColor: '#ffffff',
         items: [
@@ -12,44 +16,15 @@ const TopBanner = () => {
             { icon: '▶', text: 'FREE demo on 11 Jan' },
             { icon: '📱', text: 'Join WhatsApp', link: 'https://wa.me/919154255508' }
         ]
-    });
+    };
 
     useEffect(() => {
         console.log('🎯 TopBanner component loaded');
+        console.log('✅ Banner data:', bannerData);
 
-        // Load banner data from localStorage (managed by admin)
-        const storedBanner = localStorage.getItem('topBannerData');
-        console.log('💾 Stored banner data:', storedBanner);
-
-        if (storedBanner) {
-            try {
-                const data = JSON.parse(storedBanner);
-                console.log('✅ Parsed banner data:', data);
-
-                if (data.isActive) {
-                    console.log('🟢 Banner is active, showing it');
-                    setBannerData(data);
-                } else {
-                    console.log('🔴 Banner is inactive, not showing');
-                    setIsVisible(false);
-                }
-            } catch (error) {
-                console.error('❌ Error loading banner:', error);
-                setIsVisible(false);
-            }
-        } else {
-            console.log('🆕 No stored banner, using default');
-            // Default banner if none configured
-            setBannerData({
-                isActive: true,
-                backgroundColor: '#1e40af',
-                textColor: '#ffffff',
-                items: [
-                    { icon: '📅', text: 'New batch starts 15 Jan' },
-                    { icon: '▶', text: 'FREE demo on 11 Jan' },
-                    { icon: '📱', text: 'Join WhatsApp', link: 'https://wa.me/919154255508' }
-                ]
-            });
+        if (!bannerData.isActive) {
+            console.log('🔴 Banner is inactive, not showing');
+            setIsVisible(false);
         }
     }, []);
 
