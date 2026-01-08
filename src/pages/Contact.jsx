@@ -112,6 +112,22 @@ const Contact = () => {
                     setDownloadedCourseName(courseName);
                     setShowSuccessModal(true);
                     setStatus('Message sent successfully! Your syllabus is downloading now... 📥✅');
+
+                    // Send WhatsApp notification
+                    try {
+                        await fetch('/api/notify-whatsapp', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                name: formData.name,
+                                email: formData.email,
+                                phone: formData.phone,
+                                course: courseName
+                            })
+                        });
+                    } catch (err) {
+                        console.log('WhatsApp notification failed (non-critical):', err);
+                    }
                 }
 
                 // Reset form after success
