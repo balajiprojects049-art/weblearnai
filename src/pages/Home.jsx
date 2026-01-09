@@ -419,93 +419,93 @@ const Home = () => {
                         </div>
 
                         {/* Commitment Points - Above Success Stories */}
-                        <div style={{ maxWidth: '1000px', margin: '0 auto 5rem' }}>
-                            <div className="card" style={{ padding: '3rem', background: 'white', borderRadius: '20px', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.08)' }}>
-                                <div style={{ display: 'grid', gap: '1.5rem' }}>
+                        <div style={{ maxWidth: '1200px', margin: '0 auto 5rem' }}>
+                            <div className="card" style={{ padding: '2.5rem', background: 'white', borderRadius: '20px', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.08)' }}>
+                                <div className="commitment-points-grid">
                                     {/* Key Point 1 */}
-                                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#f8fafc', borderRadius: '12px', borderLeft: '4px solid #3b82f6' }}>
-                                        <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>💯</span>
-                                        <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                    <div className="commitment-point">
+                                        <span className="commitment-icon">💯</span>
+                                        <p>
                                             We give our <strong>100% to support all individuals</strong>—whether from IT or non-IT backgrounds, including freshers and interns—who want to build their careers.
                                         </p>
                                     </div>
 
                                     {/* Key Point 2 */}
-                                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fef3f2', borderRadius: '12px', borderLeft: '4px solid #f59e0b' }}>
-                                        <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🎓</span>
-                                        <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                    <div className="commitment-point" style={{ borderLeftColor: '#f59e0b', background: '#fef3f2' }}>
+                                        <span className="commitment-icon">🎓</span>
+                                        <p>
                                             We provide <strong>internships along with certification</strong> to strengthen your professional journey, offering support for both IT and non-IT learners in achieving certification.
                                         </p>
                                     </div>
 
                                     {/* Key Point 3 */}
-                                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#f0fdf4', borderRadius: '12px', borderLeft: '4px solid #10b981' }}>
-                                        <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🚀</span>
-                                        <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                    <div className="commitment-point" style={{ borderLeftColor: '#10b981', background: '#f0fdf4' }}>
+                                        <span className="commitment-icon">🚀</span>
+                                        <p>
                                             We aim to create <strong>learning opportunities for everyone</strong> that can help them build their careers and progress through technology enhancement.
                                         </p>
                                     </div>
 
                                     {/* Key Point 4 */}
-                                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fef9f3', borderRadius: '12px', borderLeft: '4px solid #8b5cf6' }}>
-                                        <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>💪</span>
-                                        <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                    <div className="commitment-point" style={{ borderLeftColor: '#8b5cf6', background: '#fef9f3' }}>
+                                        <span className="commitment-icon">💪</span>
+                                        <p>
                                             Our focus is on developing <strong>skills that enable individuals to resolve challenging tasks</strong> in their workplaces.
                                         </p>
                                     </div>
 
                                     {/* Key Point 5 */}
-                                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fef3f8', borderRadius: '12px', borderLeft: '4px solid #ec4899' }}>
-                                        <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🎯</span>
-                                        <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                    <div className="commitment-point" style={{ borderLeftColor: '#ec4899', background: '#fef3f8' }}>
+                                        <span className="commitment-icon">🎯</span>
+                                        <p>
                                             With <strong>assessments, learning paths, and courses conducted by industry experts</strong>, our platform helps you achieve your goals.
                                         </p>
                                     </div>
 
                                     {/* Key Point 6 */}
-                                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#eff6ff', borderRadius: '12px', borderLeft: '4px solid #06b6d4' }}>
-                                        <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🆘</span>
-                                        <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                    <div className="commitment-point" style={{ borderLeftColor: '#06b6d4', background: '#eff6ff' }}>
+                                        <span className="commitment-icon">🆘</span>
+                                        <p>
                                             Quick & hassle-free <strong>doubt resolution from our 100+ Teaching Assistants</strong>
                                         </p>
                                     </div>
 
                                     {/* Key Point 7 */}
-                                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fdf4ff', borderRadius: '12px', borderLeft: '4px solid #a855f7' }}>
-                                        <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>👥</span>
-                                        <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                    <div className="commitment-point" style={{ borderLeftColor: '#a855f7', background: '#fdf4ff' }}>
+                                        <span className="commitment-icon">👥</span>
+                                        <p>
                                             <strong>Aspirational peer group</strong> to discuss projects, share job referrals, and provide proper interview guidance.
                                         </p>
                                     </div>
 
                                     {/* Key Point 8 */}
-                                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#f0fdf4', borderRadius: '12px', borderLeft: '4px solid #22c55e' }}>
-                                        <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>⏰</span>
-                                        <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                    <div className="commitment-point" style={{ borderLeftColor: '#22c55e', background: '#f0fdf4' }}>
+                                        <span className="commitment-icon">⏰</span>
+                                        <p>
                                             <strong>Flexible program</strong> to continue learning despite a super hectic schedule
                                         </p>
                                     </div>
 
                                     {/* Key Point 9 */}
-                                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fff7ed', borderRadius: '12px', borderLeft: '4px solid #f97316' }}>
-                                        <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>📹</span>
-                                        <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                    <div className="commitment-point" style={{ borderLeftColor: '#f97316', background: '#fff7ed' }}>
+                                        <span className="commitment-icon">📹</span>
+                                        <p>
                                             <strong>Recorded Lectures with Lifetime access</strong>
                                         </p>
                                     </div>
 
                                     {/* Key Point 10 */}
-                                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#fef2f2', borderRadius: '12px', borderLeft: '4px solid #ef4444' }}>
-                                        <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>🔄</span>
-                                        <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                    <div className="commitment-point" style={{ borderLeftColor: '#ef4444', background: '#fef2f2' }}>
+                                        <span className="commitment-icon">🔄</span>
+                                        <p>
                                             <strong>Flexibility to switch and pause batches</strong>
                                         </p>
                                     </div>
 
                                     {/* Key Point 11 */}
-                                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', background: '#ecfdf5', borderRadius: '12px', borderLeft: '4px solid #14b8a6' }}>
-                                        <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>💼</span>
-                                        <p style={{ margin: 0, lineHeight: '1.7', color: '#334155' }}>
+                                    <div className="commitment-point" style={{ borderLeftColor: '#14b8a6', background: '#ecfdf5' }}>
+                                        <span className="commitment-icon">💼</span>
+                                        <p>
                                             <strong>Career support via our 100+ employer partners</strong>, mock interviews, and career planning services
                                         </p>
                                     </div>

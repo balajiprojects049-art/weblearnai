@@ -17,6 +17,7 @@ import iamLogo from '../assets/IAM.png';
 import redshiftLogo from '../assets/RedSHift.png';
 import stepFunctionsLogo from '../assets/Step Function.png';
 import airflowLogo from '../assets/Airflow.png';
+import awsDataPlatformImg from '../assets/aws-data-platform.png';
 
 const AWSDataEngineerCourse = () => {
     // Scroll to top when component mounts
@@ -339,6 +340,20 @@ const AWSDataEngineerCourse = () => {
                     </div>
                 </div>
             </section >
+
+            {/* AWS Data Platform Architecture */}
+            <section className="section bg-light">
+                <div className="container" style={{ maxWidth: '1100px' }}>
+                    <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                        <div className="badge" style={{ background: '#fef2f2', color: '#ef4444' }}>Platform Architecture</div>
+                        <h2 style={{ fontSize: '2.2rem', marginTop: '1rem' }}>AWS Data Platform Architecture</h2>
+                        <p style={{ color: '#6b7280' }}>Complete data platform architecture on AWS</p>
+                    </div>
+                    <div className="card" style={{ padding: '2rem', background: '#0f172a', border: 'none', borderRadius: '32px', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3)' }}>
+                        <img src={awsDataPlatformImg} alt="AWS Data Platform Architecture" style={{ width: '100%', borderRadius: '16px', display: 'block' }} />
+                    </div>
+                </div>
+            </section>
 
             {/* Course Overview */}
             < section className="section bg-light" >

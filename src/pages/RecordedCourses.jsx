@@ -353,7 +353,7 @@ const RecordedCourses = () => {
                                 <div className="card-footer">
                                     <div className="price-container">
                                         <span className="price-label">Course Price</span>
-                                        <span className="price-value">₹24,990</span>
+                                        <span className="price-value">₹15,000</span>
                                     </div>
                                     <Link to="/contact" className="enroll-btn-small">
                                         Enroll →
@@ -607,7 +607,7 @@ const RecordedCourses = () => {
                         <p>Join 1000+ students who have transformed their careers with our comprehensive Azure Data Engineering course</p>
                         <div className="cta-buttons">
                             <Link to="/contact" className="btn btn-primary btn-large">
-                                Enroll Now - ₹24,990
+                                Enroll Now - ₹15,000
                             </Link>
                             <a href="https://tidycal.com/weblearnaisocialmedia/30-minute-meeting" data-tidy="popup" className="btn btn-secondary btn-large">
                                 Talk to Our Team

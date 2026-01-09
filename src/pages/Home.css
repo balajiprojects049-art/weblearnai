@@ -1038,3 +1038,55 @@ body.has-top-banner .home {
     color: var(--gray-600);
     font-size: 0.9375rem;
 }
+
+/* Commitment Points Grid */
+.commitment-points-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+.commitment-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    border-left: 4px solid #3b82f6;
+    transition: all 0.3s ease;
+}
+
+.commitment-point:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.commitment-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.commitment-point p {
+    margin: 0;
+    line-height: 1.7;
+    color: #334155;
+    font-size: 0.938rem;
+}
+
+/* Mobile responsiveness for commitment points */
+@media (max-width: 768px) {
+    .commitment-points-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .commitment-point {
+        padding: 1rem;
+    }
+
+    .commitment-icon {
+        font-size: 1.25rem;
+    }
+}

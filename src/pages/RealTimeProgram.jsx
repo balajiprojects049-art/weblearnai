@@ -41,6 +41,10 @@ const RealTimeProgram = () => {
                                 <div className="stat-value">🏆 Certificate</div>
                                 <div className="stat-label">Included</div>
                             </div>
+                            <div className="stat-item">
+                                <div className="stat-value">₹2,000</div>
+                                <div className="stat-label">Price</div>
+                            </div>
                         </div>
                         <div className="hero-buttons">
                             <Link to="/contact" className="btn btn-primary btn-large">
