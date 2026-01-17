@@ -489,7 +489,7 @@ const Contact = () => {
                                                 🏢 Hyderabad Office
                                             </div>
                                             <div style={{ fontSize: '0.95rem', opacity: '0.95', marginBottom: '0.3rem' }}>
-                                                📍 Near Uppel Metro Station
+                                                📍 17°24'00.8"N 78°33'42.1"E
                                             </div>
                                             <div style={{ fontSize: '0.95rem', opacity: '0.95' }}>
                                                 Telangana, India
@@ -530,7 +530,7 @@ const Contact = () => {
                 <div className="map-container">
                     <iframe
                         title="Weblearnai Academy Location"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.3160404457!2d78.24323159488143!3d17.41262079362421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1735069000000!5m2!1sen!2sin"
+                        src="https://maps.google.com/maps?q=17.400222,78.561694&z=15&output=embed"
                         width="100%"
                         height="450"
                         style={{ border: 0 }}

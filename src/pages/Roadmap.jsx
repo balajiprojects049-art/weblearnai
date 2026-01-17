@@ -9,13 +9,21 @@ const Roadmap = () => {
 
     return (
         <div style={{ paddingTop: '80px' }}>
-            <section className="gradient-bg-secondary" style={{ padding: '6rem 0', textAlign: 'center' }}>
-                <div className="container">
+            <section style={{
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                padding: '6rem 0',
+                textAlign: 'center',
+                position: 'relative',
+                overflow: 'hidden'
+            }}>
+                <div className="container" style={{ position: 'relative', zIndex: 2 }}>
                     <h1 style={{ color: 'white', fontSize: '3rem', marginBottom: '1rem' }}>Career Roadmap to Data & Cloud</h1>
                     <p className="lead" style={{ color: 'rgba(255, 255, 255, 0.95)', maxWidth: '800px', margin: '0 auto' }}>
                         Your professional guide to mastering the modern data stack and landing your dream job.
                     </p>
                 </div>
+                <div style={{ position: 'absolute', top: '10%', left: '5%', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)', borderRadius: '50%', filter: 'blur(60px)' }}></div>
+                <div style={{ position: 'absolute', bottom: '10%', right: '5%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)', borderRadius: '50%', filter: 'blur(80px)' }}></div>
             </section>
 
             <section className="section">
@@ -33,16 +41,7 @@ const Roadmap = () => {
                             <img src={roadmapImg} alt="Data Engineer Career Roadmap" style={{ width: '100%', borderRadius: '24px', display: 'block' }} />
                         </div>
 
-                        <div style={{ marginTop: '4rem' }}>
-                            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                                <div className="badge" style={{ background: '#fef2f2', color: '#ef4444' }}>Tech Stack</div>
-                                <h2 style={{ fontSize: '2.2rem', marginTop: '1rem' }}>Core Technologies You'll Master</h2>
-                                <p style={{ color: '#6b7280' }}>A snapshot of the tools and platforms covered in our programs</p>
-                            </div>
-                            <div className="card" style={{ padding: '2rem', background: '#0f172a', border: 'none', borderRadius: '32px', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3)' }}>
-                                <img src={techMapImg} alt="Technology Stack Map" style={{ width: '100%', borderRadius: '16px', display: 'block' }} />
-                            </div>
-                        </div>
+
                     </div>
 
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>

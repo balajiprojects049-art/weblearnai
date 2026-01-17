@@ -90,6 +90,10 @@
     background-color: #FF0000;
 }
 
+.social-link.linkedin {
+    background-color: #0077b5;
+}
+
 /* Footer Headings */
 .footer-heading {
     font-size: 1.125rem;

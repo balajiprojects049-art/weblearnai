@@ -1,5 +1,16 @@
 import { motion } from 'framer-motion';
 import placementsHero from '../assets/placements-hero.jpg';
+import amazonLogo from '../assets/amazon-logo.png';
+import googleLogo from '../assets/google-logo.png';
+import tcsLogo from '../assets/tcs-logo.png';
+import infosysLogo from '../assets/infosys-logo.png';
+import wiproLogo from '../assets/wipro-logo.png';
+import accentureLogo from '../assets/accenture-logo.png';
+import deloitteLogo from '../assets/deloitte-logo.png';
+import cognizantLogo from '../assets/cognizant-logo.png';
+import capgeminiLogo from '../assets/capgemini-logo.png';
+import ibmLogo from '../assets/ibm-logo.png';
+import oracleLogo from '../assets/oracle-logo.png';
 
 const Placements = () => {
     const successStories = [
@@ -33,18 +44,18 @@ const Placements = () => {
     ];
 
     const companies = [
-        { name: 'Microsoft', logo: '🏢' },
-        { name: 'Amazon', logo: '📦' },
-        { name: 'Google', logo: '🔍' },
-        { name: 'TCS', logo: '💼' },
-        { name: 'Infosys', logo: '💻' },
-        { name: 'Wipro', logo: '🌐' },
-        { name: 'Accenture', logo: '⚡' },
-        { name: 'Deloitte', logo: '📊' },
-        { name: 'Cognizant', logo: '🎯' },
-        { name: 'Capgemini', logo: '🚀' },
-        { name: 'IBM', logo: '🔵' },
-        { name: 'Oracle', logo: '🔴' }
+        { name: 'Microsoft', logo: null, color: '#00A4EF' },
+        { name: 'Amazon', logo: amazonLogo, color: '#FF9900' },
+        { name: 'Google', logo: googleLogo, color: '#4285F4' },
+        { name: 'TCS', logo: tcsLogo, color: '#0066B2' },
+        { name: 'Infosys', logo: infosysLogo, color: '#007CC3' },
+        { name: 'Wipro', logo: wiproLogo, color: '#7C3085' },
+        { name: 'Accenture', logo: accentureLogo, color: '#A100FF' },
+        { name: 'Deloitte', logo: deloitteLogo, color: '#86BC25' },
+        { name: 'Cognizant', logo: cognizantLogo, color: '#0033A1' },
+        { name: 'Capgemini', logo: capgeminiLogo, color: '#0070AD' },
+        { name: 'IBM', logo: ibmLogo, color: '#006699' },
+        { name: 'Oracle', logo: oracleLogo, color: '#F80000' }
     ];
 
     return (
@@ -112,7 +123,7 @@ const Placements = () => {
                                 boxShadow: '0 10px 40px rgba(240, 147, 251, 0.3)'
                             }}
                         >
-                            <div style={{ fontSize: '4rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>₹8.5 LPA</div>
+                            <div style={{ fontSize: '4rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>₹15 LPA</div>
                             <div style={{ fontSize: '1.2rem', opacity: 0.95 }}>Average Package</div>
                         </motion.div>
 
@@ -146,7 +157,7 @@ const Placements = () => {
                                 boxShadow: '0 10px 40px rgba(250, 112, 154, 0.3)'
                             }}
                         >
-                            <div style={{ fontSize: '4rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>₹22 LPA</div>
+                            <div style={{ fontSize: '4rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>₹52 LPA</div>
                             <div style={{ fontSize: '1.2rem', opacity: 0.95 }}>Highest Package</div>
                         </motion.div>
                     </div>
@@ -254,16 +265,60 @@ const Placements = () => {
                                 whileHover={{ scale: 1.05, y: -5 }}
                                 style={{
                                     background: 'white',
-                                    padding: '1.5rem',
+                                    padding: '0',
                                     borderRadius: '12px',
                                     textAlign: 'center',
                                     boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
                                     border: '1px solid rgba(0,0,0,0.05)',
-                                    cursor: 'pointer'
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    overflow: 'hidden'
                                 }}
                             >
-                                <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>{company.logo}</div>
-                                <div style={{ fontWeight: '600', color: '#1e293b', fontSize: '0.95rem' }}>{company.name}</div>
+                                {/* Company Logo */}
+                                {company.logo ? (
+                                    <div style={{
+                                        marginBottom: '0rem',
+                                        padding: '2rem 1.5rem 1rem 1.5rem',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        minHeight: '90px',
+                                        flex: '1'
+                                    }}>
+                                        <img
+                                            src={company.logo}
+                                            alt={`${company.name} logo`}
+                                            style={{
+                                                maxWidth: '140px',
+                                                maxHeight: '70px',
+                                                objectFit: 'contain'
+                                            }}
+                                        />
+                                    </div>
+                                ) : (
+                                    // Microsoft SVG (no PNG available yet)
+                                    <div style={{ marginBottom: '1rem', padding: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                        <svg width="80" height="80" viewBox="0 0 23 23" xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="0" y="0" width="10.8" height="10.8" fill="#F25022" />
+                                            <rect x="12.2" y="0" width="10.8" height="10.8" fill="#7FBA00" />
+                                            <rect x="0" y="12.2" width="10.8" height="10.8" fill="#00A4EF" />
+                                            <rect x="12.2" y="12.2" width="10.8" height="10.8" fill="#FFB900" />
+                                        </svg>
+                                    </div>
+                                )}
+
+                                <div style={{
+                                    fontWeight: '600',
+                                    color: 'white',
+                                    fontSize: '0.95rem',
+                                    textAlign: 'center',
+                                    background: company.color,
+                                    padding: '0.75rem',
+                                    marginTop: 'auto',
+                                    borderRadius: '0 0 12px 12px'
+                                }}>{company.name}</div>
                             </motion.div>
                         ))}
                     </div>

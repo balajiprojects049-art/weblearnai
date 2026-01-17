@@ -74,7 +74,14 @@ const Internships = () => {
                         {/* Microsoft Azure */}
                         <div className="curriculum-block card azure-block">
                             <div className="curriculum-header">
-                                <div className="tech-icon">☁️</div>
+                                <div className="tech-icon">
+                                    <svg width="50" height="50" viewBox="0 0 23 23" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0" y="0" width="10.8" height="10.8" fill="#F25022" />
+                                        <rect x="12.2" y="0" width="10.8" height="10.8" fill="#7FBA00" />
+                                        <rect x="0" y="12.2" width="10.8" height="10.8" fill="#00A4EF" />
+                                        <rect x="12.2" y="12.2" width="10.8" height="10.8" fill="#FFB900" />
+                                    </svg>
+                                </div>
                                 <h2>Microsoft Azure</h2>
                             </div>
                             <ul className="curriculum-list">
@@ -96,7 +103,12 @@ const Internships = () => {
                         {/* AWS */}
                         <div className="curriculum-block card aws-block">
                             <div className="curriculum-header">
-                                <div className="tech-icon">🧡</div>
+                                <div className="tech-icon">
+                                    <svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M30 70 Q15 80 15 90 Q15 95 20 95 L80 95 Q85 95 85 90 Q85 80 70 70" fill="none" stroke="#FF9900" stroke-width="3" />
+                                        <text x="50" y="50" text-anchor="middle" font-size="20" font-weight="bold" fill="#FF9900">AWS</text>
+                                    </svg>
+                                </div>
                                 <h2>Amazon Web Services (AWS)</h2>
                             </div>
                             <ul className="curriculum-list">
@@ -122,7 +134,14 @@ const Internships = () => {
                         {/* GCP */}
                         <div className="curriculum-block card gcp-block">
                             <div className="curriculum-header">
-                                <div className="tech-icon">💙</div>
+                                <div className="tech-icon">
+                                    <svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="30" cy="50" r="15" fill="#4285F4" />
+                                        <circle cx="50" cy="50" r="15" fill="#EA4335" />
+                                        <circle cx="70" cy="50" r="15" fill="#FBBC04" />
+                                        <text x="50" y="90" text-anchor="middle" font-size="12" font-weight="bold" fill="#34A853">GCP</text>
+                                    </svg>
+                                </div>
                                 <h2>Google Cloud Platform (GCP)</h2>
                             </div>
                             <ul className="curriculum-list">
@@ -148,7 +167,12 @@ const Internships = () => {
                         {/* Cybersecurity */}
                         <div className="curriculum-block card security-block">
                             <div className="curriculum-header">
-                                <div className="tech-icon">🛡️</div>
+                                <div className="tech-icon">
+                                    <svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M50 10 L20 25 L20 50 Q20 75 50 90 Q80 75 80 50 L80 25 Z" fill="none" stroke="#dc2626" stroke-width="3" />
+                                        <path d="M50 30 L35 45 L45 60 L50 55 L65 40 L55 30 Z" fill="#dc2626" />
+                                    </svg>
+                                </div>
                                 <h2>Cybersecurity Internship</h2>
                             </div>
                             <ul className="curriculum-list">
