@@ -7,6 +7,7 @@ import Internships from './pages/Internships';
 import Contact from './pages/Contact';
 import AzureFabricCourse from './pages/AzureFabricCourse';
 import AWSDataEngineerCourse from './pages/AWSDataEngineerCourse';
+import PythonGenAiCourse from './pages/PythonGenAiCourse';
 import WebDevelopmentCourse from './pages/WebDevelopmentCourse';
 import TechnologyDetail from './pages/TechnologyDetail';
 import TechDetailPage from './pages/TechDetailPage';
@@ -51,6 +52,7 @@ function App() {
                   <Route path="/courses" element={<Courses />} />
                   <Route path="/courses/azure-fabric" element={<AzureFabricCourse />} />
                   <Route path="/courses/aws-data-engineer" element={<AWSDataEngineerCourse />} />
+                  <Route path="/courses/python-gen-ai" element={<PythonGenAiCourse />} />
                   <Route path="/courses/web-development" element={<WebDevelopmentCourse />} />
                   <Route path="/courses/recorded" element={<RecordedCourses />} />
                   <Route path="/courses/real-time" element={<RealTimeProgram />} />

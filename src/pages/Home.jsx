@@ -6,6 +6,7 @@ import './Home.css';
 import cloudInternshipImg from '../assets/cloud-internship.jpg';
 import certificationProgramImg from '../assets/certification-program.jpg';
 import webDevelopmentImg from '../assets/web-development.jpg';
+import pythonGenAiImg from '../assets/Gen ai.png';
 
 // Import testimonial screenshots
 import testimonialMeghana from '../assets/testimonial-meghana.jpg';
@@ -93,6 +94,15 @@ const Home = () => {
             level: 'Beginner-Advanced',
             link: '/courses/web-development',
             image: webDevelopmentImg,
+        },
+        {
+            title: 'Python and Generative AI',
+            description: 'Master Python programming and build Generative AI applications with LLMs and prompt engineering',
+            duration: '10 Weeks',
+            skills: ['Python', 'Generative AI', 'LLMs', 'Prompt Engineering'],
+            level: 'Beginner-Advanced',
+            link: '/courses/python-gen-ai',
+            image: pythonGenAiImg,
         },
     ];
 
