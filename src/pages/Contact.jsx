@@ -488,11 +488,10 @@ const Contact = () => {
                                             <div style={{ fontWeight: '700', fontSize: '1.1rem', marginBottom: '0.5rem' }}>
                                                 🏢 Hyderabad Office
                                             </div>
-                                            <div style={{ fontSize: '0.95rem', opacity: '0.95', marginBottom: '0.3rem' }}>
-                                                📍 17°23'55.7"N 78°33'40.6"E
-                                            </div>
-                                            <div style={{ fontSize: '0.95rem', opacity: '0.95' }}>
-                                                Telangana, India
+                                            <div style={{ fontSize: '0.95rem', opacity: '0.95', marginBottom: '0.3rem', lineHeight: '1.5' }}>
+                                                Plot No: 18, Hno: 2-1-54/18, <br/>Bitla Residency,<br />
+                                                Venkateshwara Colony, Near Uppal Metro Station,<br />
+                                                Uppal, Hyderabad, Telangana - 500039
                                             </div>
                                         </div>
 
