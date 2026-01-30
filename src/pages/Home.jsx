@@ -498,11 +498,18 @@ const Home = () => {
                         <div className="section-header text-center" style={{ marginBottom: '3rem' }}>
                             <div className="badge">Our Commitment</div>
                             <h2>Your Success is Our Mission</h2>
-                            <p className="lead">
-                                At Weblearnai Trainings, we believe in hard work, dedication, and passion for both recruitment and training
+                            <p className="lead" style={{ textAlign: 'justify', maxWidth: '900px', marginInline: 'auto' }}>
+                                At Weblearnai Trainings, we believe in <strong style={{ background: 'linear-gradient(to right, #2563eb, #9333ea)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>hard work, dedication, and passion</strong> for both recruitment and training
                             </p>
-                            <div style={{ fontSize: '1.2rem', color: '#4b5563', marginTop: '1.5rem', maxWidth: '900px', marginInline: 'auto', fontWeight: '500' }}>
-                                We give our <strong style={{ background: 'linear-gradient(to right, #2563eb, #1d4ed8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>100% to support all individuals</strong>—whether from IT or non-IT backgrounds, including freshers and interns—who want to build their careers.
+                            <div style={{ fontSize: '1.2rem', color: '#4b5563', marginTop: '1.5rem', maxWidth: '900px', marginInline: 'auto', fontWeight: '500', textAlign: 'justify' }}>
+                                We give our <strong style={{ background: 'linear-gradient(to right, #2563eb, #9333ea)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>100% to support all individuals</strong> whether from IT or non-IT backgrounds, including freshers and interns who want to build their careers.
+                            </div>
+
+                            <div style={{ marginTop: '1.5rem' }}>
+
+                                <p style={{ marginBottom: '1.5rem', maxWidth: '800px', marginInline: 'auto', fontSize: '1.1rem', lineHeight: '1.7', color: '#374151', textAlign: 'justify' }}>
+                                    We help you confidently switch into a successful data engineering career through <strong style={{ background: 'linear-gradient(to right, #2563eb, #9333ea)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>hands-on learning</strong>, <strong style={{ background: 'linear-gradient(to right, #2563eb, #9333ea)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>real project experience</strong>, and <strong style={{ background: 'linear-gradient(to right, #2563eb, #9333ea)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>focused interview preparation</strong>.
+                                </p>
                             </div>
                         </div>
 
