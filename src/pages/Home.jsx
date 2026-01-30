@@ -53,69 +53,64 @@ const Home = () => {
     const [currentCommitmentSlide, setCurrentCommitmentSlide] = useState(0);
 
     const commitmentPoints = [
-        {
-            icon: '💯',
-            text: <>We give our <strong>100% to support all individuals</strong>—whether from IT or non-IT backgrounds, including freshers and interns—who want to build their careers.</>,
-            color: '#3b82f6',
-            bg: 'white'
-        },
+
         {
             icon: '🎓',
-            text: <>We provide <strong>internships along with certification</strong> to strengthen your professional journey, offering support for both IT and non-IT learners in achieving certification.</>,
+            text: <>We provide <strong style={{ background: 'linear-gradient(to right, #f59e0b, #d97706)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>internships along with certification</strong> to strengthen your professional journey, offering support for both IT and non-IT learners in achieving certification.</>,
             color: '#f59e0b',
             bg: '#fef3f2'
         },
         {
             icon: '🚀',
-            text: <>We aim to create <strong>learning opportunities for everyone</strong> that can help them build their careers and progress through technology enhancement.</>,
+            text: <>We aim to create <strong style={{ background: 'linear-gradient(to right, #10b981, #059669)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>learning opportunities for everyone</strong> that can help them build their careers and progress through technology enhancement.</>,
             color: '#10b981',
             bg: '#f0fdf4'
         },
         {
             icon: '💪',
-            text: <>Our focus is on developing <strong>skills that enable individuals to resolve challenging tasks</strong> in their workplaces.</>,
+            text: <>Our focus is on developing <strong style={{ background: 'linear-gradient(to right, #8b5cf6, #7c3aed)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>skills that enable individuals to resolve challenging tasks</strong> in their workplaces.</>,
             color: '#8b5cf6',
             bg: '#fef9f3'
         },
         {
             icon: '🎯',
-            text: <>With <strong>assessments, learning paths, and courses conducted by industry experts</strong>, our platform helps you achieve your goals.</>,
+            text: <>With <strong style={{ background: 'linear-gradient(to right, #ec4899, #db2777)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>assessments, learning paths, and courses conducted by industry experts</strong>, our platform helps you achieve your goals.</>,
             color: '#ec4899',
             bg: '#fef3f8'
         },
         {
             icon: '🆘',
-            text: <>Quick & hassle-free <strong>doubt resolution from our 100+ Teaching Assistants</strong></>,
+            text: <>Quick & hassle-free <strong style={{ background: 'linear-gradient(to right, #06b6d4, #0891b2)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>doubt resolution from our 100+ Teaching Assistants</strong></>,
             color: '#06b6d4',
             bg: '#eff6ff'
         },
         {
             icon: '👥',
-            text: <><strong>Aspirational peer group</strong> to discuss projects, share job referrals, and provide proper interview guidance.</>,
+            text: <><strong style={{ background: 'linear-gradient(to right, #a855f7, #9333ea)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Aspirational peer group</strong> to discuss projects, share job referrals, and provide proper interview guidance.</>,
             color: '#a855f7',
             bg: '#fdf4ff'
         },
         {
             icon: '⏰',
-            text: <><strong>Flexible program</strong> to continue learning despite a super hectic schedule</>,
+            text: <><strong style={{ background: 'linear-gradient(to right, #22c55e, #16a34a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Flexible program</strong> to continue learning despite a super hectic schedule</>,
             color: '#22c55e',
             bg: '#f0fdf4'
         },
         {
             icon: '📹',
-            text: <><strong>Recorded Lectures with Lifetime access</strong></>,
+            text: <><strong style={{ background: 'linear-gradient(to right, #f97316, #ea580c)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Recorded Lectures with Lifetime access</strong></>,
             color: '#f97316',
             bg: '#fff7ed'
         },
         {
             icon: '🔄',
-            text: <><strong>Flexibility to switch and pause batches</strong></>,
+            text: <><strong style={{ background: 'linear-gradient(to right, #ef4444, #dc2626)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Flexibility to switch and pause batches</strong></>,
             color: '#ef4444',
             bg: '#fef2f2'
         },
         {
             icon: '💼',
-            text: <><strong>Career support via our 100+ employer partners</strong>, mock interviews, and career planning services</>,
+            text: <><strong style={{ background: 'linear-gradient(to right, #14b8a6, #0d9488)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Career support via our 100+ employer partners</strong>, mock interviews, and career planning services</>,
             color: '#14b8a6',
             bg: '#ecfdf5'
         }
@@ -506,12 +501,15 @@ const Home = () => {
                             <p className="lead">
                                 At Weblearnai Trainings, we believe in hard work, dedication, and passion for both recruitment and training
                             </p>
+                            <div style={{ fontSize: '1.2rem', color: '#4b5563', marginTop: '1.5rem', maxWidth: '900px', marginInline: 'auto', fontWeight: '500' }}>
+                                We give our <strong style={{ background: 'linear-gradient(to right, #2563eb, #1d4ed8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>100% to support all individuals</strong>—whether from IT or non-IT backgrounds, including freshers and interns—who want to build their careers.
+                            </div>
                         </div>
 
                         {/* Commitment Points - Above Success Stories */}
-                        <div style={{ maxWidth: '1200px', margin: '0 auto 5rem' }}>
+                        <div style={{ maxWidth: '800px', margin: '0 auto 5rem' }}>
                             <div className="card" style={{ padding: '2.5rem', background: 'white', borderRadius: '20px', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.08)' }}>
-                                <div className="commitment-slideshow" style={{ position: 'relative', minHeight: '300px' }}>
+                                <div className="commitment-slideshow" style={{ position: 'relative', minHeight: '220px' }}>
                                     {commitmentPoints.map((point, index) => (
                                         <div
                                             key={index}
@@ -530,15 +528,15 @@ const Home = () => {
                                                 alignItems: 'center',
                                                 justifyContent: 'center',
                                                 textAlign: 'center',
-                                                padding: '1rem',
+                                                padding: '1.5rem',
                                                 background: point.bg,
                                                 borderRadius: '20px',
-                                                borderLeft: `8px solid ${point.color}`,
+                                                borderLeft: `6px solid ${point.color}`,
                                                 boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
                                             }}
                                         >
-                                            <span style={{ fontSize: '4rem', marginBottom: '1.5rem', display: 'block' }}>{point.icon}</span>
-                                            <div style={{ fontSize: '1.35rem', color: '#1f2937', lineHeight: '1.6', maxWidth: '800px' }}>
+                                            <span style={{ fontSize: '3rem', marginBottom: '1rem', display: 'block' }}>{point.icon}</span>
+                                            <div style={{ fontSize: '1.1rem', color: '#1f2937', lineHeight: '1.5', maxWidth: '700px' }}>
                                                 {point.text}
                                             </div>
                                         </div>
