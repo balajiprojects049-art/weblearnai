@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import TopBanner from '../components/TopBanner';
 import AdvertisementDisplay from '../components/AdvertisementDisplay';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './Home.css';
 import cloudInternshipImg from '../assets/cloud-internship.jpg';
 import certificationProgramImg from '../assets/certification-program.jpg';
@@ -50,6 +50,84 @@ const Home = () => {
         };
     }, []);
 
+    const [currentCommitmentSlide, setCurrentCommitmentSlide] = useState(0);
+
+    const commitmentPoints = [
+        {
+            icon: '💯',
+            text: <>We give our <strong>100% to support all individuals</strong>—whether from IT or non-IT backgrounds, including freshers and interns—who want to build their careers.</>,
+            color: '#3b82f6',
+            bg: 'white'
+        },
+        {
+            icon: '🎓',
+            text: <>We provide <strong>internships along with certification</strong> to strengthen your professional journey, offering support for both IT and non-IT learners in achieving certification.</>,
+            color: '#f59e0b',
+            bg: '#fef3f2'
+        },
+        {
+            icon: '🚀',
+            text: <>We aim to create <strong>learning opportunities for everyone</strong> that can help them build their careers and progress through technology enhancement.</>,
+            color: '#10b981',
+            bg: '#f0fdf4'
+        },
+        {
+            icon: '💪',
+            text: <>Our focus is on developing <strong>skills that enable individuals to resolve challenging tasks</strong> in their workplaces.</>,
+            color: '#8b5cf6',
+            bg: '#fef9f3'
+        },
+        {
+            icon: '🎯',
+            text: <>With <strong>assessments, learning paths, and courses conducted by industry experts</strong>, our platform helps you achieve your goals.</>,
+            color: '#ec4899',
+            bg: '#fef3f8'
+        },
+        {
+            icon: '🆘',
+            text: <>Quick & hassle-free <strong>doubt resolution from our 100+ Teaching Assistants</strong></>,
+            color: '#06b6d4',
+            bg: '#eff6ff'
+        },
+        {
+            icon: '👥',
+            text: <><strong>Aspirational peer group</strong> to discuss projects, share job referrals, and provide proper interview guidance.</>,
+            color: '#a855f7',
+            bg: '#fdf4ff'
+        },
+        {
+            icon: '⏰',
+            text: <><strong>Flexible program</strong> to continue learning despite a super hectic schedule</>,
+            color: '#22c55e',
+            bg: '#f0fdf4'
+        },
+        {
+            icon: '📹',
+            text: <><strong>Recorded Lectures with Lifetime access</strong></>,
+            color: '#f97316',
+            bg: '#fff7ed'
+        },
+        {
+            icon: '🔄',
+            text: <><strong>Flexibility to switch and pause batches</strong></>,
+            color: '#ef4444',
+            bg: '#fef2f2'
+        },
+        {
+            icon: '💼',
+            text: <><strong>Career support via our 100+ employer partners</strong>, mock interviews, and career planning services</>,
+            color: '#14b8a6',
+            bg: '#ecfdf5'
+        }
+    ];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentCommitmentSlide((prev) => (prev + 1) % commitmentPoints.length);
+        }, 3000); // Change slide every 3 seconds
+        return () => clearInterval(interval);
+    }, [commitmentPoints.length]);
+
 
     const popularPrograms = [
         {
@@ -69,13 +147,13 @@ const Home = () => {
             link: '/courses/aws-data-engineer',
         },
         {
-            title: 'Cloud Internship',
-            description: 'Get real-world cloud experience with live projects on Azure, AWS, and GCP platforms',
-            duration: '6 Weeks',
-            skills: ['Azure', 'AWS', 'GCP', 'DevOps'],
-            level: 'Beginner',
-            link: '/internships',
-            image: cloudInternshipImg,
+            title: 'Python, Data Science and Generative AI',
+            description: 'Master Python programming, Data Science and build Generative AI applications with LLMs and prompt engineering',
+            duration: '10 Weeks',
+            skills: ['Python', 'Data Science', 'Generative AI', 'LLMs'],
+            level: 'Beginner-Advanced',
+            link: '/courses/python-gen-ai',
+            image: pythonGenAiImg,
         },
         {
             title: 'Certification Programs',
@@ -96,13 +174,13 @@ const Home = () => {
             image: webDevelopmentImg,
         },
         {
-            title: 'Python and Generative AI',
-            description: 'Master Python programming and build Generative AI applications with LLMs and prompt engineering',
-            duration: '10 Weeks',
-            skills: ['Python', 'Generative AI', 'LLMs', 'Prompt Engineering'],
-            level: 'Beginner-Advanced',
-            link: '/courses/python-gen-ai',
-            image: pythonGenAiImg,
+            title: 'Cloud Internship',
+            description: 'Get real-world cloud experience with live projects on Azure, AWS, and GCP platforms',
+            duration: '6 Weeks',
+            skills: ['Azure', 'AWS', 'GCP', 'DevOps'],
+            level: 'Beginner',
+            link: '/internships',
+            image: cloudInternshipImg,
         },
     ];
 
@@ -307,6 +385,7 @@ const Home = () => {
                 </section>
 
                 {/* Learning Experience */}
+                {/* Learning Experience - Section Removed as per request
                 <section className="section learning-section">
                     <div className="container">
                         <div className="section-header text-center">
@@ -327,6 +406,7 @@ const Home = () => {
                         </div>
                     </div>
                 </section>
+                */}
 
                 {/* Books & Publications */}
                 <section className="section books-section">
@@ -431,94 +511,56 @@ const Home = () => {
                         {/* Commitment Points - Above Success Stories */}
                         <div style={{ maxWidth: '1200px', margin: '0 auto 5rem' }}>
                             <div className="card" style={{ padding: '2.5rem', background: 'white', borderRadius: '20px', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.08)' }}>
-                                <div className="commitment-points-grid">
-                                    {/* Key Point 1 */}
-                                    <div className="commitment-point">
-                                        <span className="commitment-icon">💯</span>
-                                        <p>
-                                            We give our <strong>100% to support all individuals</strong>—whether from IT or non-IT backgrounds, including freshers and interns—who want to build their careers.
-                                        </p>
-                                    </div>
+                                <div className="commitment-slideshow" style={{ position: 'relative', minHeight: '300px' }}>
+                                    {commitmentPoints.map((point, index) => (
+                                        <div
+                                            key={index}
+                                            className={`commitment-slide`}
+                                            style={{
+                                                position: 'absolute',
+                                                top: 0,
+                                                left: 0,
+                                                width: '100%',
+                                                height: '100%',
+                                                opacity: index === currentCommitmentSlide ? 1 : 0,
+                                                visibility: index === currentCommitmentSlide ? 'visible' : 'hidden',
+                                                transition: 'opacity 0.8s ease-in-out',
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                textAlign: 'center',
+                                                padding: '1rem',
+                                                background: point.bg,
+                                                borderRadius: '20px',
+                                                borderLeft: `8px solid ${point.color}`,
+                                                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
+                                            }}
+                                        >
+                                            <span style={{ fontSize: '4rem', marginBottom: '1.5rem', display: 'block' }}>{point.icon}</span>
+                                            <div style={{ fontSize: '1.35rem', color: '#1f2937', lineHeight: '1.6', maxWidth: '800px' }}>
+                                                {point.text}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
 
-                                    {/* Key Point 2 */}
-                                    <div className="commitment-point" style={{ borderLeftColor: '#f59e0b', background: '#fef3f2' }}>
-                                        <span className="commitment-icon">🎓</span>
-                                        <p>
-                                            We provide <strong>internships along with certification</strong> to strengthen your professional journey, offering support for both IT and non-IT learners in achieving certification.
-                                        </p>
-                                    </div>
-
-                                    {/* Key Point 3 */}
-                                    <div className="commitment-point" style={{ borderLeftColor: '#10b981', background: '#f0fdf4' }}>
-                                        <span className="commitment-icon">🚀</span>
-                                        <p>
-                                            We aim to create <strong>learning opportunities for everyone</strong> that can help them build their careers and progress through technology enhancement.
-                                        </p>
-                                    </div>
-
-                                    {/* Key Point 4 */}
-                                    <div className="commitment-point" style={{ borderLeftColor: '#8b5cf6', background: '#fef9f3' }}>
-                                        <span className="commitment-icon">💪</span>
-                                        <p>
-                                            Our focus is on developing <strong>skills that enable individuals to resolve challenging tasks</strong> in their workplaces.
-                                        </p>
-                                    </div>
-
-                                    {/* Key Point 5 */}
-                                    <div className="commitment-point" style={{ borderLeftColor: '#ec4899', background: '#fef3f8' }}>
-                                        <span className="commitment-icon">🎯</span>
-                                        <p>
-                                            With <strong>assessments, learning paths, and courses conducted by industry experts</strong>, our platform helps you achieve your goals.
-                                        </p>
-                                    </div>
-
-                                    {/* Key Point 6 */}
-                                    <div className="commitment-point" style={{ borderLeftColor: '#06b6d4', background: '#eff6ff' }}>
-                                        <span className="commitment-icon">🆘</span>
-                                        <p>
-                                            Quick & hassle-free <strong>doubt resolution from our 100+ Teaching Assistants</strong>
-                                        </p>
-                                    </div>
-
-                                    {/* Key Point 7 */}
-                                    <div className="commitment-point" style={{ borderLeftColor: '#a855f7', background: '#fdf4ff' }}>
-                                        <span className="commitment-icon">👥</span>
-                                        <p>
-                                            <strong>Aspirational peer group</strong> to discuss projects, share job referrals, and provide proper interview guidance.
-                                        </p>
-                                    </div>
-
-                                    {/* Key Point 8 */}
-                                    <div className="commitment-point" style={{ borderLeftColor: '#22c55e', background: '#f0fdf4' }}>
-                                        <span className="commitment-icon">⏰</span>
-                                        <p>
-                                            <strong>Flexible program</strong> to continue learning despite a super hectic schedule
-                                        </p>
-                                    </div>
-
-                                    {/* Key Point 9 */}
-                                    <div className="commitment-point" style={{ borderLeftColor: '#f97316', background: '#fff7ed' }}>
-                                        <span className="commitment-icon">📹</span>
-                                        <p>
-                                            <strong>Recorded Lectures with Lifetime access</strong>
-                                        </p>
-                                    </div>
-
-                                    {/* Key Point 10 */}
-                                    <div className="commitment-point" style={{ borderLeftColor: '#ef4444', background: '#fef2f2' }}>
-                                        <span className="commitment-icon">🔄</span>
-                                        <p>
-                                            <strong>Flexibility to switch and pause batches</strong>
-                                        </p>
-                                    </div>
-
-                                    {/* Key Point 11 */}
-                                    <div className="commitment-point" style={{ borderLeftColor: '#14b8a6', background: '#ecfdf5' }}>
-                                        <span className="commitment-icon">💼</span>
-                                        <p>
-                                            <strong>Career support via our 100+ employer partners</strong>, mock interviews, and career planning services
-                                        </p>
-                                    </div>
+                                {/* Navigation Dots */}
+                                <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', marginTop: '2rem', flexWrap: 'wrap' }}>
+                                    {commitmentPoints.map((_, index) => (
+                                        <span
+                                            key={index}
+                                            onClick={() => setCurrentCommitmentSlide(index)}
+                                            style={{
+                                                width: index === currentCommitmentSlide ? '24px' : '12px',
+                                                height: '12px',
+                                                borderRadius: '50px',
+                                                background: index === currentCommitmentSlide ? '#3b82f6' : '#e5e7eb',
+                                                cursor: 'pointer',
+                                                transition: 'all 0.3s ease'
+                                            }}
+                                        />
+                                    ))}
                                 </div>
                             </div>
                         </div>

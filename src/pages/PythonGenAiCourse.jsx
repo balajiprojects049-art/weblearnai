@@ -179,9 +179,9 @@ const PythonGenAiCourse = () => {
                 <div className="container">
                     <div className="course-hero-content">
                         <div className="course-badge">AI & Development</div>
-                        <h1>Python & Generative AI Masterclass</h1>
+                        <h1>Python, Data Science & Generative AI Masterclass</h1>
                         <p className="course-subtitle">
-                            Become a future-ready developer by mastering Python and Generative AI.
+                            Become a future-ready developer by mastering Python, Data Science and Generative AI.
                             Build real-world applications with Large Language Models (LLMs), LangChain, and modern AI tools.
                         </p>
                         <div className="course-meta">
@@ -193,7 +193,7 @@ const PythonGenAiCourse = () => {
                             <Link to="/contact" className="btn btn-primary btn-large">
                                 Enroll Now
                             </Link>
-                            <Link to="/contact?syllabus=python-genai&name=Python and Generative AI" className="btn btn-secondary btn-large">
+                            <Link to="/contact?syllabus=python-genai&name=Python, Data Science and Gen AI" className="btn btn-secondary btn-large">
                                 Download Syllabus
                             </Link>
                         </div>
@@ -625,39 +625,119 @@ const PythonGenAiCourse = () => {
                                 Get the detailed PDF curriculum covering Python, LLMs, RAG, and Agentic AI workflows.
                             </p>
 
-                            {/* Download Button */}
-                            <Link
-                                to="/contact?syllabus=python-genai&name=Python and Generative AI"
-                                style={{
-                                    display: 'inline-flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    gap: '1rem',
-                                    padding: '1.5rem 4rem',
-                                    background: 'white',
-                                    color: '#E91E63',
-                                    fontSize: '1.2rem',
-                                    fontWeight: '600',
-                                    borderRadius: '12px',
-                                    textDecoration: 'none',
-                                    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
-                                    transition: 'all 0.3s ease',
-                                    cursor: 'pointer',
-                                    border: 'none',
-                                    minWidth: '350px'
-                                }}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.transform = 'translateY(-3px)';
-                                    e.currentTarget.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.3)';
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.transform = 'translateY(0)';
-                                    e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.2)';
-                                }}
-                            >
-                                <span style={{ fontSize: '1.5rem' }}>⬇</span>
-                                Download Syllabus PDF
-                            </Link>
+                            {/* Download Buttons - 2 Rows */}
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center', width: '100%' }}>
+                                {/* Row 1 */}
+                                <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', width: '100%', flexWrap: 'wrap' }}>
+                                    <a
+                                        href="/Pyhon core and advance python and data Anylatics.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{
+                                            display: 'inline-flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            gap: '0.75rem',
+                                            padding: '1rem 1.5rem',
+                                            background: 'white',
+                                            color: '#E91E63',
+                                            fontSize: '1rem',
+                                            fontWeight: '600',
+                                            borderRadius: '12px',
+                                            textDecoration: 'none',
+                                            boxShadow: '0 5px 15px rgba(0, 0, 0, 0.15)',
+                                            transition: 'all 0.3s ease',
+                                            cursor: 'pointer',
+                                            border: 'none',
+                                            minWidth: '280px'
+                                        }}
+                                        onMouseEnter={(e) => {
+                                            e.currentTarget.style.transform = 'translateY(-2px)';
+                                            e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.2)';
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.currentTarget.style.transform = 'translateY(0)';
+                                            e.currentTarget.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.15)';
+                                        }}
+                                    >
+                                        <span style={{ fontSize: '1.25rem' }}>⬇</span>
+                                        Python Core & Analytics
+                                    </a>
+
+                                    <a
+                                        href="/Python with Data Science Python Syllabus.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{
+                                            display: 'inline-flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            gap: '0.75rem',
+                                            padding: '1rem 1.5rem',
+                                            background: 'white',
+                                            color: '#E91E63',
+                                            fontSize: '1rem',
+                                            fontWeight: '600',
+                                            borderRadius: '12px',
+                                            textDecoration: 'none',
+                                            boxShadow: '0 5px 15px rgba(0, 0, 0, 0.15)',
+                                            transition: 'all 0.3s ease',
+                                            cursor: 'pointer',
+                                            border: 'none',
+                                            minWidth: '280px'
+                                        }}
+                                        onMouseEnter={(e) => {
+                                            e.currentTarget.style.transform = 'translateY(-2px)';
+                                            e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.2)';
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.currentTarget.style.transform = 'translateY(0)';
+                                            e.currentTarget.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.15)';
+                                        }}
+                                    >
+                                        <span style={{ fontSize: '1.25rem' }}>⬇</span>
+                                        Python & Data Science
+                                    </a>
+                                </div>
+
+                                {/* Row 2 */}
+                                <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', width: '100%' }}>
+                                    <a
+                                        href="/python withGEnAI.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{
+                                            display: 'inline-flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            gap: '0.75rem',
+                                            padding: '1rem 1.5rem',
+                                            background: 'white',
+                                            color: '#E91E63',
+                                            fontSize: '1rem',
+                                            fontWeight: '600',
+                                            borderRadius: '12px',
+                                            textDecoration: 'none',
+                                            boxShadow: '0 5px 15px rgba(0, 0, 0, 0.15)',
+                                            transition: 'all 0.3s ease',
+                                            cursor: 'pointer',
+                                            border: 'none',
+                                            minWidth: '280px'
+                                        }}
+                                        onMouseEnter={(e) => {
+                                            e.currentTarget.style.transform = 'translateY(-2px)';
+                                            e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.2)';
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.currentTarget.style.transform = 'translateY(0)';
+                                            e.currentTarget.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.15)';
+                                        }}
+                                    >
+                                        <span style={{ fontSize: '1.25rem' }}>⬇</span>
+                                        Python with Generative AI
+                                    </a>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
