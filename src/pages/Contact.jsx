@@ -489,7 +489,7 @@ const Contact = () => {
                                                 🏢 Hyderabad Office
                                             </div>
                                             <div style={{ fontSize: '0.95rem', opacity: '0.95', marginBottom: '0.3rem' }}>
-                                                📍 17°24'00.8"N 78°33'42.1"E
+                                                📍 17°23'55.7"N 78°33'40.6"E
                                             </div>
                                             <div style={{ fontSize: '0.95rem', opacity: '0.95' }}>
                                                 Telangana, India
@@ -530,7 +530,7 @@ const Contact = () => {
                 <div className="map-container">
                     <iframe
                         title="Weblearnai Academy Location"
-                        src="https://maps.google.com/maps?q=17.400222,78.561694&z=15&output=embed"
+                        src="https://maps.google.com/maps?q=17.398806,78.561278&z=15&output=embed"
                         width="100%"
                         height="450"
                         style={{ border: 0 }}
